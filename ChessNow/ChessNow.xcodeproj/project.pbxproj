@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FD8D7C81A1FD97700DC6BAB /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8D7C71A1FD97700DC6BAB /* Storyboard.storyboard */; };
 		8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */; };
 		8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */; };
-		8FFA0AFD1A1FD09E0035B9C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFB1A1FD09E0035B9C8 /* Main.storyboard */; };
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
 		8FFA0B0E1A1FD09E0035B9C8 /* ChessNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */; };
 /* End PBXBuildFile section */
@@ -25,11 +25,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8FD8D7C71A1FD97700DC6BAB /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		8FFA0AF21A1FD09E0035B9C8 /* ChessNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0AF61A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8FFA0AFC1A1FD09E0035B9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8FFA0B071A1FD09E0035B9C8 /* ChessNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0B0C1A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,9 +75,9 @@
 		8FFA0AF41A1FD09E0035B9C8 /* ChessNow */ = {
 			isa = PBXGroup;
 			children = (
+				8FD8D7C71A1FD97700DC6BAB /* Storyboard.storyboard */,
 				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
 				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
-				8FFA0AFB1A1FD09E0035B9C8 /* Main.storyboard */,
 				8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */,
 				8FFA0AF51A1FD09E0035B9C8 /* Supporting Files */,
 			);
@@ -189,8 +189,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FFA0AFD1A1FD09E0035B9C8 /* Main.storyboard in Resources */,
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
+				8FD8D7C81A1FD97700DC6BAB /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,17 +230,6 @@
 			targetProxy = 8FFA0B081A1FD09E0035B9C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8FFA0AFB1A1FD09E0035B9C8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FFA0AFC1A1FD09E0035B9C8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8FFA0B0F1A1FD09E0035B9C8 /* Debug */ = {
@@ -395,6 +384,7 @@
 				8FFA0B131A1FD09E0035B9C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FFA0B141A1FD09E0035B9C8 /* Build configuration list for PBXNativeTarget "ChessNowTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +393,7 @@
 				8FFA0B161A1FD09E0035B9C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

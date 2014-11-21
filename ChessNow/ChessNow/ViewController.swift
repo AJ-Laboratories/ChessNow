@@ -26,4 +26,10 @@ class ViewController: UIViewController {
     }
 
 }
+class SpriteView: SKScene {
+
+
+
+
+}
 

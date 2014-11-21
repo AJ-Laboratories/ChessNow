@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8FD8D7C81A1FD97700DC6BAB /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8D7C71A1FD97700DC6BAB /* Storyboard.storyboard */; };
+		8FD8D7CA1A1FE75000DC6BAB /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */; };
 		8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */; };
 		8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */; };
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		8FD8D7C71A1FD97700DC6BAB /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
+		8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		8FFA0AF21A1FD09E0035B9C8 /* ChessNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0AF61A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD8D7CA1A1FE75000DC6BAB /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,7 @@
 		8FFA0AE91A1FD09E0035B9C8 = {
 			isa = PBXGroup;
 			children = (
+				8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */,
 				8FFA0AF41A1FD09E0035B9C8 /* ChessNow */,
 				8FFA0B0A1A1FD09E0035B9C8 /* ChessNowTests */,
 				8FFA0AF31A1FD09E0035B9C8 /* Products */,

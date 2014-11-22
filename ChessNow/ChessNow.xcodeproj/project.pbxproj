@@ -13,6 +13,9 @@
 		8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */; };
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
 		8FFA0B0E1A1FD09E0035B9C8 /* ChessNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */; };
+		F160D6FF1A21506100E6A783 /* graySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FC1A21506100E6A783 /* graySquare.png */; };
+		F160D7001A21506100E6A783 /* whitePawn.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FD1A21506100E6A783 /* whitePawn.png */; };
+		F160D7011A21506100E6A783 /* whiteSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FE1A21506100E6A783 /* whiteSquare.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		8FFA0B071A1FD09E0035B9C8 /* ChessNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0B0C1A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessNowTests.swift; sourceTree = "<group>"; };
+		F160D6FC1A21506100E6A783 /* graySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graySquare.png; sourceTree = "<group>"; };
+		F160D6FD1A21506100E6A783 /* whitePawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitePawn.png; sourceTree = "<group>"; };
+		F160D6FE1A21506100E6A783 /* whiteSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteSquare.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,9 @@
 				8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */,
 				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
 				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
+				F160D6FC1A21506100E6A783 /* graySquare.png */,
+				F160D6FD1A21506100E6A783 /* whitePawn.png */,
+				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
 				8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */,
 				8FFA0AF51A1FD09E0035B9C8 /* Supporting Files */,
 			);
@@ -194,7 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
+				F160D6FF1A21506100E6A783 /* graySquare.png in Resources */,
+				F160D7011A21506100E6A783 /* whiteSquare.png in Resources */,
 				8FD8D7CC1A214B8700DC6BAB /* Storyboard.storyboard in Resources */,
+				F160D7001A21506100E6A783 /* whitePawn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

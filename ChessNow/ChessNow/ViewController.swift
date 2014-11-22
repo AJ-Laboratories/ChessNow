@@ -11,6 +11,9 @@ import SpriteKit
 
 class ViewController: UIViewController {
 
+ //   UIImageView *gridCell[65]
+  //  UIImageView *onTopOfCell[65]
+    
     var cellWidth = 57
     var cellHeight = 57
     var squares = 64
@@ -28,7 +31,7 @@ class ViewController: UIViewController {
         topY = 330-4*cellHeight;
         leftX = 187-4*cellWidth;
         
-/* for (i=1; i<=64; i++) {
+/* for (int i=1; i<=64; i++) {
 if (firstColor == 0) {
 gridCell[i] = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"graySquare.png"]];
 } else {

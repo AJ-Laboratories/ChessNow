@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y9N-Ui-IpH">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+>>>>>>> Stashed changes
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+<<<<<<< Updated upstream
         <scene sceneID="icc-Qy-cec">
             <objects>
                 <viewController id="y9N-Ui-IpH" customClass="ViewController" customModule="ChessNow" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,14 +18,30 @@
                         <viewControllerLayoutGuide type="bottom" id="lHG-kP-ndl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b7C-qc-LUg">
+=======
+        <scene sceneID="DnD-vV-35t">
+            <objects>
+                <viewController id="GV5-hK-83O" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tZh-Fv-Bm3"/>
+                        <viewControllerLayoutGuide type="bottom" id="GmV-MH-M1k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="52r-Y5-Ck9">
+>>>>>>> Stashed changes
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+<<<<<<< Updated upstream
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuG-Tm-tjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="239" y="320"/>
+=======
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tT3-2P-ixJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="494"/>
+>>>>>>> Stashed changes
         </scene>
     </scenes>
 </document>

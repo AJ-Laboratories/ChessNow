@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="77Q-M3-Xfj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Obj-C-->
@@ -21,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kA5-UX-LJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="368"/>
+            <point key="canvasLocation" x="1840" y="368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ji1-wO-v67">
@@ -35,14 +36,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="O3W-IJ-eUo" kind="relationship" relationship="viewControllers" id="vfb-QA-Uj3"/>
-                        <segue destination="qTE-l6-IrH" kind="relationship" relationship="viewControllers" id="y3l-BF-m4h"/>
+                        <segue destination="7eg-ev-Cuw" kind="relationship" relationship="viewControllers" id="y3l-BF-m4h"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgq-Zv-SJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="216" y="368"/>
         </scene>
-        <!--Swift-->
+        <!--ChessNow-->
         <scene sceneID="dfa-jg-ktn">
             <objects>
                 <viewController id="qTE-l6-IrH" customClass="ViewController" customModule="ChessNow" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,20 +55,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-lh-KLk">
-                                <rect key="frame" x="213" y="187" width="174" height="103"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
+                                <rect key="frame" x="0.0" y="6" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yHl-3w-xa9" firstAttribute="top" secondItem="utO-7E-aOr" secondAttribute="topMargin" constant="6" id="0Do-Ol-Ijb"/>
+                            <constraint firstItem="yHl-3w-xa9" firstAttribute="leading" secondItem="utO-7E-aOr" secondAttribute="leading" id="EWb-h8-9vu"/>
+                            <constraint firstAttribute="trailing" secondItem="yHl-3w-xa9" secondAttribute="trailing" id="FcK-Qv-0a8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="yHl-3w-xa9" secondAttribute="bottom" constant="-6" id="RMe-5e-S7Y"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Swift" id="Jmv-iG-uKI"/>
+                    <navigationItem key="navigationItem" title="ChessNow" id="Aci-0O-r8Y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vPE-ov-V6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1009"/>
+        </scene>
+        <!--Swift-->
+        <scene sceneID="3tv-HX-GEp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eg-ev-Cuw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Swift" id="Jmv-iG-uKI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UbK-1Z-duT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qTE-l6-IrH" kind="relationship" relationship="rootViewController" id="xaK-hd-pc5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mIe-zJ-D9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264" y="1009"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" width="1000" height="563"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F63938A1A37799B003E988E /* Objective-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6393891A37799B003E988E /* Objective-C.m */; };
 		8FD8D7CA1A1FE75000DC6BAB /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */; };
 		8FD8D7CC1A214B8700DC6BAB /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */; };
 		8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */; };
@@ -29,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F6393871A37799B003E988E /* ChessNow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessNow-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F6393881A37799B003E988E /* Objective-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objective-C.h"; sourceTree = "<group>"; };
+		8F6393891A37799B003E988E /* Objective-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Objective-C.m"; sourceTree = "<group>"; };
 		8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		8FFA0AF21A1FD09E0035B9C8 /* ChessNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,11 +92,14 @@
 				8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */,
 				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
 				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
+				8F6393881A37799B003E988E /* Objective-C.h */,
+				8F6393891A37799B003E988E /* Objective-C.m */,
 				F160D6FC1A21506100E6A783 /* graySquare.png */,
 				F160D6FD1A21506100E6A783 /* whitePawn.png */,
 				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
 				8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */,
 				8FFA0AF51A1FD09E0035B9C8 /* Supporting Files */,
+				8F6393871A37799B003E988E /* ChessNow-Bridging-Header.h */,
 			);
 			path = ChessNow;
 			sourceTree = "<group>";
@@ -225,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */,
+				8F63938A1A37799B003E988E /* Objective-C.m in Sources */,
 				8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,9 +339,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ChessNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChessNow/ChessNow-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -341,9 +352,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ChessNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChessNow/ChessNow-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface Objective_C : NSObject
+
+@interface Objective_C : UIViewController
 
 -(void)run;
 -(void)viewDidLoad;

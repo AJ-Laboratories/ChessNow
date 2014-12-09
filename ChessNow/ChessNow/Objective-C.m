@@ -28,7 +28,7 @@ int i;
 int row=0, col=0;
 int firstColor = 0;
 
-// Pieces
+// --- Pieces -----
 UIImageView *rook;
 UIImageView *knight;
 UIImageView *bishop;
@@ -38,10 +38,6 @@ UIImageView *king;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    
-    
-    
     
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         

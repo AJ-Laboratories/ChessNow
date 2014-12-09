@@ -28,11 +28,23 @@ int i;
 int row=0, col=0;
 int firstColor = 0;
 
--(void)viewDidLoad {
+// Pieces
+UIImageView *rook;
+UIImageView *knight;
+UIImageView *bishop;
+UIImageView *queen;
+UIImageView *king;
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     
+    
+    
+    
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        
         cellWidth = 50;
         cellHeight = cellWidth;
         topY = self.view.center.y-205;
@@ -44,46 +56,59 @@ int firstColor = 0;
         cellHeight = cellWidth;
         topY = self.view.frame.origin.y;
         leftX = self.view.frame.origin.x;
+        
     }
     
     for (i=1; i<=64; i++) {
+        
         if (firstColor == 0) {
+            
             gridCell[i] = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"graySquare.png"]];
+            
         } else {
+            
             gridCell[i] = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"whiteSquare.png"]];
+            
         }
         
         gridCell[i].frame = CGRectMake(leftX+cellWidth*col, topY+cellHeight*row, cellWidth, cellHeight);
-        
         cellX[i] = gridCell[i].center.x;
         cellY[i] = gridCell[i].center.y;
-        
         [self.view addSubview:gridCell[i]];
-        
         col= col+1;
         firstColor = 1- firstColor;
+        
         if(col >7) {
             row += 1;
             firstColor = 1-firstColor;
             col = 0;
+            
         }
+        
     }
     
     row = 0; col = 0;
+    
     for (i=1; i<=8; i++) {
+        
         pawn[i]=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whitePawn.png"]];
+        
         pawn[i].frame = CGRectMake(gridCell[49+i].frame.origin.x, gridCell[49+1].frame.origin.y, cellWidth, cellHeight);
+        
         col += 1;
         [self.view addSubview:pawn[i]];
-        
         pawn[i].userInteractionEnabled = YES;
         pawn[i].multipleTouchEnabled = YES;
+        
     }
     
-    
+    rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteRook.png"]];
+    rook.frame = CGRectMake(leftX+cellWidth*0, topY+cellHeight*7, cellWidth, cellHeight); // HER e det. Se ka som skjer når du forandre på 0 og 7. Se korsen tårnet skifta posisjon
+    [self.view addSubview:rook];
+    rook.userInteractionEnabled = YES;
+    rook.multipleTouchEnabled = YES;
     
 }
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:self.view];
@@ -148,7 +173,35 @@ int firstColor = 0;
     }
 }
 
-
+-(void) CreateWhitePiece:(int) string second:(int)xPos third:(int)posY {
+    
+    
+    switch (string) {
+            
+        case 1:
+            rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteRook.png"]];
+            break;
+        case 2:
+            rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteKnight.png"]];
+            
+        case 3:
+            rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteBishop"]];
+            
+        case 4:
+            rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteQuuen"]];
+            
+        case 5:
+            rook = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"whiteKing"]];
+            
+        default:
+            break;
+    }
+    
+    rook.frame = CGRectMake(xPos, posY*8, cellWidth, cellHeight);
+    
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

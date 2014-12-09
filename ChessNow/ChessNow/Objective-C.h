@@ -10,5 +10,4 @@
 
 @interface Objective_C : NSObject
 -(void)run;
-
 @end

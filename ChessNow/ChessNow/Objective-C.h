@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Objective_C : NSObject
+
 -(void)run;
+-(void)viewDidLoad;
+
+
 @end

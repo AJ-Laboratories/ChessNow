@@ -8,10 +8,11 @@
 
 import UIKit
 import SpriteKit
-let objc = Objective_C()
 
 class ViewController: UIViewController {
-    
+	
+	let objc = Objective_C()
+	
 override func viewDidLoad() {
     
         objc.run()

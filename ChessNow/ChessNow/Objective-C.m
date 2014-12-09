@@ -7,13 +7,13 @@
 //
 
 #import "Objective-C.h"
+#import "ChessNow-Swift.h"
 
 @implementation Objective_C
 
 -(void)run {
     NSLog(@"test");
 }
-
 UIImageView *gridCell[65];
 UIImageView *pawn[9];
 UIImageView *highlight;
@@ -26,9 +26,8 @@ int i;
 int row=0, col=0;
 int firstColor = 0;
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
-    
     
     
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -153,7 +152,3 @@ int firstColor = 0;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-@end

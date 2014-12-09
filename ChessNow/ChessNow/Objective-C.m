@@ -9,8 +9,10 @@
 #import "Objective-C.h"
 #import "ChessNow-Swift.h"
 
-@implementation Objective_C
+@interface Objective_C()
 
+@end
+@implementation Objective_C
 -(void)run {
     NSLog(@"test");
 }
@@ -151,5 +153,9 @@ int firstColor = 0;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 }
 @end

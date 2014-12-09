@@ -16,6 +16,6 @@ class ViewController: UIViewController {
 override func viewDidLoad() {
     
         objc.run()
-    
+		objc.viewDidLoad()
     }
 }

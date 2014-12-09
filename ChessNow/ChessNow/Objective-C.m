@@ -80,7 +80,6 @@ UIImageView *king;
             col = 0;
             
         }
-        
     }
     
     row = 0; col = 0;
@@ -161,7 +160,6 @@ UIImageView *king;
                 min=dSquared;
                 closest=i;
             }
-            
         }
         
         pawn[which].center=CGPointMake(cellX[closest], cellY[closest]);
@@ -170,7 +168,6 @@ UIImageView *king;
 }
 
 -(void) CreateWhitePiece:(int) string second:(int)xPos third:(int)posY {
-    
     
     switch (string) {
             

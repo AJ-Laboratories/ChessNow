@@ -13,9 +13,14 @@ class ViewController: UIViewController {
 	
 	let objc = Objective_C()
 	
-override func viewDidLoad() {
-    
+	override func viewDidLoad() {
         objc.run()
 		objc.viewDidLoad()
     }
+	
+	class View: UIView {
+	
+	
+	}
+	
 }

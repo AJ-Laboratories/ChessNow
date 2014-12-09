@@ -9,6 +9,7 @@
 #import "Objective-C.h"
 #import "ChessNow-Swift.h"
 
+
 @interface Objective_C()
 
 @end
@@ -35,10 +36,12 @@ UIImageView *bishop;
 UIImageView *queen;
 UIImageView *king;
 
-- (void)viewDidLoad {
+
     
+
+
+-(void)viewDidLoad {
     [super viewDidLoad];
-    
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
         cellWidth = 50;

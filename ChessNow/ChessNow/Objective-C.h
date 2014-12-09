@@ -13,7 +13,5 @@
 @interface Objective_C : UIViewController
 
 -(void)run;
--(void)viewDidLoad;
-
 
 @end

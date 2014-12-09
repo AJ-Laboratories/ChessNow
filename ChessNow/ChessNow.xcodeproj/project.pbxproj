@@ -67,6 +67,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F63938B1A377D20003E988E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F160D6FC1A21506100E6A783 /* graySquare.png */,
+				F160D6FD1A21506100E6A783 /* whitePawn.png */,
+				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		8F63938C1A377D46003E988E /* .swift */ = {
+			isa = PBXGroup;
+			children = (
+				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
+				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
+			);
+			name = .swift;
+			sourceTree = "<group>";
+		};
+		8F63938D1A377D56003E988E /* .obj-c */ = {
+			isa = PBXGroup;
+			children = (
+				8F6393881A37799B003E988E /* Objective-C.h */,
+				8F6393891A37799B003E988E /* Objective-C.m */,
+			);
+			name = ".obj-c";
+			sourceTree = "<group>";
+		};
+		8F63938E1A377D70003E988E /* .storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */,
+			);
+			name = .storyboards;
+			sourceTree = "<group>";
+		};
 		8FFA0AE91A1FD09E0035B9C8 = {
 			isa = PBXGroup;
 			children = (
@@ -89,14 +125,10 @@
 		8FFA0AF41A1FD09E0035B9C8 /* ChessNow */ = {
 			isa = PBXGroup;
 			children = (
-				8FD8D7CB1A214B8700DC6BAB /* Storyboard.storyboard */,
-				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
-				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
-				8F6393881A37799B003E988E /* Objective-C.h */,
-				8F6393891A37799B003E988E /* Objective-C.m */,
-				F160D6FC1A21506100E6A783 /* graySquare.png */,
-				F160D6FD1A21506100E6A783 /* whitePawn.png */,
-				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
+				8F63938B1A377D20003E988E /* Images */,
+				8F63938E1A377D70003E988E /* .storyboards */,
+				8F63938C1A377D46003E988E /* .swift */,
+				8F63938D1A377D56003E988E /* .obj-c */,
 				8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */,
 				8FFA0AF51A1FD09E0035B9C8 /* Supporting Files */,
 				8F6393871A37799B003E988E /* ChessNow-Bridging-Header.h */,

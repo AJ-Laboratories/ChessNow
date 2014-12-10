@@ -167,6 +167,7 @@ override func viewDidLoad() {
 		
 		if touch.view == piecePossibilities1 {
 			piecePossibilities1.hidden = true;
+			piecePossibilities2.hidden = true;
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}

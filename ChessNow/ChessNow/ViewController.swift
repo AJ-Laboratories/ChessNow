@@ -33,7 +33,7 @@ var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, 
 
 //var state = 0
 //var movementLegal: Bool = false
-//var moveByAmount: CGFloat = 0.0
+var moveByAmount: CGFloat = 0.0
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
 
@@ -77,7 +77,10 @@ override func viewDidLoad() {
 	self.view.addSubview(piecePossibilities2)
 	piecePossibilities2.hidden = true
 
-	
+	piecePossibilities1.userInteractionEnabled = true;
+	piecePossibilities1.multipleTouchEnabled = true;
+	piecePossibilities2.userInteractionEnabled = true;
+	piecePossibilities2.multipleTouchEnabled = true;
 
 	
 	//chesspieces loading
@@ -116,7 +119,7 @@ override func viewDidLoad() {
 		var positionx = whitePawn1.frame.origin.x
 		var positiony = whitePawn1.frame.origin.y
 //		println("\(positiony)")
-//		positiony -= screenWidth  / 8 * moveByAmount
+		positiony -= screenWidth  / 8 * moveByAmount
 		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}
@@ -159,6 +162,20 @@ override func viewDidLoad() {
 			
 			
 			}
+			
+		}
+		
+		if touch.view == piecePossibilities1 {
+			piecePossibilities1.hidden = true;
+			moveByAmount = 0.1;
+			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+		}
+		
+		if touch.view == piecePossibilities2 {
+			piecePossibilities2.hidden = true;
+			piecePossibilities1.hidden = true;
+			moveByAmount = 0.2;
+			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
 		

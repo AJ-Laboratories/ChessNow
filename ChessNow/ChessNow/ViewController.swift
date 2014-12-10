@@ -13,7 +13,8 @@ let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
 let pieceSize = sqrt(screenWidth * screenWidth / 64)
-
+var timerNumber = 0.1
+var movementTimer = NSTimer()
 
 
 class ViewController: UIViewController {
@@ -27,13 +28,8 @@ class ViewController: UIViewController {
 
     @IBAction func button(sender: AnyObject)
 	{
-        
-        var positionx = image1.frame.origin.x
-        var positiony = image1.frame.origin.y
-		
-        image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
-        positiony -= screenWidth  / 8
-		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+
     }
     
 	override func viewDidLoad() {
@@ -52,7 +48,26 @@ class ViewController: UIViewController {
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
         
     }
-    
+	
+	func updateMovementTimer() {
+		timerNumber++
+		if timerNumber == 10 {
+			movementTimer.invalidate()
+		}
+		else {
+		
+		var positionx = image1.frame.origin.x
+		var positiony = image1.frame.origin.y
+		
+		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+		positiony -= screenWidth  / 8 * 0.05
+		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+		
+		}
+
+	
+	}
+	
 	class View: UIView {
 	
 	

@@ -54,11 +54,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
-                                <rect key="frame" x="153" y="282" width="184" height="112"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board black and white no border.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-HI-SIK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqy-Nu-mWZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitePawn.png" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
+                                <rect key="frame" x="153" y="305" width="69" height="69"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2331123737373737" green="0.2331123737373737" blue="0.2331123737373737" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CQN-HI-SIK" firstAttribute="leading" secondItem="utO-7E-aOr" secondAttribute="leading" id="8Kt-iv-x2T"/>
+                            <constraint firstItem="CQN-HI-SIK" firstAttribute="top" secondItem="utO-7E-aOr" secondAttribute="top" id="NhI-eB-hIr"/>
+                            <constraint firstAttribute="bottom" secondItem="CQN-HI-SIK" secondAttribute="bottom" id="USW-6q-Klb"/>
+                            <constraint firstAttribute="trailing" secondItem="CQN-HI-SIK" secondAttribute="trailing" id="dXk-dl-seg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ChessNow" id="Aci-0O-r8Y">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="H4A-Eb-E6W">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nqy-Nu-mWZ">
                                 <rect key="frame" x="178" y="146" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -66,11 +81,10 @@
                                     <action selector="button:" destination="qTE-l6-IrH" eventType="touchUpInside" id="uQ5-mR-NoV"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.2331123737373737" green="0.2331123737373737" blue="0.2331123737373737" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="ChessNow" id="Aci-0O-r8Y"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="chessBoard" destination="CQN-HI-SIK" id="BJU-3Z-CWp"/>
                         <outlet property="image1" destination="yHl-3w-xa9" id="9KE-Yk-O8A"/>
                     </connections>
                 </viewController>
@@ -99,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" width="1000" height="563"/>
+        <image name="board black and white no border.png" width="2000" height="2000"/>
+        <image name="whitePawn.png" width="250" height="250"/>
     </resources>
 </document>

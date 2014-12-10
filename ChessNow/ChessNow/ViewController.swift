@@ -60,7 +60,7 @@ override func viewDidLoad() {
 	
 	func updateMovementTimer() {
 		timerNumber++
-		if timerNumber > 20 {
+		if timerNumber > 10 {
 			movementTimer.invalidate()
 			
 		}
@@ -69,7 +69,7 @@ override func viewDidLoad() {
 		var positionx = whitePawn1.frame.origin.x
 		var positiony = whitePawn1.frame.origin.y
 		println("\(positiony)")
-		positiony -= screenWidth  / 8 * 0.05
+		positiony -= screenWidth  / 8 * 0.1
 		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}

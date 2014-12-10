@@ -28,6 +28,8 @@ class ViewController: UIViewController {
 
     @IBAction func button(sender: AnyObject)
 	{
+		movementTimer.invalidate()
+	timerNumber = 0.1
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 
     }
@@ -51,15 +53,17 @@ class ViewController: UIViewController {
 	
 	func updateMovementTimer() {
 		timerNumber++
-		if timerNumber == 10 {
+		if timerNumber >= 20 {
 			movementTimer.invalidate()
+println("the timer stopped")
+
 		}
 		else {
-		
+		println("the timer started")
+
 		var positionx = image1.frame.origin.x
 		var positiony = image1.frame.origin.y
 		
-		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		positiony -= screenWidth  / 8 * 0.05
 		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		

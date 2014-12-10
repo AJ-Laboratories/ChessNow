@@ -50,7 +50,8 @@ override func viewDidLoad() {
 		self.view.addSubview(whitePawn1)
 	
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
-        
+	whitePawn1.userInteractionEnabled = true;
+	whitePawn1.multipleTouchEnabled = true;
     }
 
 

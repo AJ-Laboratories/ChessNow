@@ -20,7 +20,7 @@ var timerNumber:Double = 0
 var movementTimer = NSTimer()
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + pieceSize, pieceSize	, pieceSize))
+var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
 
 
 

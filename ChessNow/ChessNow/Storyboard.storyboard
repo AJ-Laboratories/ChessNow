@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="77Q-M3-Xfj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Obj-C-->
@@ -55,23 +54,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
-                                <rect key="frame" x="0.0" y="6" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
+                                <rect key="frame" x="153" y="282" width="184" height="112"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqy-Nu-mWZ">
+                                <rect key="frame" x="178" y="146" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button:" destination="qTE-l6-IrH" eventType="touchUpInside" id="uQ5-mR-NoV"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yHl-3w-xa9" firstAttribute="top" secondItem="utO-7E-aOr" secondAttribute="topMargin" constant="6" id="0Do-Ol-Ijb"/>
-                            <constraint firstItem="yHl-3w-xa9" firstAttribute="leading" secondItem="utO-7E-aOr" secondAttribute="leading" id="EWb-h8-9vu"/>
-                            <constraint firstAttribute="trailing" secondItem="yHl-3w-xa9" secondAttribute="trailing" id="FcK-Qv-0a8"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="yHl-3w-xa9" secondAttribute="bottom" constant="-6" id="RMe-5e-S7Y"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.2331123737373737" green="0.2331123737373737" blue="0.2331123737373737" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="ChessNow" id="Aci-0O-r8Y"/>
+                    <connections>
+                        <outlet property="image1" destination="yHl-3w-xa9" id="9KE-Yk-O8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vPE-ov-V6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1009"/>
+            <point key="canvasLocation" x="1105" y="1009"/>
         </scene>
         <!--Swift-->
         <scene sceneID="3tv-HX-GEp">

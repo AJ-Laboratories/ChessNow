@@ -44,6 +44,10 @@ override func viewDidLoad() {
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
+	//load marker
+	pieceMarked.image = UIImage(named: "pieceMarked.png")
+	self.view.addSubview(pieceMarked)
+	pieceMarked.hidden = true
 	
 	//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
@@ -57,10 +61,9 @@ override func viewDidLoad() {
 
     @IBAction func button(sender: AnyObject)
 	{
-		pieceMarked.image = UIImage(named: "pieceMarked.png")
-		self.view.addSubview(pieceMarked)
-		pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
-		
+
+
+		pieceMarked.hidden = true
 		movementTimer.invalidate()
 		timerNumber = 0
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
@@ -88,8 +91,11 @@ override func viewDidLoad() {
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		if touch.view == whitePawn1 { // her får e error. Vet ikke korsen e skrive det i swift
-			println("Hey") // Her kan vi markere brikkene osv.
+		if touch.view == whitePawn1 {//nøkkelen til suksess
+			println("Hey")
+			pieceMarked.hidden = false
+					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
+			
 		}
 
 	}

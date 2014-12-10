@@ -15,12 +15,14 @@
 		8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1DF21A38E452004476DC /* pieces vlack and white board blurred.png */; };
 		8FEC1DF51A38E565004476DC /* clack and white board with half boarder copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1DF41A38E565004476DC /* clack and white board with half boarder copy.png */; };
 		8FEC1DF71A38E772004476DC /* pieceMarked.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1DF61A38E772004476DC /* pieceMarked.png */; };
+		8FEC1DF91A38EF92004476DC /* blackPawn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1DF81A38EF92004476DC /* blackPawn.png */; };
+		8FEC1DFB1A38F0F5004476DC /* whitePawn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1DFA1A38F0F5004476DC /* whitePawn.png */; };
+		8FEC1E011A38F695004476DC /* piecePossibilities.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC1E001A38F695004476DC /* piecePossibilities.png */; };
 		8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */; };
 		8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */; };
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
 		8FFA0B0E1A1FD09E0035B9C8 /* ChessNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */; };
 		F160D6FF1A21506100E6A783 /* graySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FC1A21506100E6A783 /* graySquare.png */; };
-		F160D7001A21506100E6A783 /* whitePawn.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FD1A21506100E6A783 /* whitePawn.png */; };
 		F160D7011A21506100E6A783 /* whiteSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FE1A21506100E6A783 /* whiteSquare.png */; };
 		F18851F41A37ABDF003DD994 /* whiteRook.png in Resources */ = {isa = PBXBuildFile; fileRef = F18851F31A37ABDF003DD994 /* whiteRook.png */; };
 		F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BA7A931A38EEF000C7D578 /* moveOption.png */; };
@@ -47,6 +49,9 @@
 		8FEC1DF21A38E452004476DC /* pieces vlack and white board blurred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pieces vlack and white board blurred.png"; sourceTree = "<group>"; };
 		8FEC1DF41A38E565004476DC /* clack and white board with half boarder copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clack and white board with half boarder copy.png"; sourceTree = "<group>"; };
 		8FEC1DF61A38E772004476DC /* pieceMarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pieceMarked.png; sourceTree = "<group>"; };
+		8FEC1DF81A38EF92004476DC /* blackPawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackPawn.png; sourceTree = "<group>"; };
+		8FEC1DFA1A38F0F5004476DC /* whitePawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitePawn.png; sourceTree = "<group>"; };
+		8FEC1E001A38F695004476DC /* piecePossibilities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piecePossibilities.png; sourceTree = "<group>"; };
 		8FFA0AF21A1FD09E0035B9C8 /* ChessNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0AF61A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +61,6 @@
 		8FFA0B0C1A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessNowTests.swift; sourceTree = "<group>"; };
 		F160D6FC1A21506100E6A783 /* graySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graySquare.png; sourceTree = "<group>"; };
-		F160D6FD1A21506100E6A783 /* whitePawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitePawn.png; sourceTree = "<group>"; };
 		F160D6FE1A21506100E6A783 /* whiteSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteSquare.png; sourceTree = "<group>"; };
 		F18851F31A37ABDF003DD994 /* whiteRook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteRook.png; sourceTree = "<group>"; };
 		F1BA7A931A38EEF000C7D578 /* moveOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveOption.png; sourceTree = "<group>"; };
@@ -84,13 +88,18 @@
 		8F63938B1A377D20003E988E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F1BA7A931A38EEF000C7D578 /* moveOption.png */,
+=======
+				8FEC1E001A38F695004476DC /* piecePossibilities.png */,
+>>>>>>> FETCH_HEAD
 				8FEC1DF61A38E772004476DC /* pieceMarked.png */,
 				8FE278AF1A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg */,
 				8FEC1DF21A38E452004476DC /* pieces vlack and white board blurred.png */,
 				F18851F31A37ABDF003DD994 /* whiteRook.png */,
 				F160D6FC1A21506100E6A783 /* graySquare.png */,
-				F160D6FD1A21506100E6A783 /* whitePawn.png */,
+				8FEC1DF81A38EF92004476DC /* blackPawn.png */,
+				8FEC1DFA1A38F0F5004476DC /* whitePawn.png */,
 				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
 				8FE278B41A38C5900045F279 /* board black and white no border.png */,
 				8FEC1DF41A38E565004476DC /* clack and white board with half boarder copy.png */,
@@ -265,15 +274,21 @@
 				8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */,
 				8FE278B01A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg in Resources */,
 				8FEC1DF71A38E772004476DC /* pieceMarked.png in Resources */,
+				8FEC1DF91A38EF92004476DC /* blackPawn.png in Resources */,
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
 				8FE278B51A38C5900045F279 /* board black and white no border.png in Resources */,
 				F160D6FF1A21506100E6A783 /* graySquare.png in Resources */,
 				F160D7011A21506100E6A783 /* whiteSquare.png in Resources */,
 				8FEC1DF51A38E565004476DC /* clack and white board with half boarder copy.png in Resources */,
 				F18851F41A37ABDF003DD994 /* whiteRook.png in Resources */,
+<<<<<<< HEAD
 				F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */,
 				F160D7001A21506100E6A783 /* whitePawn.png in Resources */,
+=======
+				8FEC1E011A38F695004476DC /* piecePossibilities.png in Resources */,
+>>>>>>> FETCH_HEAD
 				8FE278AC1A37ADE30045F279 /* Storyboard.storyboard in Resources */,
+				8FEC1DFB1A38F0F5004476DC /* whitePawn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

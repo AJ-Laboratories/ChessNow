@@ -87,7 +87,7 @@ override func viewDidLoad() {
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		if ([touch view] == whitePawn1 ) { // her får e error. Vet ikke korsen e skrive det i swift
+		if touch.view == whitePawn1 { // her får e error. Vet ikke korsen e skrive det i swift
 			println("Hey") // Her kan vi markere brikkene osv.
 		}
 

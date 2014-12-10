@@ -19,11 +19,16 @@ let pieceSize = sqrt(screenWidth * screenWidth / 64)
 var timerNumber:Double = 0
 var movementTimer = NSTimer()
 
-//markPiece
+//markers
 var pieceMarked = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
 
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
+
+var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
 
 
@@ -44,14 +49,30 @@ override func viewDidLoad() {
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
-	//load marker
+	//load markers
 	pieceMarked.image = UIImage(named: "pieceMarked.png")
 	self.view.addSubview(pieceMarked)
 	pieceMarked.hidden = true
 	
+	piecePossibilities1.image = UIImage(named: "piecePossibilities.png")
+	self.view.addSubview(piecePossibilities1)
+	piecePossibilities1.hidden = true
+	
+	piecePossibilities2.image = UIImage(named: "piecePossibilities.png")
+	self.view.addSubview(piecePossibilities2)
+	piecePossibilities2.hidden = true
+
+	
+
+	
 	//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
+	whitePawn1.contentMode = .ScaleAspectFit
+	
+	blackPawn1.image = UIImage(named: "blackPawn.png")
+	self.view.addSubview(blackPawn1)
+	blackPawn1.contentMode = .ScaleAspectFit
 	
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
 	whitePawn1.userInteractionEnabled = true;
@@ -61,8 +82,6 @@ override func viewDidLoad() {
 
     @IBAction func button(sender: AnyObject)
 	{
-
-
 		pieceMarked.hidden = true
 		movementTimer.invalidate()
 		timerNumber = 0
@@ -92,9 +111,22 @@ override func viewDidLoad() {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
 		if touch.view == whitePawn1 {//nøkkelen til suksess
+
 			println("Hey")
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
+			
+			if whitePawn1.frame.origin.x == 0 && whitePawn1.frame.origin.y == screenHeight/2 + 2 * pieceSize {
+				
+			piecePossibilities1.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
+			piecePossibilities2.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+				
+			piecePossibilities1.hidden = false
+			piecePossibilities2.hidden = false
+
+			
+			
+			}
 			
 		}
 

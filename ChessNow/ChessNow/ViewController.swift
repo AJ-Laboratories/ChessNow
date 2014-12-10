@@ -75,15 +75,15 @@ override func viewDidLoad() {
 		}
 
 }
-	/*
+	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		if ( touch.view == whitePawn1) {
-			println("Hey")
+		if ([touch view] == whitePawn1 ) {
+			println("Hey") // Her kan vi markere brikkene osv.
 		}
 
 	}
-*/
+
 	
 }

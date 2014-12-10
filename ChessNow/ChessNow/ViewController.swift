@@ -22,10 +22,15 @@ var movementTimer = NSTimer()
 //markPiece
 var pieceMarked = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 
+//moveOption
+var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
 
-
+var state = 0
+var movementLegal: Bool = false
+var moveByAmount: CGFloat = 0.0
 
 class ViewController: UIViewController {
 	
@@ -44,6 +49,14 @@ override func viewDidLoad() {
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
+	state = 0
+	
+	
+	//load moveOption
+	moveOption.image = UIImage(named: "moveOption.png")
+	self.view.addSubview(moveOption)
+	moveOption.hidden = true
+	
 	//load marker
 	pieceMarked.image = UIImage(named: "pieceMarked.png")
 	self.view.addSubview(pieceMarked)
@@ -56,6 +69,7 @@ override func viewDidLoad() {
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
 	whitePawn1.userInteractionEnabled = true;
 	whitePawn1.multipleTouchEnabled = true;
+	
     }
 
 
@@ -81,12 +95,26 @@ override func viewDidLoad() {
 		var positionx = whitePawn1.frame.origin.x
 		var positiony = whitePawn1.frame.origin.y
 		println("\(positiony)")
-		positiony -= screenWidth  / 8 * 0.1
+		positiony -= screenWidth  / 8 * moveByAmount
 		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}
 
 }
+	
+	func TestMovement() {
+		
+		if state == 0 {
+			moveByAmount = 0.2
+			movementLegal = true
+			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 2, width: pieceSize, height: pieceSize)
+			
+		} else {
+			moveByAmount = 0.1
+			movementLegal = true
+			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 1, width: pieceSize, height: pieceSize)
+		}
+	}
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
@@ -95,7 +123,13 @@ override func viewDidLoad() {
 			println("Hey")
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
+			TestMovement()
+			state = 1;
 			
+		}
+		
+		if movementLegal == true {
+			moveOption.hidden = false;
 		}
 
 	}

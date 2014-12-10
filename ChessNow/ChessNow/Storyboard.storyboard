@@ -54,6 +54,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pieces vlack and white board blurred.png" translatesAutoresizingMaskIntoConstraints="NO" id="BFO-lu-ZXa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board black and white no border.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-HI-SIK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -67,6 +70,10 @@
                             <constraint firstItem="CQN-HI-SIK" firstAttribute="top" secondItem="utO-7E-aOr" secondAttribute="top" id="NhI-eB-hIr"/>
                             <constraint firstAttribute="bottom" secondItem="CQN-HI-SIK" secondAttribute="bottom" id="USW-6q-Klb"/>
                             <constraint firstAttribute="trailing" secondItem="CQN-HI-SIK" secondAttribute="trailing" id="dXk-dl-seg"/>
+                            <constraint firstItem="BFO-lu-ZXa" firstAttribute="top" secondItem="CQN-HI-SIK" secondAttribute="top" id="ffK-Vb-9Co"/>
+                            <constraint firstItem="BFO-lu-ZXa" firstAttribute="bottom" secondItem="CQN-HI-SIK" secondAttribute="bottom" id="fqZ-eI-7Ex"/>
+                            <constraint firstItem="BFO-lu-ZXa" firstAttribute="trailing" secondItem="CQN-HI-SIK" secondAttribute="trailing" id="gCu-Sw-Ri0"/>
+                            <constraint firstItem="BFO-lu-ZXa" firstAttribute="leading" secondItem="CQN-HI-SIK" secondAttribute="leading" id="spE-Si-mHm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ChessNow" id="Aci-0O-r8Y">
@@ -114,6 +121,7 @@
     </scenes>
     <resources>
         <image name="board black and white no border.png" width="2000" height="2000"/>
+        <image name="pieces vlack and white board blurred.png" width="2096" height="2096"/>
         <image name="whitePawn.png" width="250" height="250"/>
     </resources>
 </document>

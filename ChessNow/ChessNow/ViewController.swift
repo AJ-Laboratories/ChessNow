@@ -13,7 +13,7 @@ let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
 let pieceSize = sqrt(screenWidth * screenWidth / 64)
-var timerNumber = 0.1
+var timerNumber:Double = 0
 var movementTimer = NSTimer()
 
 
@@ -26,36 +26,43 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var chessBoard: UIImageView!
 
-    @IBAction func button(sender: AnyObject)
-	{
-		movementTimer.invalidate()
-	timerNumber = 0.1
-		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+	override func viewWillAppear(animated: Bool) {
+		
+		var positionx = image1.frame.origin.x+100
+		var positiony = image1.frame.origin.y+100
+		
+		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 
-    }
-    
-	override func viewDidLoad() {
+	}
+	
+override func viewDidLoad() {
+	super.viewDidLoad()
 
 		var tab = self.tabBarController?.tabBar
 		tab?.barStyle = UIBarStyle.Black
 		var nav = self.navigationController?.navigationBar
 		nav?.barStyle = UIBarStyle.BlackTranslucent
-        
-//		var startPositionx = chessBoard.frame.origin.x
-//		var startPositiony = chessBoard.frame.origin.y
-//		image1.frame = CGRect(x: startPositionx, y: startPositiony, width: pieceSize, height: pieceSize)
-
-		
-		
+	
+	
+		image1.frame = CGRect(x: 100, y: 100, width: pieceSize, height: pieceSize)
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
         
     }
+
+
+    @IBAction func button(sender: AnyObject)
+	{
+		movementTimer.invalidate()
+		timerNumber = 0
+		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+    }
+
 	
 	func updateMovementTimer() {
 		timerNumber++
-		if timerNumber >= 20 {
+		if timerNumber > 20 {
 			movementTimer.invalidate()
-println("the timer stopped")
+			println("the timer stopped")
 
 		}
 		else {
@@ -63,7 +70,8 @@ println("the timer stopped")
 
 		var positionx = image1.frame.origin.x
 		var positiony = image1.frame.origin.y
-		
+		println("\(positiony)")
+			
 		positiony -= screenWidth  / 8 * 0.05
 		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		

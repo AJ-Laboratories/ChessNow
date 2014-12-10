@@ -57,7 +57,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pieces vlack and white board blurred.png" translatesAutoresizingMaskIntoConstraints="NO" id="BFO-lu-ZXa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board black and white no border.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-HI-SIK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clack and white board with half boarder copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-HI-SIK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -116,7 +116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="board black and white no border.png" width="2000" height="2000"/>
+        <image name="clack and white board with half boarder copy.png" width="2000" height="2096"/>
         <image name="pieces vlack and white board blurred.png" width="2096" height="2096"/>
     </resources>
 </document>

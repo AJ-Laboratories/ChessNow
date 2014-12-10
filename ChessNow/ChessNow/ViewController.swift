@@ -31,15 +31,12 @@ var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
 
-<<<<<<< HEAD
-var state = 0
-var movementLegal: Bool = false
-var moveByAmount: CGFloat = 0.0
-=======
+//var state = 0
+//var movementLegal: Bool = false
+//var moveByAmount: CGFloat = 0.0
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
 
->>>>>>> FETCH_HEAD
 
 class ViewController: UIViewController {
 	
@@ -58,19 +55,16 @@ override func viewDidLoad() {
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
-<<<<<<< HEAD
-	state = 0
+//	state = 0
 	
 	
 	//load moveOption
 	moveOption.image = UIImage(named: "moveOption.png")
 	self.view.addSubview(moveOption)
 	moveOption.hidden = true
+
 	
-	//load marker
-=======
 	//load markers
->>>>>>> FETCH_HEAD
 	pieceMarked.image = UIImage(named: "pieceMarked.png")
 	self.view.addSubview(pieceMarked)
 	pieceMarked.hidden = true
@@ -121,27 +115,27 @@ override func viewDidLoad() {
 		else {
 		var positionx = whitePawn1.frame.origin.x
 		var positiony = whitePawn1.frame.origin.y
-		println("\(positiony)")
-		positiony -= screenWidth  / 8 * moveByAmount
+//		println("\(positiony)")
+//		positiony -= screenWidth  / 8 * moveByAmount
 		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}
 
 }
 	
-	func TestMovement() {
-		
-		if state == 0 {
-			moveByAmount = 0.2
-			movementLegal = true
-			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 2, width: pieceSize, height: pieceSize)
-			
-		} else {
-			moveByAmount = 0.1
-			movementLegal = true
-			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 1, width: pieceSize, height: pieceSize)
-		}
-	}
+//	func TestMovement() {
+//		
+//		if state == 0 {
+//			moveByAmount = 0.2
+//			movementLegal = true
+//			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 2, width: pieceSize, height: pieceSize)
+//			
+//		} else {
+//			moveByAmount = 0.1
+//			movementLegal = true
+//			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 1, width: pieceSize, height: pieceSize)
+//		}
+//	}
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
@@ -151,8 +145,8 @@ override func viewDidLoad() {
 			println("Hey")
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
-			TestMovement()
-			state = 1;
+//			TestMovement()
+//			state = 1;
 			
 			if whitePawn1.frame.origin.x == 0 && whitePawn1.frame.origin.y == screenHeight/2 + 2 * pieceSize {
 				
@@ -168,9 +162,9 @@ override func viewDidLoad() {
 			
 		}
 		
-		if movementLegal == true {
-			moveOption.hidden = false;
-		}
+//		if movementLegal == true {
+//			moveOption.hidden = false;
+//		}
 
 	}
 

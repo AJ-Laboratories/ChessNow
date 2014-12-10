@@ -60,9 +60,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="board black and white no border.png" translatesAutoresizingMaskIntoConstraints="NO" id="CQN-HI-SIK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitePawn.png" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-3w-xa9">
-                                <rect key="frame" x="153" y="305" width="69" height="69"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2331123737373737" green="0.2331123737373737" blue="0.2331123737373737" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -92,7 +89,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chessBoard" destination="CQN-HI-SIK" id="BJU-3Z-CWp"/>
-                        <outlet property="image1" destination="yHl-3w-xa9" id="9KE-Yk-O8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vPE-ov-V6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +118,5 @@
     <resources>
         <image name="board black and white no border.png" width="2000" height="2000"/>
         <image name="pieces vlack and white board blurred.png" width="2096" height="2096"/>
-        <image name="whitePawn.png" width="250" height="250"/>
     </resources>
 </document>

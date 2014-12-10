@@ -9,42 +9,42 @@
 import UIKit
 import SpriteKit
 
+//size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
 let pieceSize = sqrt(screenWidth * screenWidth / 64)
+
+//timers
 var timerNumber:Double = 0
 var movementTimer = NSTimer()
+
+//chesspieces:
+var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + pieceSize, pieceSize	, pieceSize))
+
 
 
 class ViewController: UIViewController {
 	
 	let objc = Objective_C()
 
-    
-    @IBOutlet weak var image1: UIImageView!
-	
 	@IBOutlet weak var chessBoard: UIImageView!
 
-	override func viewWillAppear(animated: Bool) {
-		
-		var positionx = image1.frame.origin.x+100
-		var positiony = image1.frame.origin.y+100
-		
-		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
-
-	}
 	
 override func viewDidLoad() {
 	super.viewDidLoad()
 
+	//tab-bar and navigation bar
 		var tab = self.tabBarController?.tabBar
 		tab?.barStyle = UIBarStyle.Black
 		var nav = self.navigationController?.navigationBar
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
-		image1.frame = CGRect(x: 100, y: 100, width: pieceSize, height: pieceSize)
+	//chesspieces loading
+		whitePawn1.image = UIImage(named: "whitePawn.png")
+		self.view.addSubview(whitePawn1)
+	
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
         
     }
@@ -62,27 +62,17 @@ override func viewDidLoad() {
 		timerNumber++
 		if timerNumber > 20 {
 			movementTimer.invalidate()
-			println("the timer stopped")
-
-		}
-		else {
-		println("the timer started")
-
-		var positionx = image1.frame.origin.x
-		var positiony = image1.frame.origin.y
-		println("\(positiony)")
 			
+		}
+			
+		else {
+		var positionx = whitePawn1.frame.origin.x
+		var positiony = whitePawn1.frame.origin.y
+		println("\(positiony)")
 		positiony -= screenWidth  / 8 * 0.05
-		image1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}
 
-	
-	}
-	
-	class View: UIView {
-	
-	
-	}
-	
+}
 }

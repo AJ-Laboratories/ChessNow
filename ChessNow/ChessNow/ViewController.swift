@@ -19,6 +19,9 @@ let pieceSize = sqrt(screenWidth * screenWidth / 64)
 var timerNumber:Double = 0
 var movementTimer = NSTimer()
 
+//markPiece
+var pieceMarked = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
 
@@ -41,6 +44,7 @@ override func viewDidLoad() {
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
 	
+	
 	//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
@@ -52,6 +56,10 @@ override func viewDidLoad() {
 
     @IBAction func button(sender: AnyObject)
 	{
+		pieceMarked.image = UIImage(named: "pieceMarked.png")
+		self.view.addSubview(pieceMarked)
+		pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
+		
 		movementTimer.invalidate()
 		timerNumber = 0
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)

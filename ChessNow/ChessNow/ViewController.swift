@@ -9,12 +9,6 @@
 import UIKit
 import SpriteKit
 
-var a1x:CGFloat = 0
-var a1y = screenHeight/2 + 3*pieceSize
-var a2x:CGFloat = 0
-var a2y = screenHeight/2 + 2*pieceSize
-var a3x:CGFloat = 0
-
 //x-Axis coordinates
 var a:CGFloat = 0
 var b =  pieceSize
@@ -34,10 +28,6 @@ var _5 = screenHeight/2 - 1 * pieceSize
 var _6 = screenHeight/2 - 2 * pieceSize
 var _7 = screenHeight/2 - 3 * pieceSize
 var _8 = screenHeight/2 - 4 * pieceSize
-
-
-
-
 
 
 //size-properties
@@ -80,7 +70,6 @@ override func viewDidLoad() {
 	super.viewDidLoad()
 
 	
-	println("a1y is \(a1y)")
 	//tab-bar and navigation bar
 		var tab = self.tabBarController?.tabBar
 		tab?.barStyle = UIBarStyle.Black

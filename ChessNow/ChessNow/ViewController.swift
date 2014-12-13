@@ -47,6 +47,10 @@ var piecePossibilities1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSi
 var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilities3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilities4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilities8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
  
  
  
@@ -124,8 +128,20 @@ class ViewController: UIViewController {
                 piecePossibilities3.multipleTouchEnabled = true;
                 piecePossibilities4.userInteractionEnabled = true;
                 piecePossibilities4.multipleTouchEnabled = true;
-               
-               
+			piecePossibilities5.userInteractionEnabled = true;
+			piecePossibilities5.multipleTouchEnabled = true;
+			piecePossibilities6.userInteractionEnabled = true;
+			piecePossibilities6.multipleTouchEnabled = true;
+			piecePossibilities7.userInteractionEnabled = true;
+			piecePossibilities7.multipleTouchEnabled = true;
+			piecePossibilities8.userInteractionEnabled = true;
+			piecePossibilities8.multipleTouchEnabled = true;
+
+			
+
+
+			
+			
                 //chesspieces loading
                 whitePawn1.image = UIImage(named: "whitePawn.png")
                 self.view.addSubview(whitePawn1)
@@ -158,6 +174,22 @@ class ViewController: UIViewController {
 				piecePossibilities4.image = UIImage(named: "piecePossibilities.png")
 				self.view.addSubview(piecePossibilities4)
 				piecePossibilities4.hidden = true
+			
+			piecePossibilities5.image = UIImage(named: "piecePossibilities.png")
+			self.view.addSubview(piecePossibilities5)
+			piecePossibilities5.hidden = true
+			
+			piecePossibilities6.image = UIImage(named: "piecePossibilities.png")
+			self.view.addSubview(piecePossibilities6)
+			piecePossibilities6.hidden = true
+			
+			piecePossibilities7.image = UIImage(named: "piecePossibilities.png")
+			self.view.addSubview(piecePossibilities7)
+			piecePossibilities7.hidden = true
+			
+			piecePossibilities8.image = UIImage(named: "piecePossibilities.png")
+			self.view.addSubview(piecePossibilities8)
+			piecePossibilities8.hidden = true
 			
 				eatenPieces.hidden = true
 			
@@ -357,6 +389,179 @@ class ViewController: UIViewController {
 					eatenPieces.frame = CGRectMake(a+5 , screenHeight/2 + 4.4 * pieceSize, pieceSize/1.4, pieceSize/1.4)
 					eatenPieces.hidden = false
                 }
-               
+
+			if touch.view == whiteKnight {
+				player1 = 2
+				selectedPiece = whiteKnight
+				println("hello")
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+				
+				if selectedPiece.frame.origin.y == _1 {
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities1.hidden = false
+					piecePossibilities2.hidden = false
+					
+				} else {
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities3.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					piecePossibilities4.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilities5.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					piecePossibilities6.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilities7.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities8.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilities1.hidden = false
+					piecePossibilities2.hidden = false
+					piecePossibilities3.hidden = false
+					piecePossibilities4.hidden = false
+					piecePossibilities5.hidden = false
+					piecePossibilities6.hidden = false
+					piecePossibilities7.hidden = false
+					piecePossibilities8.hidden = false
+
+				}
+				
+			}
+			
+			if touch.view == piecePossibilities1 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = 0.2
+				moveByAmountx = 0.1
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			if touch.view == piecePossibilities2 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = 0.2
+				moveByAmountx = -0.1
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			
+			
+			if touch.view == piecePossibilities3 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = 0.1
+				moveByAmountx = 0.2
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			if touch.view == piecePossibilities4 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = -0.1
+				moveByAmountx = 0.2
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			if touch.view == piecePossibilities5 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = 0.1
+				moveByAmountx = -0.2
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			if touch.view == piecePossibilities6 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = -0.1
+				moveByAmountx = -0.2
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			if touch.view == piecePossibilities7 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = -0.2
+				moveByAmountx = -0.1
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
+			if touch.view == piecePossibilities8 && player1 == 2 {
+				movementTimer.invalidate()
+				timerNumber = 0
+				piecePossibilities1.hidden = true;
+				piecePossibilities2.hidden = true;
+				piecePossibilities3.hidden = true
+				piecePossibilities4.hidden = true
+				piecePossibilities5.hidden = true;
+				piecePossibilities6.hidden = true;
+				piecePossibilities7.hidden = true
+				piecePossibilities8.hidden = true
+				pieceMarked.hidden = true
+				moveByAmounty = -0.2
+				moveByAmountx = 0.1
+				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			}
+			
         }
+
 }

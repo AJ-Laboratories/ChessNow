@@ -159,13 +159,9 @@ class ViewController: UIViewController {
 		
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		
 		for var i = 0; i < pawns.count;i++ {
 			
-			
 			if touch.view == pawns[i] {//nøkkelen til suksess
-				
-				
 				
 				selectedPiece = pawns[i]
 				player1 = 1;
@@ -175,22 +171,15 @@ class ViewController: UIViewController {
 				
 				
 				if selectedPiece.frame.origin.y == _2 {
-					
-					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-					
 					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-					
 					piecePossibilities1.hidden = false
 					piecePossibilities2.hidden = false
 					
 				}
-					
 				else {
 					
-					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-					
 					
 					piecePossibilities1.hidden = false
 					

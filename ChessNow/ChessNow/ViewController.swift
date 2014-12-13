@@ -156,79 +156,80 @@ class ViewController: UIViewController {
 	}
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+		
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		for var i = 0; i < pawns.count;i++ {
 		
-		if touch.view == pawns[i] {//nøkkelen til suksess
-
-			selectedPiece = pawns[i]
+		for var i = 0; i < pawns.count;i++ {
 			
-			player1 = 1;
-			player2 = 0
-			pieceMarked.hidden = false
-					pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
-
 			
 			if touch.view == pawns[i] {//nøkkelen til suksess
 				
-				selectedPiece = pawns[i]
 				
-				println("Hey")
+				
+				selectedPiece = pawns[i]
+				player1 = 1;
+				player2 = 0
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
 				
 				if selectedPiece.frame.origin.y == _2 {
 					
+					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					
 					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
 					
 					piecePossibilities1.hidden = false
 					piecePossibilities2.hidden = false
 					
-					
 				}
+					
 				else {
+					
 					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
 					
+					
 					piecePossibilities1.hidden = false
+					
 				}
 			}
 		}
-		
+
 		for var i = 0; i < blackPawns.count;i++ {
+			
 			
 			if touch.view == blackPawns[i] {//nøkkelen til suksess
 				
 				selectedPiece = blackPawns[i]
+				
 				
 				player2 = 1
 				player1 = 0
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
-				
 				if selectedPiece.frame.origin.y == _7 {
-					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
 					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
-					
 					piecePossibilities1.hidden = false
 					piecePossibilities2.hidden = false
 					
 				}
-				else {
 					
+				else {
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					
 					piecePossibilities1.hidden = false
+					
 				}
-				
 			}
 		}
 		
 		if touch.view == piecePossibilities1  && player1 == 1 {
+			
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities1.hidden = true;
@@ -236,6 +237,7 @@ class ViewController: UIViewController {
 			pieceMarked.hidden = true
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			
 		} else if touch.view == piecePossibilities1  && player2 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
@@ -244,11 +246,12 @@ class ViewController: UIViewController {
 			pieceMarked.hidden = true
 			moveByAmount = -0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			
 		}
 		
-		 if touch.view == piecePossibilities2 && player1 == 1 {
-}
-		else if touch.view == piecePossibilities2 {
+		
+		if touch.view == piecePossibilities2 && player1 == 1 {
+			
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -256,10 +259,9 @@ class ViewController: UIViewController {
 			pieceMarked.hidden  = true
 			moveByAmount = 0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-
-		}
- 
-	else if touch.view == piecePossibilities2 && player2 == 1 {
+			
+		} else if touch.view == piecePossibilities2 && player2 == 1 {
+			
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -267,8 +269,12 @@ class ViewController: UIViewController {
 			pieceMarked.hidden  = true
 			moveByAmount = -0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			
 		}
+		
+	}
 }
-}
-}
+
+
+
 		

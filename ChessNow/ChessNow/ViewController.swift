@@ -41,15 +41,8 @@ var movementTimer = NSTimer()
 
 //markers
 var pieceMarked = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-
-		// ditta bør vi lage en array til
 var piecePossibilities1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-
-
-
 
 
 //moveOption
@@ -63,20 +56,10 @@ var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
-var whitePawns : [UIImageView] = [whitePawn1, whitePawn2]
+var pawns : [UIImageView] = [whitePawn1, whitePawn2]
 var blackPawns : [UIImageView] = [blackPawn1]
 
-//bool to check if pieces are "alive"
-var whitePawn1Alive = true
-var whitePawn2Alive = true
-
-var blackPawn1Alive = true
-
-
-
-var moveByAmounty: CGFloat = 0.0
-var moveByAmountx: CGFloat = 0.0
-
+var moveByAmount: CGFloat = 0.0
 
 var selectedPiece: UIImageView = whitePawn1
 
@@ -118,45 +101,32 @@ class ViewController: UIViewController {
 		self.view.addSubview(piecePossibilities2)
 		piecePossibilities2.hidden = true
 		
-		piecePossibilities3.image = UIImage(named: "piecePossibilities.png")
-		self.view.addSubview(piecePossibilities3)
-		piecePossibilities3.hidden = true
-		
-		piecePossibilities4.image = UIImage(named: "piecePossibilities.png")
-		self.view.addSubview(piecePossibilities4)
-		piecePossibilities4.hidden = true
-		
 		piecePossibilities1.userInteractionEnabled = true;
 		piecePossibilities1.multipleTouchEnabled = true;
 		piecePossibilities2.userInteractionEnabled = true;
 		piecePossibilities2.multipleTouchEnabled = true;
-		piecePossibilities3.userInteractionEnabled = true;
-		piecePossibilities3.multipleTouchEnabled = true;
-		piecePossibilities4.userInteractionEnabled = true;
-		piecePossibilities4.multipleTouchEnabled = true;
-		
 		
 		
 		//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
-	whitePawn1.contentMode = .ScaleAspectFit
-	
-	whitePawn2.image = UIImage(named: "whitePawn.png")
-	self.view.addSubview(whitePawn2)
-	whitePawn2.contentMode = .ScaleAspectFit
-	
-	blackPawn1.image = UIImage(named: "blackPawn.png")
-	self.view.addSubview(blackPawn1)
-	blackPawn1.contentMode = .ScaleAspectFit
-	
-        println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
-	whitePawn1.userInteractionEnabled = true;
-	whitePawn1.multipleTouchEnabled = true;
-	whitePawn2.userInteractionEnabled = true;
-	whitePawn2.multipleTouchEnabled = true;
-	blackPawn1.userInteractionEnabled = true
-	blackPawn1.multipleTouchEnabled = true
+		whitePawn1.contentMode = .ScaleAspectFit
+		
+		whitePawn2.image = UIImage(named: "whitePawn.png")
+		self.view.addSubview(whitePawn2)
+		whitePawn2.contentMode = .ScaleAspectFit
+		
+		blackPawn1.image = UIImage(named: "blackPawn.png")
+		self.view.addSubview(blackPawn1)
+		blackPawn1.contentMode = .ScaleAspectFit
+		
+		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
+		whitePawn1.userInteractionEnabled = true;
+		whitePawn1.multipleTouchEnabled = true;
+		whitePawn2.userInteractionEnabled = true;
+		whitePawn2.multipleTouchEnabled = true;
+		blackPawn1.userInteractionEnabled = true
+		blackPawn1.multipleTouchEnabled = true
 		
 	}
 	
@@ -164,7 +134,7 @@ class ViewController: UIViewController {
 		return true
 	}
 	override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-	    return UIStatusBarAnimation.Slide
+		return UIStatusBarAnimation.Slide
 	}
 	
 	func updateMovementTimer() {
@@ -179,8 +149,7 @@ class ViewController: UIViewController {
 			var positionx = selectedPiece.frame.origin.x
 			var positiony = selectedPiece.frame.origin.y
 			println("\(positiony)")
-			positiony -= screenWidth  / 8 * moveByAmounty
-			positionx += screenWidth / 8 * moveByAmountx
+			positiony -= screenWidth  / 8 * moveByAmount
 			selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 			
 		}
@@ -190,48 +159,16 @@ class ViewController: UIViewController {
 		
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-<<<<<<< HEAD
 		for var i = 0; i < pawns.count;i++ {
 			
 			if touch.view == pawns[i] {//nøkkelen til suksess
 				
 				selectedPiece = pawns[i]
 				player1 = 1;
-=======
-		
-		for var i = 0; i < whitePawns.count;i++ {
-			
-			
-			if touch.view == whitePawns[i] {//nøkkelen til suksess
-				
-				selectedPiece = whitePawns[i]
-				player1 = 1
->>>>>>> FETCH_HEAD
 				player2 = 0
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
-				for var t = 0; t < blackPawns.count; t++ {
-					
-					switch blackPawns[t].frame {
-						
-					case  (CGRectMake(pieceMarked.frame.origin.x + pieceSize, pieceMarked.frame.origin.y - pieceSize, pieceSize, pieceSize)):
-					
-					piecePossibilities3.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-					piecePossibilities3.hidden = false
-
-						
-					case (CGRectMake(pieceMarked.frame.origin.x - pieceSize, pieceMarked.frame.origin.y - pieceSize , pieceSize, pieceSize)):
-						
-						piecePossibilities4.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-						piecePossibilities4.hidden = false
-						
-					default :
-						""
-					}
-		
-				
-				}
 				
 				if selectedPiece.frame.origin.y == _2 {
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
@@ -249,7 +186,7 @@ class ViewController: UIViewController {
 				}
 			}
 		}
-
+		
 		for var i = 0; i < blackPawns.count;i++ {
 			
 			
@@ -287,20 +224,16 @@ class ViewController: UIViewController {
 			piecePossibilities1.hidden = true;
 			piecePossibilities2.hidden = true;
 			pieceMarked.hidden = true
-			moveByAmounty = 0.1
-			moveByAmountx = 0
-
+			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
-		}
-		else if touch.view == piecePossibilities1  && player2 == 1 {
+		} else if touch.view == piecePossibilities1  && player2 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities1.hidden = true;
 			piecePossibilities2.hidden = true;
 			pieceMarked.hidden = true
-			moveByAmounty = -0.1
-			moveByAmountx = 0
+			moveByAmount = -0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
@@ -313,8 +246,7 @@ class ViewController: UIViewController {
 			piecePossibilities2.hidden = true;
 			piecePossibilities1.hidden = true;
 			pieceMarked.hidden  = true
-			moveByAmounty = 0.2
-			moveByAmountx = 0
+			moveByAmount = 0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		} else if touch.view == piecePossibilities2 && player2 == 1 {
@@ -324,24 +256,10 @@ class ViewController: UIViewController {
 			piecePossibilities2.hidden = true;
 			piecePossibilities1.hidden = true;
 			pieceMarked.hidden  = true
-			moveByAmounty = -0.2
-			moveByAmountx = 0
+			moveByAmount = -0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
-		if touch.view == piecePossibilities3  && player1 == 1 {
-			
-			movementTimer.invalidate()
-			timerNumber = 0
-			piecePossibilities1.hidden = true;
-			piecePossibilities2.hidden = true;
-			pieceMarked.hidden = true
-			moveByAmounty = -0.1
-			moveByAmountx = 0.1
-			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-			
-		}
-
-}
+	}
 }
 		

@@ -51,8 +51,8 @@ var player1 = 0
 var player2 = 0;
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(b, _2, pieceSize	, pieceSize))
-var whitePawn2 = UIImageView(frame: CGRectMake(c, _2, pieceSize, pieceSize))
+var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, pieceSize	, pieceSize))
+var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
@@ -80,7 +80,6 @@ class ViewController: UIViewController {
 		self.tabBarController?.tabBar.hidden = true
 		var nav = self.navigationController?.navigationBar
 		nav?.barStyle = UIBarStyle.BlackTranslucent
-		
 		
 		
 		//load moveOption
@@ -111,7 +110,6 @@ class ViewController: UIViewController {
 		//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
-<<<<<<< HEAD
 	whitePawn1.contentMode = .ScaleAspectFit
 	
 	whitePawn2.image = UIImage(named: "whitePawn.png")
@@ -129,25 +127,8 @@ class ViewController: UIViewController {
 	whitePawn2.multipleTouchEnabled = true;
 	blackPawn1.userInteractionEnabled = true
 	blackPawn1.multipleTouchEnabled = true
-=======
-		whitePawn1.contentMode = .ScaleAspectFit
-		
-		whitePawn2.image = UIImage(named: "whitePawn.png")
-		self.view.addSubview(whitePawn2)
-		whitePawn2.contentMode = .ScaleAspectFit
-		
-		blackPawn1.image = UIImage(named: "blackPawn.png")
-		self.view.addSubview(blackPawn1)
-		blackPawn1.contentMode = .ScaleAspectFit
-		
-		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
-		whitePawn1.userInteractionEnabled = true;
-		whitePawn1.multipleTouchEnabled = true;
-		whitePawn2.userInteractionEnabled = true;
-		whitePawn2.multipleTouchEnabled = true;
 		
 	}
->>>>>>> FETCH_HEAD
 	
 	override func prefersStatusBarHidden() -> Bool {
 		return true
@@ -172,16 +153,12 @@ class ViewController: UIViewController {
 			selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 			
 		}
-		
 	}
-	
-	
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
 		for var i = 0; i < pawns.count;i++ {
-<<<<<<< HEAD
 		
 		if touch.view == pawns[i] {//nøkkelen til suksess
 
@@ -192,8 +169,6 @@ class ViewController: UIViewController {
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 
-=======
->>>>>>> FETCH_HEAD
 			
 			if touch.view == pawns[i] {//nøkkelen til suksess
 				
@@ -220,7 +195,6 @@ class ViewController: UIViewController {
 					
 					piecePossibilities1.hidden = false
 				}
-				
 			}
 		}
 		
@@ -271,13 +245,10 @@ class ViewController: UIViewController {
 			moveByAmount = -0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
-<<<<<<< HEAD
 		
 		 if touch.view == piecePossibilities2 && player1 == 1 {
-=======
-			
+}
 		else if touch.view == piecePossibilities2 {
->>>>>>> FETCH_HEAD
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -286,7 +257,9 @@ class ViewController: UIViewController {
 			moveByAmount = 0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 
-		} else if touch.view == piecePossibilities2 && player2 == 1 {
+		}
+ 
+	else if touch.view == piecePossibilities2 && player2 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -295,16 +268,7 @@ class ViewController: UIViewController {
 			moveByAmount = -0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
-<<<<<<< HEAD
-
-
-=======
-		//		if movementLegal == true {
-		//			moveOption.hidden = false;
-		//		}
-		
->>>>>>> FETCH_HEAD
-	}
-	
-	
 }
+}
+}
+		

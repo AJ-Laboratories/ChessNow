@@ -9,6 +9,12 @@
 import UIKit
 import SpriteKit
 
+//board-coordinates
+var a1x:CGFloat = 0
+var a1y = screenHeight/2 + 3*pieceSize
+var a2x:CGFloat = 0
+var a2y = screenHeight/2 + 2*pieceSize
+
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
@@ -29,7 +35,7 @@ var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSi
 var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 + 2*pieceSize, pieceSize	, pieceSize))
+var whitePawn1 = UIImageView(frame: CGRectMake(a2x, a2y, pieceSize	, pieceSize))
 
 //var state = 0
 //var movementLegal: Bool = false
@@ -48,14 +54,14 @@ class ViewController: UIViewController {
 override func viewDidLoad() {
 	super.viewDidLoad()
 
+	
+	println("a1y is \(a1y)")
 	//tab-bar and navigation bar
 		var tab = self.tabBarController?.tabBar
 		tab?.barStyle = UIBarStyle.Black
 		var nav = self.navigationController?.navigationBar
 		nav?.barStyle = UIBarStyle.BlackTranslucent
 	
-	
-//	state = 0
 	
 	
 	//load moveOption
@@ -109,6 +115,7 @@ override func viewDidLoad() {
 
 	
 	func updateMovementTimer() {
+//		var piece: UIImageView = timer.userInfo! as UIImageView
 		timerNumber++
 		if timerNumber > 10 {
 			movementTimer.invalidate()
@@ -118,7 +125,7 @@ override func viewDidLoad() {
 		else {
 		var positionx = whitePawn1.frame.origin.x
 		var positiony = whitePawn1.frame.origin.y
-//		println("\(positiony)")
+		println("\(positiony)")
 		positiony -= screenWidth  / 8 * moveByAmount
 		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
@@ -126,30 +133,21 @@ override func viewDidLoad() {
 
 }
 	
-//	func TestMovement() {
-//		
-//		if state == 0 {
-//			moveByAmount = 0.2
-//			movementLegal = true
-//			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 2, width: pieceSize, height: pieceSize)
-//			
-//		} else {
-//			moveByAmount = 0.1
-//			movementLegal = true
-//			moveOption.frame = CGRect(x: whitePawn1.frame.origin.x, y: whitePawn1.frame.origin.y - screenWidth  / 8 * 1, width: pieceSize, height: pieceSize)
-//		}
-//	}
+
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
+		var piece:UIImageView
+		
 		if touch.view == whitePawn1 {//nøkkelen til suksess
 
+			piece = whitePawn1
+			
 			println("Hey")
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
-//			TestMovement()
-//			state = 1;
+
 			
 			if whitePawn1.frame.origin.x == 0 && whitePawn1.frame.origin.y == screenHeight/2 + 2 * pieceSize {
 				
@@ -160,25 +158,37 @@ override func viewDidLoad() {
 			piecePossibilities2.hidden = false
 
 			
-			
 			}
+			else {
+				
+				piecePossibilities1.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
+				
+				piecePossibilities1.hidden = false
+			}
+			
 			
 		}
 		
 		if touch.view == piecePossibilities1 {
+			movementTimer.invalidate()
+			timerNumber = 0
 			piecePossibilities1.hidden = true;
+			piecePossibilities2.hidden = true;
+			pieceMarked.hidden  = true
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
 		
-		if touch.view == piecePossibilities2 {
+		else if touch.view == piecePossibilities2 {
+			movementTimer.invalidate()
+			timerNumber = 0
 			piecePossibilities2.hidden = true;
 			piecePossibilities1.hidden = true;
+			pieceMarked.hidden  = true
 			moveByAmount = 0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
-		
 //		if movementLegal == true {
 //			moveOption.hidden = false;
 //		}

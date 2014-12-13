@@ -228,6 +228,7 @@ class ViewController: UIViewController {
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		} else if touch.view == piecePossibilities1  && player2 == 1 {
+
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities1.hidden = true;

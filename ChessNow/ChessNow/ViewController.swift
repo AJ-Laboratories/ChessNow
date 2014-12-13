@@ -51,13 +51,16 @@ var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(b, _2, pieceSize	, pieceSize))
+var whitePawn2 = UIImageView(frame: CGRectMake(c, _2, pieceSize, pieceSize))
+
+var pawns : [UIImageView] = [whitePawn1, whitePawn2]
 
 //var state = 0
 //var movementLegal: Bool = false
 var moveByAmount: CGFloat = 0.0
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
-
+var selectedPiece: UIImageView = whitePawn1
 
 class ViewController: UIViewController {
 	
@@ -108,6 +111,10 @@ override func viewDidLoad() {
 		self.view.addSubview(whitePawn1)
 	whitePawn1.contentMode = .ScaleAspectFit
 	
+	whitePawn2.image = UIImage(named: "whitePawn.png")
+	self.view.addSubview(whitePawn2)
+	whitePawn2.contentMode = .ScaleAspectFit
+	
 	blackPawn1.image = UIImage(named: "blackPawn.png")
 	self.view.addSubview(blackPawn1)
 	blackPawn1.contentMode = .ScaleAspectFit
@@ -115,6 +122,8 @@ override func viewDidLoad() {
         println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
 	whitePawn1.userInteractionEnabled = true;
 	whitePawn1.multipleTouchEnabled = true;
+	whitePawn2.userInteractionEnabled = true;
+	whitePawn2.multipleTouchEnabled = true;
 	
     }
 
@@ -137,11 +146,11 @@ override func viewDidLoad() {
 		}
 			
 		else {
-		var positionx = whitePawn1.frame.origin.x
-		var positiony = whitePawn1.frame.origin.y
+		var positionx = selectedPiece.frame.origin.x
+		var positiony = selectedPiece.frame.origin.y
 		println("\(positiony)")
 		positiony -= screenWidth  / 8 * moveByAmount
-		whitePawn1.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+		selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 		
 		}
 
@@ -152,21 +161,21 @@ override func viewDidLoad() {
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		var piece:UIImageView
+		for var i = 0; i <= 1;i++ {
 		
-		if touch.view == whitePawn1 {//nøkkelen til suksess
+		if touch.view == pawns[i] {//nøkkelen til suksess
 
-			piece = whitePawn1
+			selectedPiece = pawns[i]
 			
 			println("Hey")
 			pieceMarked.hidden = false
-					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
+					pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 
 			
-			if whitePawn1.frame.origin.y == _2 {
+			if selectedPiece.frame.origin.y == _2 {
 				
-			piecePossibilities1.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
-			piecePossibilities2.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+			piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+			piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
 				
 			piecePossibilities1.hidden = false
 			piecePossibilities2.hidden = false
@@ -175,12 +184,12 @@ override func viewDidLoad() {
 			}
 			else {
 				
-				piecePossibilities1.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
+				piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
 				
 				piecePossibilities1.hidden = false
 			}
 			
-			
+			}
 		}
 		
 		if touch.view == piecePossibilities1 {
@@ -188,6 +197,7 @@ override func viewDidLoad() {
 			timerNumber = 0
 			piecePossibilities1.hidden = true;
 			piecePossibilities2.hidden = true;
+			pieceMarked.hidden = true
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}

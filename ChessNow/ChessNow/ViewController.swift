@@ -29,7 +29,6 @@ var _6 = screenHeight/2 - 2 * pieceSize
 var _7 = screenHeight/2 - 3 * pieceSize
 var _8 = screenHeight/2 - 4 * pieceSize
 
-
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
@@ -60,8 +59,6 @@ var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, 
 var pawns : [UIImageView] = [whitePawn1, whitePawn2]
 var blackPawns : [UIImageView] = [blackPawn1]
 
-//var state = 0
-//var movementLegal: Bool = false
 var moveByAmount: CGFloat = 0.0
 
 var selectedPiece: UIImageView = whitePawn1
@@ -69,50 +66,52 @@ var selectedPiece: UIImageView = whitePawn1
 class ViewController: UIViewController {
 	
 	let objc = Objective_C()
-
+	
 	@IBOutlet weak var chessBoard: UIImageView!
-
 	
-override func viewDidLoad() {
-	super.viewDidLoad()
-
 	
-	//tab-bar and navigation bar
-		var tab = self.tabBarController?.tabBar
-		tab?.barStyle = UIBarStyle.Black
+	override func viewDidLoad() {
+		
+		
+		super.viewDidLoad()
+		
+		
+		//tab-bar and navigation bar
+		self.tabBarController?.tabBar.hidden = true
 		var nav = self.navigationController?.navigationBar
 		nav?.barStyle = UIBarStyle.BlackTranslucent
-	
-	
-	
-	//load moveOption
-	moveOption.image = UIImage(named: "moveOption.png")
-	self.view.addSubview(moveOption)
-	moveOption.hidden = true
-
-	
-	//load markers
-	pieceMarked.image = UIImage(named: "pieceMarked.png")
-	self.view.addSubview(pieceMarked)
-	pieceMarked.hidden = true
-	
-	piecePossibilities1.image = UIImage(named: "piecePossibilities.png")
-	self.view.addSubview(piecePossibilities1)
-	piecePossibilities1.hidden = true
-	
-	piecePossibilities2.image = UIImage(named: "piecePossibilities.png")
-	self.view.addSubview(piecePossibilities2)
-	piecePossibilities2.hidden = true
-
-	piecePossibilities1.userInteractionEnabled = true;
-	piecePossibilities1.multipleTouchEnabled = true;
-	piecePossibilities2.userInteractionEnabled = true;
-	piecePossibilities2.multipleTouchEnabled = true;
-
-	
-	//chesspieces loading
+		
+		
+		
+		//load moveOption
+		moveOption.image = UIImage(named: "moveOption.png")
+		self.view.addSubview(moveOption)
+		moveOption.hidden = true
+		
+		
+		//load markers
+		pieceMarked.image = UIImage(named: "pieceMarked.png")
+		self.view.addSubview(pieceMarked)
+		pieceMarked.hidden = true
+		
+		piecePossibilities1.image = UIImage(named: "piecePossibilities.png")
+		self.view.addSubview(piecePossibilities1)
+		piecePossibilities1.hidden = true
+		
+		piecePossibilities2.image = UIImage(named: "piecePossibilities.png")
+		self.view.addSubview(piecePossibilities2)
+		piecePossibilities2.hidden = true
+		
+		piecePossibilities1.userInteractionEnabled = true;
+		piecePossibilities1.multipleTouchEnabled = true;
+		piecePossibilities2.userInteractionEnabled = true;
+		piecePossibilities2.multipleTouchEnabled = true;
+		
+		
+		//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
+<<<<<<< HEAD
 	whitePawn1.contentMode = .ScaleAspectFit
 	
 	whitePawn2.image = UIImage(named: "whitePawn.png")
@@ -130,21 +129,35 @@ override func viewDidLoad() {
 	whitePawn2.multipleTouchEnabled = true;
 	blackPawn1.userInteractionEnabled = true
 	blackPawn1.multipleTouchEnabled = true
+=======
+		whitePawn1.contentMode = .ScaleAspectFit
+		
+		whitePawn2.image = UIImage(named: "whitePawn.png")
+		self.view.addSubview(whitePawn2)
+		whitePawn2.contentMode = .ScaleAspectFit
+		
+		blackPawn1.image = UIImage(named: "blackPawn.png")
+		self.view.addSubview(blackPawn1)
+		blackPawn1.contentMode = .ScaleAspectFit
+		
+		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
+		whitePawn1.userInteractionEnabled = true;
+		whitePawn1.multipleTouchEnabled = true;
+		whitePawn2.userInteractionEnabled = true;
+		whitePawn2.multipleTouchEnabled = true;
+		
+	}
+>>>>>>> FETCH_HEAD
 	
-    }
-
-
-    @IBAction func button(sender: AnyObject)
-	{
-		pieceMarked.hidden = true
-		movementTimer.invalidate()
-		timerNumber = 0
-		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-    }
-
+	override func prefersStatusBarHidden() -> Bool {
+		return true
+	}
+	override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+	    return UIStatusBarAnimation.Slide
+	}
 	
 	func updateMovementTimer() {
-//		var piece: UIImageView = timer.userInfo! as UIImageView
+		//		var piece: UIImageView = timer.userInfo! as UIImageView
 		timerNumber++
 		if timerNumber > 10 {
 			movementTimer.invalidate()
@@ -152,22 +165,23 @@ override func viewDidLoad() {
 		}
 			
 		else {
-		var positionx = selectedPiece.frame.origin.x
-		var positiony = selectedPiece.frame.origin.y
-		println("\(positiony)")
-		positiony -= screenWidth  / 8 * moveByAmount
-		selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
-		
+			var positionx = selectedPiece.frame.origin.x
+			var positiony = selectedPiece.frame.origin.y
+			println("\(positiony)")
+			positiony -= screenWidth  / 8 * moveByAmount
+			selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
+			
 		}
-
-}
+		
+	}
 	
-
+	
 	
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
 		for var i = 0; i < pawns.count;i++ {
+<<<<<<< HEAD
 		
 		if touch.view == pawns[i] {//nøkkelen til suksess
 
@@ -178,26 +192,37 @@ override func viewDidLoad() {
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 
+=======
+>>>>>>> FETCH_HEAD
 			
-			if selectedPiece.frame.origin.y == _2 {
+			if touch.view == pawns[i] {//nøkkelen til suksess
 				
-			piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-			piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+				selectedPiece = pawns[i]
 				
-			piecePossibilities1.hidden = false
-			piecePossibilities2.hidden = false
-
-			
+				println("Hey")
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+				
+				
+				if selectedPiece.frame.origin.y == _2 {
+					
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					
+					piecePossibilities1.hidden = false
+					piecePossibilities2.hidden = false
+					
+					
+				}
+				else {
+					
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					
+					piecePossibilities1.hidden = false
+				}
+				
 			}
-			else {
-				
-				piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-				
-				piecePossibilities1.hidden = false
-			}
-			
 		}
-	}
 		
 		for var i = 0; i < blackPawns.count;i++ {
 			
@@ -246,8 +271,13 @@ override func viewDidLoad() {
 			moveByAmount = -0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
+<<<<<<< HEAD
 		
 		 if touch.view == piecePossibilities2 && player1 == 1 {
+=======
+			
+		else if touch.view == piecePossibilities2 {
+>>>>>>> FETCH_HEAD
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -265,9 +295,16 @@ override func viewDidLoad() {
 			moveByAmount = -0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
+<<<<<<< HEAD
 
 
+=======
+		//		if movementLegal == true {
+		//			moveOption.hidden = false;
+		//		}
+		
+>>>>>>> FETCH_HEAD
 	}
-
+	
 	
 }

@@ -422,6 +422,20 @@ class ViewController: UIViewController {
 					piecePossibilities8.hidden = false
 
 				}
+				if selectedPiece.frame.origin.y == _2 {
+					piecePossibilities7.hidden = true
+					piecePossibilities8.hidden = true
+				}
+				if selectedPiece.frame.origin.y == _7 {
+					piecePossibilities1.hidden = true
+					piecePossibilities2.hidden = true
+				}
+				if selectedPiece.frame.origin.y == _8 {
+					piecePossibilities1.hidden = true
+					piecePossibilities2.hidden = true
+					piecePossibilities3.hidden = true
+					piecePossibilities5.hidden = true
+				}
 				
 			}
 			

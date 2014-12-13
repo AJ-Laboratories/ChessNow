@@ -9,11 +9,36 @@
 import UIKit
 import SpriteKit
 
-//board-coordinates
 var a1x:CGFloat = 0
 var a1y = screenHeight/2 + 3*pieceSize
 var a2x:CGFloat = 0
 var a2y = screenHeight/2 + 2*pieceSize
+var a3x:CGFloat = 0
+
+//x-Axis coordinates
+var a:CGFloat = 0
+var b =  pieceSize
+var c = 2 * pieceSize
+var d = 3 * pieceSize
+var e = 4 * pieceSize
+var f = 5 * pieceSize
+var g = 6 * pieceSize
+var h = 7 * pieceSize
+
+//y-Axis coordinates
+var _1 = screenHeight/2 + 3 * pieceSize
+var _2 = screenHeight/2 + 2 * pieceSize
+var _3 = screenHeight/2 + 1 * pieceSize
+var _4 = screenHeight/2
+var _5 = screenHeight/2 - 1 * pieceSize
+var _6 = screenHeight/2 - 2 * pieceSize
+var _7 = screenHeight/2 - 3 * pieceSize
+var _8 = screenHeight/2 - 4 * pieceSize
+
+
+
+
+
 
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -35,7 +60,7 @@ var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSi
 var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(a2x, a2y, pieceSize	, pieceSize))
+var whitePawn1 = UIImageView(frame: CGRectMake(b, _2, pieceSize	, pieceSize))
 
 //var state = 0
 //var movementLegal: Bool = false
@@ -149,7 +174,7 @@ override func viewDidLoad() {
 					pieceMarked.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y, pieceSize, pieceSize)
 
 			
-			if whitePawn1.frame.origin.x == 0 && whitePawn1.frame.origin.y == screenHeight/2 + 2 * pieceSize {
+			if whitePawn1.frame.origin.y == _2 {
 				
 			piecePossibilities1.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - pieceSize, pieceSize, pieceSize)
 			piecePossibilities2.frame = CGRectMake(whitePawn1.frame.origin.x, whitePawn1.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)

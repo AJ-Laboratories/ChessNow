@@ -271,10 +271,6 @@ class ViewController: UIViewController {
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
-		
-	}
 }
-
-
-
+}
 		

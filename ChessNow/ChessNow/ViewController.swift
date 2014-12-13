@@ -110,23 +110,23 @@ class ViewController: UIViewController {
 		//chesspieces loading
 		whitePawn1.image = UIImage(named: "whitePawn.png")
 		self.view.addSubview(whitePawn1)
-		whitePawn1.contentMode = .ScaleAspectFit
-		
-		whitePawn2.image = UIImage(named: "whitePawn.png")
-		self.view.addSubview(whitePawn2)
-		whitePawn2.contentMode = .ScaleAspectFit
-		
-		blackPawn1.image = UIImage(named: "blackPawn.png")
-		self.view.addSubview(blackPawn1)
-		blackPawn1.contentMode = .ScaleAspectFit
-		
-		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
-		whitePawn1.userInteractionEnabled = true;
-		whitePawn1.multipleTouchEnabled = true;
-		whitePawn2.userInteractionEnabled = true;
-		whitePawn2.multipleTouchEnabled = true;
-		blackPawn1.userInteractionEnabled = true
-		blackPawn1.multipleTouchEnabled = true
+	whitePawn1.contentMode = .ScaleAspectFit
+	
+	whitePawn2.image = UIImage(named: "whitePawn.png")
+	self.view.addSubview(whitePawn2)
+	whitePawn2.contentMode = .ScaleAspectFit
+	
+	blackPawn1.image = UIImage(named: "blackPawn.png")
+	self.view.addSubview(blackPawn1)
+	blackPawn1.contentMode = .ScaleAspectFit
+	
+        println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
+	whitePawn1.userInteractionEnabled = true;
+	whitePawn1.multipleTouchEnabled = true;
+	whitePawn2.userInteractionEnabled = true;
+	whitePawn2.multipleTouchEnabled = true;
+	blackPawn1.userInteractionEnabled = true
+	blackPawn1.multipleTouchEnabled = true
 		
 	}
 	
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
 		return true
 	}
 	override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-		return UIStatusBarAnimation.Slide
+	    return UIStatusBarAnimation.Slide
 	}
 	
 	func updateMovementTimer() {
@@ -159,9 +159,13 @@ class ViewController: UIViewController {
 		
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
+		
 		for var i = 0; i < pawns.count;i++ {
 			
+			
 			if touch.view == pawns[i] {//nøkkelen til suksess
+				
+				
 				
 				selectedPiece = pawns[i]
 				player1 = 1;
@@ -171,22 +175,29 @@ class ViewController: UIViewController {
 				
 				
 				if selectedPiece.frame.origin.y == _2 {
+					
+					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					
 					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					
 					piecePossibilities1.hidden = false
 					piecePossibilities2.hidden = false
 					
 				}
+					
 				else {
 					
+					
 					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					
 					
 					piecePossibilities1.hidden = false
 					
 				}
 			}
 		}
-		
+
 		for var i = 0; i < blackPawns.count;i++ {
 			
 			
@@ -227,10 +238,7 @@ class ViewController: UIViewController {
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
-		}
-
-		else if touch.view == piecePossibilities1  && player2 == 1 {
-
+		} else if touch.view == piecePossibilities1  && player2 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities1.hidden = true;
@@ -263,6 +271,6 @@ class ViewController: UIViewController {
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 			
 		}
-	}
+}
 }
 		

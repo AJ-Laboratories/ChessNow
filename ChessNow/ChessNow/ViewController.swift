@@ -48,17 +48,21 @@ var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSi
 
 //moveOption
 var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var player1 = 0
+var player2 = 0;
 
 //chesspieces:
 var whitePawn1 = UIImageView(frame: CGRectMake(b, _2, pieceSize	, pieceSize))
 var whitePawn2 = UIImageView(frame: CGRectMake(c, _2, pieceSize, pieceSize))
 
+var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
+
 var pawns : [UIImageView] = [whitePawn1, whitePawn2]
+var blackPawns : [UIImageView] = [blackPawn1]
 
 //var state = 0
 //var movementLegal: Bool = false
 var moveByAmount: CGFloat = 0.0
-var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
 var selectedPiece: UIImageView = whitePawn1
 
@@ -124,6 +128,8 @@ override func viewDidLoad() {
 	whitePawn1.multipleTouchEnabled = true;
 	whitePawn2.userInteractionEnabled = true;
 	whitePawn2.multipleTouchEnabled = true;
+	blackPawn1.userInteractionEnabled = true
+	blackPawn1.multipleTouchEnabled = true
 	
     }
 
@@ -161,13 +167,14 @@ override func viewDidLoad() {
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch
 		
-		for var i = 0; i <= 1;i++ {
+		for var i = 0; i < pawns.count;i++ {
 		
 		if touch.view == pawns[i] {//nøkkelen til suksess
 
 			selectedPiece = pawns[i]
 			
-			println("Hey")
+			player1 = 1;
+			player2 = 0
 			pieceMarked.hidden = false
 					pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 
@@ -192,7 +199,37 @@ override func viewDidLoad() {
 		}
 	}
 		
-		if touch.view == piecePossibilities1 {
+		for var i = 0; i < blackPawns.count;i++ {
+			
+			if touch.view == blackPawns[i] {//nøkkelen til suksess
+				
+				selectedPiece = blackPawns[i]
+				
+				player2 = 1
+				player1 = 0
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+				
+				
+				if selectedPiece.frame.origin.y == _7 {
+					
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+					
+					piecePossibilities1.hidden = false
+					piecePossibilities2.hidden = false
+					
+				}
+				else {
+					
+					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilities1.hidden = false
+				}
+				
+			}
+		}
+		
+		if touch.view == piecePossibilities1  && player1 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities1.hidden = true;
@@ -200,9 +237,17 @@ override func viewDidLoad() {
 			pieceMarked.hidden = true
 			moveByAmount = 0.1;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+		} else if touch.view == piecePossibilities1  && player2 == 1 {
+			movementTimer.invalidate()
+			timerNumber = 0
+			piecePossibilities1.hidden = true;
+			piecePossibilities2.hidden = true;
+			pieceMarked.hidden = true
+			moveByAmount = -0.1;
+			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
 		
-		else if touch.view == piecePossibilities2 {
+		 if touch.view == piecePossibilities2 && player1 == 1 {
 			movementTimer.invalidate()
 			timerNumber = 0
 			piecePossibilities2.hidden = true;
@@ -210,11 +255,17 @@ override func viewDidLoad() {
 			pieceMarked.hidden  = true
 			moveByAmount = 0.2;
 			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-			
+
+		} else if touch.view == piecePossibilities2 && player2 == 1 {
+			movementTimer.invalidate()
+			timerNumber = 0
+			piecePossibilities2.hidden = true;
+			piecePossibilities1.hidden = true;
+			pieceMarked.hidden  = true
+			moveByAmount = -0.2;
+			movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 		}
-//		if movementLegal == true {
-//			moveOption.hidden = false;
-//		}
+
 
 	}
 

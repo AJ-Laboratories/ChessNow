@@ -189,8 +189,8 @@ override func viewDidLoad() {
 				piecePossibilities1.hidden = false
 			}
 			
-			}
 		}
+	}
 		
 		if touch.view == piecePossibilities1 {
 			movementTimer.invalidate()

@@ -67,12 +67,37 @@ var piecePossibilityBishop5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pie
 var piecePossibilityBishop6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilityBishop7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilityBishop8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop9 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop10 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop11 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop12 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop13 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop14 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop15 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop16 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop17 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop18 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop19 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop20 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop21 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop22 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop23 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop24 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop25 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop26 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop27 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop28 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop29 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop30 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop31 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop32 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
  
 var piecePossibilitiesPawn = [piecePossibilityPawn1,piecePossibilityPawn2,piecePossibilityPawn3,piecePossibilityPawn4,piecePossibilityPawn5]
 
 var piecePossibilitiesKnight = [piecePossibilityKnight1,piecePossibilityKnight2,piecePossibilityKnight3,piecePossibilityKnight4, piecePossibilityKnight5, piecePossibilityKnight6, piecePossibilityKnight7, piecePossibilityKnight8 ]
 
-var piecePossibilitiesBishop  = [piecePossibilityBishop1,piecePossibilityBishop2,piecePossibilityBishop3,piecePossibilityBishop4,piecePossibilityBishop5,piecePossibilityBishop6,piecePossibilityBishop7,piecePossibilityBishop8]
+var piecePossibilitiesBishop  = [piecePossibilityBishop1,piecePossibilityBishop2,piecePossibilityBishop3,piecePossibilityBishop4,piecePossibilityBishop5,piecePossibilityBishop6,piecePossibilityBishop7,piecePossibilityBishop8, piecePossibilityBishop9, piecePossibilityBishop10,piecePossibilityBishop11,piecePossibilityBishop12,piecePossibilityBishop13,piecePossibilityBishop14,piecePossibilityBishop15,piecePossibilityBishop16,piecePossibilityBishop17, piecePossibilityBishop18,piecePossibilityBishop19,piecePossibilityBishop20, piecePossibilityBishop21,piecePossibilityBishop22,piecePossibilityBishop23,piecePossibilityBishop24,piecePossibilityBishop25,piecePossibilityBishop26,piecePossibilityBishop27,piecePossibilityBishop28,piecePossibilityBishop29,piecePossibilityBishop30,piecePossibilityBishop31,piecePossibilityBishop32]
 
 var piecePossibilities = [piecePossibilitiesKnight,piecePossibilitiesPawn]
  
@@ -109,6 +134,8 @@ var canTake : Bool = false
 var selectedPiece: UIImageView = whitePawn1
 
 var eatenPieces : UIImageView = whitePawn1
+
+var pieceCanTake : UIImageView = whitePawn1
 
 class ViewController: UIViewController {
        
@@ -431,6 +458,7 @@ class ViewController: UIViewController {
 			case  (CGRectMake(blackPawn1.frame.origin.x, blackPawn1.frame.origin.y, pieceSize, pieceSize)):
 				
 				self.view.addSubview(piecePossibilitiesKnight[k])
+				pieceCanTake = piecePossibilitiesKnight[k]
 				canTake = true
 				
 			case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
@@ -453,28 +481,242 @@ class ViewController: UIViewController {
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
-				for var i = 1; i < piecePossibilitiesBishop.count; i++ {
+				for var i = 1; i < 8; i++ {
 					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
 				}
 				
-				for var i = 0; i < piecePossibilitiesKnight.count; i++ {
+				for var i = 1; i < 8; i++ {
+					piecePossibilitiesBishop[i+7].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
+				}
+				for var i = 1; i < 8; i++ {
+					piecePossibilitiesBishop[i+14].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
+				}
+				for var i = 1; i < 8; i++ {
+					piecePossibilitiesBishop[i+21].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
+				}
+				
+				for var i = 0; i < piecePossibilitiesBishop.count; i++ {
 					piecePossibilitiesBishop[i].hidden = false
 				}
 				
+				for var k = 0; k < piecePossibilitiesBishop.count; k++ {
+					
+					switch piecePossibilitiesBishop[k].frame {
+						
+					case  (CGRectMake(blackPawn1.frame.origin.x, blackPawn1.frame.origin.y, pieceSize, pieceSize)):
+						
+						self.view.addSubview(piecePossibilitiesBishop[k])
+						pieceCanTake = piecePossibilitiesBishop[k]
+						canTake = true
+						
+					case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
+						
+						piecePossibilitiesBishop[k].hidden = true
+						
+					case (CGRectMake(whiteKnight1.frame.origin.x, whiteKnight1.frame.origin.y, pieceSize, pieceSize)):
+						
+						piecePossibilitiesBishop[k].hidden = true
+						
+					default:
+						""
+					}
+					
+				}
+				
+				
+				if selectedPiece.frame.origin.y == _1 {
+					piecePossibilityBishop15.hidden = true
+					piecePossibilityBishop16.hidden = true
+					piecePossibilityBishop17.hidden = true
+					piecePossibilityBishop18.hidden = true
+					piecePossibilityBishop19.hidden = true
+					piecePossibilityBishop23.hidden = true
+					piecePossibilityBishop24.hidden = true
+					piecePossibilityBishop25.hidden = true
+					piecePossibilityBishop26.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				
+				if selectedPiece.frame.origin.y == _2 {
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop15.hidden = true
+					piecePossibilityBishop17.hidden = true
+					piecePossibilityBishop18.hidden = true
+					piecePossibilityBishop19.hidden = true
+					piecePossibilityBishop20.hidden = true
+					piecePossibilityBishop21.hidden = true
+					piecePossibilityBishop22.hidden = true
+					piecePossibilityBishop24.hidden = true
+					piecePossibilityBishop25.hidden = true
+					piecePossibilityBishop26.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				if selectedPiece.frame.origin.y == _3 {
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop8.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop18.hidden = true
+					piecePossibilityBishop19.hidden = true
+					piecePossibilityBishop20.hidden = true
+					piecePossibilityBishop21.hidden = true
+					piecePossibilityBishop22.hidden = true
+					piecePossibilityBishop25.hidden = true
+					piecePossibilityBishop26.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				
+				if selectedPiece.frame.origin.y == _4 {
+					
+					piecePossibilityBishop6.hidden = true
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop13.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop15.hidden = true
+					piecePossibilityBishop19.hidden = true
+					piecePossibilityBishop20.hidden = true
+					piecePossibilityBishop21.hidden = true
+					piecePossibilityBishop22.hidden = true
+					piecePossibilityBishop26.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				
+				if selectedPiece.frame.origin.y == _5 {
+					
+					piecePossibilityBishop5.hidden = true
+					piecePossibilityBishop6.hidden = true
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop12.hidden = true
+					piecePossibilityBishop13.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop20.hidden = true
+					piecePossibilityBishop21.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				if selectedPiece.frame.origin.y == _6 {
+					
+					
+					piecePossibilityBishop4.hidden = true
+					piecePossibilityBishop5.hidden = true
+					piecePossibilityBishop6.hidden = true
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop11.hidden = true
+					piecePossibilityBishop12.hidden = true
+					piecePossibilityBishop13.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop21.hidden = true
+					piecePossibilityBishop22.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				if selectedPiece.frame.origin.y == _7 {
+					piecePossibilityBishop3.hidden = true
+					piecePossibilityBishop4.hidden = true
+					piecePossibilityBishop5.hidden = true
+					piecePossibilityBishop6.hidden = true
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop10.hidden = true
+					piecePossibilityBishop11.hidden = true
+					piecePossibilityBishop12.hidden = true
+					piecePossibilityBishop13.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop15.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
+				if selectedPiece.frame.origin.y == _8 {
+					
+					piecePossibilityBishop2.hidden = true
+					piecePossibilityBishop3.hidden = true
+					piecePossibilityBishop4.hidden = true
+					piecePossibilityBishop5.hidden = true
+					piecePossibilityBishop6.hidden = true
+					piecePossibilityBishop7.hidden = true
+					piecePossibilityBishop9.hidden = true
+					piecePossibilityBishop10.hidden = true
+					piecePossibilityBishop11.hidden = true
+					piecePossibilityBishop12.hidden = true
+					piecePossibilityBishop13.hidden = true
+					piecePossibilityBishop14.hidden = true
+					piecePossibilityBishop15.hidden = true
+					piecePossibilityBishop27.hidden = true
+					piecePossibilityBishop28.hidden = true
+					piecePossibilityBishop29.hidden = true
+					piecePossibilityBishop30.hidden = true
+					piecePossibilityBishop31.hidden = true
+					
+				}
 				
 			}
-			for var pB = 0; pB < piecePossibilitiesBishop.count; pB++ {
+			for var pB = 0; pB < 8; pB++ {
 				if touch.view == piecePossibilitiesBishop[pB] && player1 == 3 {
 					movePiece(0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
 				}
 			}
+			for var pB = 0; pB < 8; pB++ {
+				if touch.view == piecePossibilitiesBishop[pB+7] && player1 == 3 {
+					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
+				}
+			}
+			for var pB = 0; pB < 8; pB++ {
+				if touch.view == piecePossibilitiesBishop[pB+14] && player1 == 3 {
+					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
+				}
+				
+			}
+			for var pB = 0; pB < 8; pB++ {
+				if touch.view == piecePossibilitiesBishop[pB+21] && player1 == 3 {
+					movePiece(0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
+				}
+				
+			}
 			
 			for var k = 0; k < piecePossibilitiesKnight.count; k++ {
 				
-				if touch.view == piecePossibilitiesKnight[k] && canTake == true{
+				if touch.view == pieceCanTake && canTake == true{
 					blackPawn1.hidden = true
 				}
 			}
+			
+			for var k = 0; k < piecePossibilitiesBishop.count; k++ {
+				
+				if touch.view == pieceCanTake && canTake == true{
+					blackPawn1.hidden = true
+				}
+			}
+			
 		
 			if touch.view == piecePossibilityKnight1 && player1 == 2 {
 				movePiece(0.1, _moveByAmounty: 0.2)

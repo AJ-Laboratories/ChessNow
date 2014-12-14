@@ -23,6 +23,7 @@
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
 		8FFA0B0E1A1FD09E0035B9C8 /* ChessNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */; };
 		F153DF7B1A3CE6DC005DC574 /* whiteKnight.png in Resources */ = {isa = PBXBuildFile; fileRef = F153DF7A1A3CE6DC005DC574 /* whiteKnight.png */; };
+		F153DF7D1A3DFDA2005DC574 /* whiteBishop.png in Resources */ = {isa = PBXBuildFile; fileRef = F153DF7C1A3DFDA2005DC574 /* whiteBishop.png */; };
 		F160D6FF1A21506100E6A783 /* graySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FC1A21506100E6A783 /* graySquare.png */; };
 		F160D7011A21506100E6A783 /* whiteSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FE1A21506100E6A783 /* whiteSquare.png */; };
 		F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BA7A931A38EEF000C7D578 /* moveOption.png */; };
@@ -61,6 +62,7 @@
 		8FFA0B0C1A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessNowTests.swift; sourceTree = "<group>"; };
 		F153DF7A1A3CE6DC005DC574 /* whiteKnight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKnight.png; sourceTree = "<group>"; };
+		F153DF7C1A3DFDA2005DC574 /* whiteBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteBishop.png; sourceTree = "<group>"; };
 		F160D6FC1A21506100E6A783 /* graySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graySquare.png; sourceTree = "<group>"; };
 		F160D6FE1A21506100E6A783 /* whiteSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteSquare.png; sourceTree = "<group>"; };
 		F1BA7A931A38EEF000C7D578 /* moveOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveOption.png; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		8F63938B1A377D20003E988E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F153DF7C1A3DFDA2005DC574 /* whiteBishop.png */,
 				F153DF7A1A3CE6DC005DC574 /* whiteKnight.png */,
 				F1BA7A931A38EEF000C7D578 /* moveOption.png */,
 				8FEC1DF61A38E772004476DC /* pieceMarked.png */,
@@ -271,6 +274,7 @@
 				8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */,
 				8FE278B01A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg in Resources */,
 				8FEC1DF71A38E772004476DC /* pieceMarked.png in Resources */,
+				F153DF7D1A3DFDA2005DC574 /* whiteBishop.png in Resources */,
 				8FEC1DF91A38EF92004476DC /* blackPawn.png in Resources */,
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
 				8FE278B51A38C5900045F279 /* board black and white no border.png in Resources */,

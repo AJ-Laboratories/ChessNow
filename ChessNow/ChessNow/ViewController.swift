@@ -34,7 +34,8 @@ let screenSize: CGRect = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
 let pieceSize = sqrt(screenWidth * screenWidth / 64)
- 
+
+
 //timers
 var timerNumber:Double = 0
 var movementTimer = NSTimer()
@@ -57,10 +58,21 @@ var piecePossibilityKnight5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pie
 var piecePossibilityKnight6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilityKnight7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
 var piecePossibilityKnight8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
+var piecePossibilityBishop1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityBishop8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
  
 var piecePossibilitiesPawn = [piecePossibilityPawn1,piecePossibilityPawn2,piecePossibilityPawn3,piecePossibilityPawn4,piecePossibilityPawn5]
 
-var piecePossibilitiesKnight = [piecePossibilityKnight1,piecePossibilityKnight2,piecePossibilityKnight3]
+var piecePossibilitiesKnight = [piecePossibilityKnight1,piecePossibilityKnight2,piecePossibilityKnight3,piecePossibilityKnight4, piecePossibilityKnight5, piecePossibilityKnight6, piecePossibilityKnight7, piecePossibilityKnight8 ]
+
+var piecePossibilitiesBishop  = [piecePossibilityBishop1,piecePossibilityBishop2,piecePossibilityBishop3,piecePossibilityBishop4,piecePossibilityBishop5,piecePossibilityBishop6,piecePossibilityBishop7,piecePossibilityBishop8]
 
 var piecePossibilities = [piecePossibilitiesKnight,piecePossibilitiesPawn]
  
@@ -77,10 +89,12 @@ var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
 
 var whiteKnight1 = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
+var whiteBishop1 = UIImageView(frame: CGRectMake(c, _1, pieceSize, pieceSize))
 
 var whitePawns : [UIImageView] = [whitePawn1, whitePawn2]
 var blackPawns : [UIImageView] = [blackPawn1]
 var whiteKnights = [whiteKnight1]
+var whiteBishops = [whiteBishop1]
 
 //bool to check if pieces are "alive"
 var whitePawn1Alive = true
@@ -89,7 +103,8 @@ var blackPawn1Alive = true
 
 var moveByAmounty: CGFloat = 0.0
 var moveByAmountx: CGFloat = 0.0
- 
+
+var canTake : Bool = false
  
 var selectedPiece: UIImageView = whitePawn1
 
@@ -142,6 +157,17 @@ class ViewController: UIViewController {
 				
 			}
 			
+			for var pPB = 0; pPB < piecePossibilitiesBishop.count; pPB++ {
+				
+				piecePossibilitiesBishop[pPB].userInteractionEnabled = true
+				piecePossibilitiesBishop[pPB].multipleTouchEnabled = true
+				
+				piecePossibilitiesBishop[pPB].image = UIImage(named: "piecePossibilities.png")
+				self.view.addSubview(piecePossibilitiesBishop[pPB])
+				piecePossibilitiesBishop[pPB].hidden = true
+				
+			}
+			
 
 //chesspieces loading
 			
@@ -167,6 +193,15 @@ class ViewController: UIViewController {
 				whiteKnights[wn].contentMode = .ScaleAspectFit
 				whiteKnights[wn].userInteractionEnabled = true
 				whiteKnights[wn].multipleTouchEnabled = true
+			}
+			
+			
+			for var wb = 0; wb < whiteBishops.count; wb++ {
+			 whiteBishops[wb].image = UIImage(named: "whiteBishop.png")
+				self.view.addSubview(whiteBishops[wb])
+				whiteBishops[wb].contentMode = .ScaleAspectFit
+				whiteBishops[wb].userInteractionEnabled = true
+				whiteBishops[wb].multipleTouchEnabled = true
 			}
 			
 				eatenPieces.hidden = true
@@ -199,6 +234,10 @@ class ViewController: UIViewController {
 		for var pPN = 0; pPN < piecePossibilitiesKnight.count; pPN++ {
 			piecePossibilitiesKnight[pPN].hidden = true
 		}
+		for var pPN = 0; pPN < piecePossibilitiesBishop.count; pPN++ {
+			piecePossibilitiesBishop[pPN].hidden = true
+		}
+		
 		pieceMarked.hidden = true
 	}
 	
@@ -250,12 +289,14 @@ class ViewController: UIViewController {
                                                
                                                 piecePossibilityPawn3.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
                                                 piecePossibilityPawn3.hidden = false
+											self.view.addSubview(piecePossibilityPawn3)
                                                
                                                
                                         case (CGRectMake(pieceMarked.frame.origin.x - pieceSize, pieceMarked.frame.origin.y - pieceSize , pieceSize, pieceSize)):
                                                
                                                 piecePossibilityPawn4.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
                                                 piecePossibilityPawn4.hidden = false
+											self.view.addSubview(piecePossibilityPawn4)
                                         default :
                                                 ""
                                         }
@@ -368,6 +409,7 @@ class ViewController: UIViewController {
 					}
 					
 				}
+		
 				if selectedPiece.frame.origin.y == _2 {
 					piecePossibilityKnight7.hidden = true
 					piecePossibilityKnight8.hidden = true
@@ -382,13 +424,58 @@ class ViewController: UIViewController {
 					piecePossibilityKnight3.hidden = true
 					piecePossibilityKnight5.hidden = true
 				}
+		for var k = 0; k < piecePossibilitiesKnight.count; k++ {
+			
+			switch piecePossibilitiesKnight[k].frame {
+				
+			case  (CGRectMake(blackPawn1.frame.origin.x, blackPawn1.frame.origin.y, pieceSize, pieceSize)):
+				
+				self.view.addSubview(piecePossibilitiesKnight[k])
+				canTake = true
+				
+			case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
+				
+				piecePossibilitiesKnight[k].hidden = true
+				
+			default:
+				""
+			}
+		}
+		
+		
+	}
+			
+			
+			if touch.view == whiteBishop1 {
+				player1 = 3
+				println("hello")
+				selectedPiece = whiteBishop1
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+				
+				for var i = 1; i < piecePossibilitiesBishop.count; i++ {
+					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
+				}
+				
+				for var i = 0; i < piecePossibilitiesKnight.count; i++ {
+					piecePossibilitiesBishop[i].hidden = false
+				}
 				
 			}
 			
+			
+			for var k = 0; k < piecePossibilitiesKnight.count; k++ {
+				
+				if touch.view == piecePossibilitiesKnight[k] && canTake == true{
+					blackPawn1.hidden = true
+				}
+			}
+		
 			if touch.view == piecePossibilityKnight1 && player1 == 2 {
 				movePiece(0.1, _moveByAmounty: 0.2)
+	
 			}
-			
+		
 			if touch.view == piecePossibilityKnight2 && player1 == 2 {
 				movePiece(-0.1, _moveByAmounty: 0.2)
 			}
@@ -396,7 +483,7 @@ class ViewController: UIViewController {
 			if touch.view == piecePossibilityKnight3 && player1 == 2 {
 				movePiece(0.2, _moveByAmounty: 0.1)
 			}
-			
+		
 			if touch.view == piecePossibilityKnight4 && player1 == 2 {
 				movePiece(0.2, _moveByAmounty: -0.1)
 			}
@@ -404,7 +491,7 @@ class ViewController: UIViewController {
 			if touch.view == piecePossibilityKnight5 && player1 == 2 {
 				movePiece(-0.2, _moveByAmounty: 0.1)
 			}
-			
+		
 			if touch.view == piecePossibilityKnight6 && player1 == 2 {
 				movePiece(-0.2, _moveByAmounty: -0.1)
 			}

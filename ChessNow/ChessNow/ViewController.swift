@@ -461,8 +461,13 @@ class ViewController: UIViewController {
 					piecePossibilitiesBishop[i].hidden = false
 				}
 				
+				
 			}
-			
+			for var pB = 0; pB < piecePossibilitiesBishop.count; pB++ {
+				if touch.view == piecePossibilitiesBishop[pB] && player1 == 3 {
+					movePiece(0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
+				}
+			}
 			
 			for var k = 0; k < piecePossibilitiesKnight.count; k++ {
 				

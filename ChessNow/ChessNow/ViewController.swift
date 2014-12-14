@@ -41,19 +41,28 @@ var movementTimer = NSTimer()
  
 //markers
 var pieceMarked = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
+//piecePossibility
+var piecePossibilityPawn1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityPawn2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityPawn3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityPawn4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityPawn5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+
+var piecePossibilityKnight1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
+var piecePossibilityKnight8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
  
-// ditta bør vi lage en array til
-var piecePossibilities1 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities2 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities3 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities4 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities5 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities6 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities7 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
-var piecePossibilities8 = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
- 
- 
- 
+var piecePossibilitiesPawn = [piecePossibilityPawn1,piecePossibilityPawn2,piecePossibilityPawn3,piecePossibilityPawn4,piecePossibilityPawn5]
+
+var piecePossibilitiesKnight = [piecePossibilityKnight1,piecePossibilityKnight2,piecePossibilityKnight3]
+
+var piecePossibilities = [piecePossibilitiesKnight,piecePossibilitiesPawn]
  
  
 //moveOption
@@ -66,20 +75,18 @@ var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, pieceSize , pieceSize))
 var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
  
 var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
- 
+
+var whiteKnight1 = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
+
 var whitePawns : [UIImageView] = [whitePawn1, whitePawn2]
 var blackPawns : [UIImageView] = [blackPawn1]
-
-var whiteKnight = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
+var whiteKnights = [whiteKnight1]
 
 //bool to check if pieces are "alive"
 var whitePawn1Alive = true
 var whitePawn2Alive = true
- 
 var blackPawn1Alive = true
- 
- 
- 
+
 var moveByAmounty: CGFloat = 0.0
 var moveByAmountx: CGFloat = 0.0
  
@@ -105,103 +112,66 @@ class ViewController: UIViewController {
                 self.tabBarController?.tabBar.hidden = true
                 var nav = self.navigationController?.navigationBar
                 nav?.barStyle = UIBarStyle.BlackTranslucent
+			
                
-               
-                //load moveOption
-                moveOption.image = UIImage(named: "moveOption.png")
-                self.view.addSubview(moveOption)
-                moveOption.hidden = true
-               
-               
-                //load markers
+                //load marker
                 pieceMarked.image = UIImage(named: "pieceMarked.png")
                 self.view.addSubview(pieceMarked)
                 pieceMarked.hidden = true
-               
 			
+			// load piecePossibilities
+			for var pPP = 0; pPP < piecePossibilitiesPawn.count; pPP++ {
+				
+				piecePossibilitiesPawn[pPP].userInteractionEnabled = true
+				piecePossibilitiesPawn[pPP].multipleTouchEnabled = true
+				
+				piecePossibilitiesPawn[pPP].image = UIImage(named: "piecePossibilities.png")
+				self.view.addSubview(piecePossibilitiesPawn[pPP])
+				piecePossibilitiesPawn[pPP].hidden = true
+				
+			}
 			
-                piecePossibilities1.userInteractionEnabled = true;
-                piecePossibilities1.multipleTouchEnabled = true;
-                piecePossibilities2.userInteractionEnabled = true;
-                piecePossibilities2.multipleTouchEnabled = true;
-                piecePossibilities3.userInteractionEnabled = true;
-                piecePossibilities3.multipleTouchEnabled = true;
-                piecePossibilities4.userInteractionEnabled = true;
-                piecePossibilities4.multipleTouchEnabled = true;
-			piecePossibilities5.userInteractionEnabled = true;
-			piecePossibilities5.multipleTouchEnabled = true;
-			piecePossibilities6.userInteractionEnabled = true;
-			piecePossibilities6.multipleTouchEnabled = true;
-			piecePossibilities7.userInteractionEnabled = true;
-			piecePossibilities7.multipleTouchEnabled = true;
-			piecePossibilities8.userInteractionEnabled = true;
-			piecePossibilities8.multipleTouchEnabled = true;
+			for var pPN = 0; pPN < piecePossibilitiesKnight.count; pPN++ {
+				
+				piecePossibilitiesKnight[pPN].userInteractionEnabled = true
+				piecePossibilitiesKnight[pPN].multipleTouchEnabled = true
+				
+				piecePossibilitiesKnight[pPN].image = UIImage(named: "piecePossibilities.png")
+				self.view.addSubview(piecePossibilitiesKnight[pPN])
+				piecePossibilitiesKnight[pPN].hidden = true
+				
+			}
+			
 
+//chesspieces loading
 			
-
-
+			for var wp = 0; wp < whitePawns.count; wp++ {
+			 whitePawns[wp].image = UIImage(named: "whitePawn.png")
+				self.view.addSubview(whitePawns[wp])
+				whitePawns[wp].contentMode = .ScaleAspectFit
+				whitePawns[wp].userInteractionEnabled = true
+				whitePawns[wp].multipleTouchEnabled = true
+			}
 			
+			for var bp = 0; bp < blackPawns.count; bp++ {
+			 blackPawns[bp].image = UIImage(named: "blackPawn.png")
+				self.view.addSubview(blackPawns[bp])
+				blackPawns[bp].contentMode = .ScaleAspectFit
+				blackPawns[bp].userInteractionEnabled = true
+				blackPawns[bp].multipleTouchEnabled = true
+			}
 			
-                //chesspieces loading
-                whitePawn1.image = UIImage(named: "whitePawn.png")
-                self.view.addSubview(whitePawn1)
-                whitePawn1.contentMode = .ScaleAspectFit
-               
-                whitePawn2.image = UIImage(named: "whitePawn.png")
-                self.view.addSubview(whitePawn2)
-                whitePawn2.contentMode = .ScaleAspectFit
-               
-                blackPawn1.image = UIImage(named: "blackPawn.png")
-                self.view.addSubview(blackPawn1)
-                blackPawn1.contentMode = .ScaleAspectFit
-			
-				whiteKnight.image = UIImage(named: "whiteKnight.png")
-				self.view.addSubview(whiteKnight)
-				whiteKnight.contentMode = .ScaleAspectFit
-			
-				piecePossibilities1.image = UIImage(named: "piecePossibilities.png")
-				self.view.addSubview(piecePossibilities1)
-				piecePossibilities1.hidden = true
-			
-				piecePossibilities2.image = UIImage(named: "piecePossibilities.png")
-				self.view.addSubview(piecePossibilities2)
-				piecePossibilities2.hidden = true
-			
-				piecePossibilities3.image = UIImage(named: "piecePossibilities.png")
-				self.view.addSubview(piecePossibilities3)
-				piecePossibilities3.hidden = true
-			
-				piecePossibilities4.image = UIImage(named: "piecePossibilities.png")
-				self.view.addSubview(piecePossibilities4)
-				piecePossibilities4.hidden = true
-			
-			piecePossibilities5.image = UIImage(named: "piecePossibilities.png")
-			self.view.addSubview(piecePossibilities5)
-			piecePossibilities5.hidden = true
-			
-			piecePossibilities6.image = UIImage(named: "piecePossibilities.png")
-			self.view.addSubview(piecePossibilities6)
-			piecePossibilities6.hidden = true
-			
-			piecePossibilities7.image = UIImage(named: "piecePossibilities.png")
-			self.view.addSubview(piecePossibilities7)
-			piecePossibilities7.hidden = true
-			
-			piecePossibilities8.image = UIImage(named: "piecePossibilities.png")
-			self.view.addSubview(piecePossibilities8)
-			piecePossibilities8.hidden = true
+			for var wn = 0; wn < whiteKnights.count; wn++ {
+			 whiteKnights[wn].image = UIImage(named: "whiteKnight.png")
+				self.view.addSubview(whiteKnights[wn])
+				whiteKnights[wn].contentMode = .ScaleAspectFit
+				whiteKnights[wn].userInteractionEnabled = true
+				whiteKnights[wn].multipleTouchEnabled = true
+			}
 			
 				eatenPieces.hidden = true
 			
                 println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
-                whitePawn1.userInteractionEnabled = true;
-                whitePawn1.multipleTouchEnabled = true;
-                whitePawn2.userInteractionEnabled = true;
-                whitePawn2.multipleTouchEnabled = true;
-                blackPawn1.userInteractionEnabled = true
-                blackPawn1.multipleTouchEnabled = true
-				whiteKnight.userInteractionEnabled = true
-				whiteKnight.multipleTouchEnabled = true
 			
         }
        
@@ -211,7 +181,32 @@ class ViewController: UIViewController {
         override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
                 return UIStatusBarAnimation.Slide
         }
-       
+	
+	func movePiece(var _moveByAmountx:CGFloat,var _moveByAmounty:CGFloat) {
+		resetTimer()
+		hideAllPiecepossibilities()
+		moveByAmountx = _moveByAmountx
+		moveByAmounty = _moveByAmounty
+		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+	}
+	
+	func hideAllPiecepossibilities() {
+		
+		for var pPP = 0; pPP < piecePossibilitiesPawn.count; pPP++ {
+		piecePossibilitiesPawn[pPP].hidden = true
+		}
+		
+		for var pPN = 0; pPN < piecePossibilitiesKnight.count; pPN++ {
+			piecePossibilitiesKnight[pPN].hidden = true
+		}
+		pieceMarked.hidden = true
+	}
+	
+	func resetTimer() {
+		movementTimer.invalidate()
+		timerNumber = 0
+	}
+	
         func updateMovementTimer() {
                 //              var piece: UIImageView = timer.userInfo! as UIImageView
                 timerNumber++
@@ -253,40 +248,32 @@ class ViewController: UIViewController {
                                                
                                         case  (CGRectMake(pieceMarked.frame.origin.x + pieceSize, pieceMarked.frame.origin.y - pieceSize, pieceSize, pieceSize)):
                                                
-                                                piecePossibilities3.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-                                                piecePossibilities3.hidden = false
+                                                piecePossibilityPawn3.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+                                                piecePossibilityPawn3.hidden = false
                                                
                                                
                                         case (CGRectMake(pieceMarked.frame.origin.x - pieceSize, pieceMarked.frame.origin.y - pieceSize , pieceSize, pieceSize)):
                                                
-                                                piecePossibilities4.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-                                                piecePossibilities4.hidden = false
+                                                piecePossibilityPawn4.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+                                                piecePossibilityPawn4.hidden = false
                                         default :
                                                 ""
                                         }
-                                       
-                                       
                                 }
                                
                                 if selectedPiece.frame.origin.y == _2 {
+                                        piecePossibilityPawn1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+                                        piecePossibilityPawn2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
                                        
-                                       
-                                        piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-                                       
-                                        piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-                                       
-                                        piecePossibilities1.hidden = false
-                                        piecePossibilities2.hidden = false
+                                        piecePossibilityPawn1.hidden = false
+                                        piecePossibilityPawn2.hidden = false
                                        
                                 }
                                        
-                                else {
-                                       
-                                       
-                                        piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-                                       
-                                       
-                                        piecePossibilities1.hidden = false
+								else {
+                                        piecePossibilityPawn1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+
+                                        piecePossibilityPawn1.hidden = false
                                        
                                 }
                         }
@@ -306,80 +293,42 @@ class ViewController: UIViewController {
                                 pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
                                
                                 if selectedPiece.frame.origin.y == _7 {
-                                        piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
-                                        piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
-                                        piecePossibilities1.hidden = false
-                                        piecePossibilities2.hidden = false
+                                        piecePossibilityPawn1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+                                        piecePossibilityPawn2.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+                                        piecePossibilityPawn1.hidden = false
+                                        piecePossibilityPawn2.hidden = false
                                        
                                 }
                                        
                                 else {
-                                        piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+                                        piecePossibilityPawn1.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
                                        
-                                        piecePossibilities1.hidden = false
+                                        piecePossibilityPawn1.hidden = false
                                        
                                 }
                         }
                 }
                
-                if touch.view == piecePossibilities1  && player1 == 1 {
-                       
-                        movementTimer.invalidate()
-                        timerNumber = 0
-                        piecePossibilities1.hidden = true;
-                        piecePossibilities2.hidden = true;
-                        pieceMarked.hidden = true
-                        moveByAmounty = 0.1
-                        moveByAmountx = 0
-                       
-                        movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-                       
+                if touch.view == piecePossibilityPawn1  && player1 == 1 {
+						movePiece(0, _moveByAmounty: 0.1)
                 }
-                else if touch.view == piecePossibilities1  && player2 == 1 {
-                        movementTimer.invalidate()
-                        timerNumber = 0
-                        piecePossibilities1.hidden = true;
-                        piecePossibilities2.hidden = true;
-                        pieceMarked.hidden = true
-                        moveByAmounty = -0.1
-                        moveByAmountx = 0
-                        movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-                       
+                else if touch.view == piecePossibilityPawn1  && player2 == 1 {
+						movePiece(0, _moveByAmounty: -0.1)
                 }
-               
-               
-                if touch.view == piecePossibilities2 && player1 == 1 {
-                       
-                        movementTimer.invalidate()
-                        timerNumber = 0
-                        piecePossibilities2.hidden = true;
-                        piecePossibilities1.hidden = true;
-                        pieceMarked.hidden  = true
-                        moveByAmounty = 0.2
-                        moveByAmountx = 0
-                        movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-                       
-                } else if touch.view == piecePossibilities2 && player2 == 1 {
-                       
-                        movementTimer.invalidate()
-                        timerNumber = 0
-                        piecePossibilities2.hidden = true;
-                        piecePossibilities1.hidden = true;
-                        pieceMarked.hidden  = true
-                        moveByAmounty = -0.2
-                        moveByAmountx = 0
-                        movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-                       
+
+                if touch.view == piecePossibilityPawn2 && player1 == 1 {
+						movePiece(0, _moveByAmounty: 0.2)
                 }
-                if touch.view == piecePossibilities4  && player1 == 1 {
-                       
-                        movementTimer.invalidate()
-                        timerNumber = 0
-                        piecePossibilities1.hidden = true;
-                        piecePossibilities2.hidden = true;
+				else if touch.view == piecePossibilityPawn2 && player2 == 1 {
+						movePiece(0, _moveByAmounty: -0.2)
+					
+                }
+                if touch.view == piecePossibilityPawn4  && player1 == 1 {
+						resetTimer()
+						for var i = 0; i < piecePossibilitiesPawn.count; i++ {
+						piecePossibilitiesPawn[i].hidden = true
+						}
 						blackPawn1.hidden = true
-						piecePossibilities3.hidden = true
-						piecePossibilities4.hidden = true
                         pieceMarked.hidden = true
                         moveByAmounty = 0.1
                         moveByAmountx = -0.1
@@ -390,190 +339,80 @@ class ViewController: UIViewController {
 					eatenPieces.hidden = false
                 }
 
-			if touch.view == whiteKnight {
+	if touch.view == whiteKnight1 {
 				player1 = 2
-				selectedPiece = whiteKnight
+				selectedPiece = whiteKnight1
 				println("hello")
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
 				if selectedPiece.frame.origin.y == _1 {
-					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities1.hidden = false
-					piecePossibilities2.hidden = false
+					piecePossibilityKnight1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight1.hidden = false
+					piecePossibilityKnight2.hidden = false
 					
 				} else {
-					piecePossibilities1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities3.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-					piecePossibilities4.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
-					piecePossibilities5.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
-					piecePossibilities6.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
-					piecePossibilities7.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities8.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
-					piecePossibilities1.hidden = false
-					piecePossibilities2.hidden = false
-					piecePossibilities3.hidden = false
-					piecePossibilities4.hidden = false
-					piecePossibilities5.hidden = false
-					piecePossibilities6.hidden = false
-					piecePossibilities7.hidden = false
-					piecePossibilities8.hidden = false
-
+					
+					piecePossibilityKnight1.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight2.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y - 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight3.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight4.frame = CGRectMake(selectedPiece.frame.origin.x + 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight5.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y - pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight6.frame = CGRectMake(selectedPiece.frame.origin.x - 2*pieceSize, selectedPiece.frame.origin.y + pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight7.frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+					piecePossibilityKnight8.frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize, selectedPiece.frame.origin.y + 2*pieceSize, pieceSize, pieceSize)
+					
+					for var i = 0; i < piecePossibilitiesKnight.count; i++ {
+					piecePossibilitiesKnight[i].hidden = false
+					}
+					
 				}
 				if selectedPiece.frame.origin.y == _2 {
-					piecePossibilities7.hidden = true
-					piecePossibilities8.hidden = true
+					piecePossibilityKnight7.hidden = true
+					piecePossibilityKnight8.hidden = true
 				}
 				if selectedPiece.frame.origin.y == _7 {
-					piecePossibilities1.hidden = true
-					piecePossibilities2.hidden = true
+					piecePossibilityKnight1.hidden = true
+					piecePossibilityKnight2.hidden = true
 				}
 				if selectedPiece.frame.origin.y == _8 {
-					piecePossibilities1.hidden = true
-					piecePossibilities2.hidden = true
-					piecePossibilities3.hidden = true
-					piecePossibilities5.hidden = true
+					piecePossibilityKnight1.hidden = true
+					piecePossibilityKnight2.hidden = true
+					piecePossibilityKnight3.hidden = true
+					piecePossibilityKnight5.hidden = true
 				}
 				
 			}
 			
-			if touch.view == piecePossibilities1 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = 0.2
-				moveByAmountx = 0.1
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight1 && player1 == 2 {
+				movePiece(0.1, _moveByAmounty: 0.2)
 			}
 			
-			if touch.view == piecePossibilities2 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = 0.2
-				moveByAmountx = -0.1
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight2 && player1 == 2 {
+				movePiece(-0.1, _moveByAmounty: 0.2)
+			}
+
+			if touch.view == piecePossibilityKnight3 && player1 == 2 {
+				movePiece(0.2, _moveByAmounty: 0.1)
 			}
 			
-			
-			
-			if touch.view == piecePossibilities3 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = 0.1
-				moveByAmountx = 0.2
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight4 && player1 == 2 {
+				movePiece(0.2, _moveByAmounty: -0.1)
+			}
+	
+			if touch.view == piecePossibilityKnight5 && player1 == 2 {
+				movePiece(-0.2, _moveByAmounty: 0.1)
 			}
 			
-			if touch.view == piecePossibilities4 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = -0.1
-				moveByAmountx = 0.2
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight6 && player1 == 2 {
+				movePiece(-0.2, _moveByAmounty: -0.1)
 			}
-			
-			if touch.view == piecePossibilities5 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = 0.1
-				moveByAmountx = -0.2
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight7 && player1 == 2 {
+				movePiece(-0.1,_moveByAmounty: -0.2)
 			}
-			
-			if touch.view == piecePossibilities6 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = -0.1
-				moveByAmountx = -0.2
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-			}
-			if touch.view == piecePossibilities7 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = -0.2
-				moveByAmountx = -0.1
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
-			}
-			
-			if touch.view == piecePossibilities8 && player1 == 2 {
-				movementTimer.invalidate()
-				timerNumber = 0
-				piecePossibilities1.hidden = true;
-				piecePossibilities2.hidden = true;
-				piecePossibilities3.hidden = true
-				piecePossibilities4.hidden = true
-				piecePossibilities5.hidden = true;
-				piecePossibilities6.hidden = true;
-				piecePossibilities7.hidden = true
-				piecePossibilities8.hidden = true
-				pieceMarked.hidden = true
-				moveByAmounty = -0.2
-				moveByAmountx = 0.1
-				movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+			if touch.view == piecePossibilityKnight8 && player1 == 2 {
+				movePiece(0.1, _moveByAmounty: -0.2)
 			}
 			
         }

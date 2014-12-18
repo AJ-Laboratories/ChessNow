@@ -512,6 +512,9 @@ class ViewController: UIViewController {
 					case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
 						
 						piecePossibilitiesBishop[k].hidden = true
+						piecePossibilitiesBishop[k+1].hidden = true
+						piecePossibilitiesBishop[k+2].hidden = true
+						piecePossibilitiesBishop[k+3].hidden = true
 						
 					case (CGRectMake(whiteKnight1.frame.origin.x, whiteKnight1.frame.origin.y, pieceSize, pieceSize)):
 						

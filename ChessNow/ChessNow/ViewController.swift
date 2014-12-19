@@ -10,24 +10,28 @@ import UIKit
 import SpriteKit
  
 //x-Axis coordinates
-var a:CGFloat = 0
-var b =  pieceSize
-var c = 2 * pieceSize
-var d = 3 * pieceSize
-var e = 4 * pieceSize
-var f = 5 * pieceSize
-var g = 6 * pieceSize
-var h = 7 * pieceSize
+let a:CGFloat = 0
+let b =  pieceSize
+let c = 2 * pieceSize
+let d = 3 * pieceSize
+let e = 4 * pieceSize
+let f = 5 * pieceSize
+let g = 6 * pieceSize
+let h = 7 * pieceSize
  
 //y-Axis coordinates
-var _1 = screenHeight/2 + 3 * pieceSize
-var _2 = screenHeight/2 + 2 * pieceSize
-var _3 = screenHeight/2 + 1 * pieceSize
-var _4 = screenHeight/2
-var _5 = screenHeight/2 - 1 * pieceSize
-var _6 = screenHeight/2 - 2 * pieceSize
-var _7 = screenHeight/2 - 3 * pieceSize
-var _8 = screenHeight/2 - 4 * pieceSize
+let _1 = screenHeight/2 + 3 * pieceSize
+let _2 = screenHeight/2 + 2 * pieceSize
+let _3 = screenHeight/2 + 1 * pieceSize
+let _4 = screenHeight/2
+let _5 = screenHeight/2 - 1 * pieceSize
+let _6 = screenHeight/2 - 2 * pieceSize
+let _7 = screenHeight/2 - 3 * pieceSize
+let _8 = screenHeight/2 - 4 * pieceSize
+
+
+//BOARDER
+let boarderUnder = UIImageView(frame: CGRectMake(-pieceSize, _1 + pieceSize, 10*pieceSize, pieceSize))
  
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -100,7 +104,8 @@ var piecePossibilitiesKnight = [piecePossibilityKnight1,piecePossibilityKnight2,
 var piecePossibilitiesBishop  = [piecePossibilityBishop1,piecePossibilityBishop2,piecePossibilityBishop3,piecePossibilityBishop4,piecePossibilityBishop5,piecePossibilityBishop6,piecePossibilityBishop7,piecePossibilityBishop8, piecePossibilityBishop9, piecePossibilityBishop10,piecePossibilityBishop11,piecePossibilityBishop12,piecePossibilityBishop13,piecePossibilityBishop14,piecePossibilityBishop15,piecePossibilityBishop16,piecePossibilityBishop17, piecePossibilityBishop18,piecePossibilityBishop19,piecePossibilityBishop20, piecePossibilityBishop21,piecePossibilityBishop22,piecePossibilityBishop23,piecePossibilityBishop24,piecePossibilityBishop25,piecePossibilityBishop26,piecePossibilityBishop27,piecePossibilityBishop28,piecePossibilityBishop29,piecePossibilityBishop30,piecePossibilityBishop31,piecePossibilityBishop32]
 
 var piecePossibilities = [piecePossibilitiesKnight,piecePossibilitiesPawn]
- 
+
+var pieceOptions : Array<UIImageView> = []
  
 //moveOption
 var moveOption = UIImageView(frame: CGRectMake(0, 0, pieceSize, pieceSize))
@@ -111,15 +116,18 @@ var player2 = 0;
 var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, pieceSize , pieceSize))
 var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
  
-var blackPawn1 = UIImageView(frame: CGRectMake(0, screenHeight/2 - 3*pieceSize, pieceSize, pieceSize))
+var blackPawn1 = UIImageView(frame: CGRectMake(f, _4, pieceSize, pieceSize))
 
 var whiteKnight1 = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
 var whiteBishop1 = UIImageView(frame: CGRectMake(c, _1, pieceSize, pieceSize))
 
 var whitePawns : [UIImageView] = [whitePawn1, whitePawn2]
 var blackPawns : [UIImageView] = [blackPawn1]
+
 var whiteKnights = [whiteKnight1]
 var whiteBishops = [whiteBishop1]
+
+var blackPieces = [blackPawn1]
 
 //bool to check if pieces are "alive"
 var whitePawn1Alive = true
@@ -252,6 +260,50 @@ class ViewController: UIViewController {
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 	}
 	
+	func whiteBishopSelected(var _event:UIEvent, var _touch:UITouch) {
+		
+		var canThePieceGofurther: Bool = true
+
+		for var t = 0; t < whiteBishops.count; t++ {
+			
+			if whiteBishops[t].frame.origin.x == selectedPiece.frame.origin.x && whiteBishops[t].frame.origin.y == selectedPiece.frame.origin.y {
+				for var w:CGFloat = 1; w < 32; w++ {
+
+					
+					if canThePieceGofurther == true {
+						
+						var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + w * pieceSize, selectedPiece.frame.origin.y - w * pieceSize, pieceSize, pieceSize))
+						pieceOption.image = UIImage(named: "piecePossibilities.png")
+						self.view.addSubview(pieceOption)
+						
+						pieceOptions += [pieceOption]
+					}
+					
+					
+			for var r = 0; r < blackPieces.count; r++ {
+					
+					
+					 if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + w * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - w * pieceSize {
+						
+						var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + w * pieceSize, selectedPiece.frame.origin.y - w * pieceSize, pieceSize, pieceSize))
+						pieceOption.image = UIImage(named: "piecePossibilities.png")
+						self.view.addSubview(pieceOption)
+						
+						pieceOptions += [pieceOption]
+						canThePieceGofurther = false
+						
+					}
+				
+				}
+	
+
+			
+	
+		}
+			}
+		}
+	}
+	
 	func hideAllPiecepossibilities() {
 		
 		for var pPP = 0; pPP < piecePossibilitiesPawn.count; pPP++ {
@@ -291,8 +343,8 @@ class ViewController: UIViewController {
                        
                 }
         }
-       
-        override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+	
+override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
                
                 let touch :UITouch = event.allTouches()?.anyObject() as UITouch
                
@@ -475,280 +527,283 @@ class ViewController: UIViewController {
 			
 			
 			if touch.view == whiteBishop1 {
-				player1 = 3
-				println("hello")
 				selectedPiece = whiteBishop1
+				whiteBishopSelected(event, _touch: touch)
+//				player1 = 3
+//				println("hello")
+//				selectedPiece = whiteBishop1
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 				
-				for var i = 1; i < 8; i++ {
-					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
-				}
-				
-				for var i = 1; i < 8; i++ {
-					piecePossibilitiesBishop[i+7].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
-				}
-				for var i = 1; i < 8; i++ {
-					piecePossibilitiesBishop[i+14].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
-				}
-				for var i = 1; i < 8; i++ {
-					piecePossibilitiesBishop[i+21].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
-				}
-				
-				for var i = 0; i < piecePossibilitiesBishop.count; i++ {
-					piecePossibilitiesBishop[i].hidden = false
-				}
-				
-				for var k = 0; k < piecePossibilitiesBishop.count; k++ {
-					
-					switch piecePossibilitiesBishop[k].frame {
-						
-					case  (CGRectMake(blackPawn1.frame.origin.x, blackPawn1.frame.origin.y, pieceSize, pieceSize)):
-						
-						self.view.addSubview(piecePossibilitiesBishop[k])
-						pieceCanTake = piecePossibilitiesBishop[k]
-						canTake = true
-						
-					case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
-						
-						piecePossibilitiesBishop[k].hidden = true
-						
-					case (CGRectMake(whiteKnight1.frame.origin.x, whiteKnight1.frame.origin.y, pieceSize, pieceSize)):
-						
-						piecePossibilitiesBishop[k].hidden = true
-						
-					default:
-						""
-					}
-					
-				}
-				
-				
-				if selectedPiece.frame.origin.y == _1 {
-					piecePossibilityBishop15.hidden = true
-					piecePossibilityBishop16.hidden = true
-					piecePossibilityBishop17.hidden = true
-					piecePossibilityBishop18.hidden = true
-					piecePossibilityBishop19.hidden = true
-					piecePossibilityBishop23.hidden = true
-					piecePossibilityBishop24.hidden = true
-					piecePossibilityBishop25.hidden = true
-					piecePossibilityBishop26.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				
-				if selectedPiece.frame.origin.y == _2 {
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop15.hidden = true
-					piecePossibilityBishop17.hidden = true
-					piecePossibilityBishop18.hidden = true
-					piecePossibilityBishop19.hidden = true
-					piecePossibilityBishop20.hidden = true
-					piecePossibilityBishop21.hidden = true
-					piecePossibilityBishop22.hidden = true
-					piecePossibilityBishop24.hidden = true
-					piecePossibilityBishop25.hidden = true
-					piecePossibilityBishop26.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				if selectedPiece.frame.origin.y == _3 {
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop8.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop18.hidden = true
-					piecePossibilityBishop19.hidden = true
-					piecePossibilityBishop20.hidden = true
-					piecePossibilityBishop21.hidden = true
-					piecePossibilityBishop22.hidden = true
-					piecePossibilityBishop25.hidden = true
-					piecePossibilityBishop26.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				
-				if selectedPiece.frame.origin.y == _4 {
-					
-					piecePossibilityBishop6.hidden = true
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop13.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop15.hidden = true
-					piecePossibilityBishop19.hidden = true
-					piecePossibilityBishop20.hidden = true
-					piecePossibilityBishop21.hidden = true
-					piecePossibilityBishop22.hidden = true
-					piecePossibilityBishop26.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				
-				if selectedPiece.frame.origin.y == _5 {
-					
-					piecePossibilityBishop5.hidden = true
-					piecePossibilityBishop6.hidden = true
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop12.hidden = true
-					piecePossibilityBishop13.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop20.hidden = true
-					piecePossibilityBishop21.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				if selectedPiece.frame.origin.y == _6 {
-					
-					
-					piecePossibilityBishop4.hidden = true
-					piecePossibilityBishop5.hidden = true
-					piecePossibilityBishop6.hidden = true
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop11.hidden = true
-					piecePossibilityBishop12.hidden = true
-					piecePossibilityBishop13.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop21.hidden = true
-					piecePossibilityBishop22.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				if selectedPiece.frame.origin.y == _7 {
-					piecePossibilityBishop3.hidden = true
-					piecePossibilityBishop4.hidden = true
-					piecePossibilityBishop5.hidden = true
-					piecePossibilityBishop6.hidden = true
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop10.hidden = true
-					piecePossibilityBishop11.hidden = true
-					piecePossibilityBishop12.hidden = true
-					piecePossibilityBishop13.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop15.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				if selectedPiece.frame.origin.y == _8 {
-					
-					piecePossibilityBishop2.hidden = true
-					piecePossibilityBishop3.hidden = true
-					piecePossibilityBishop4.hidden = true
-					piecePossibilityBishop5.hidden = true
-					piecePossibilityBishop6.hidden = true
-					piecePossibilityBishop7.hidden = true
-					piecePossibilityBishop9.hidden = true
-					piecePossibilityBishop10.hidden = true
-					piecePossibilityBishop11.hidden = true
-					piecePossibilityBishop12.hidden = true
-					piecePossibilityBishop13.hidden = true
-					piecePossibilityBishop14.hidden = true
-					piecePossibilityBishop15.hidden = true
-					piecePossibilityBishop27.hidden = true
-					piecePossibilityBishop28.hidden = true
-					piecePossibilityBishop29.hidden = true
-					piecePossibilityBishop30.hidden = true
-					piecePossibilityBishop31.hidden = true
-					
-				}
-				
-			}
-			for var pB = 0; pB < 8; pB++ {
-				if touch.view == piecePossibilitiesBishop[pB] && player1 == 3 {
-					movePiece(0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
-				}
-			}
-			for var pB = 0; pB < 8; pB++ {
-				if touch.view == piecePossibilitiesBishop[pB+7] && player1 == 3 {
-					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
-				}
-			}
-			for var pB = 0; pB < 8; pB++ {
-				if touch.view == piecePossibilitiesBishop[pB+14] && player1 == 3 {
-					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
-				}
-				
-			}
-			for var pB = 0; pB < 8; pB++ {
-				if touch.view == piecePossibilitiesBishop[pB+21] && player1 == 3 {
-					movePiece(0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
-				}
-				
-			}
-			
-			for var k = 0; k < piecePossibilitiesKnight.count; k++ {
-				
-				if touch.view == pieceCanTake && canTake == true{
-					blackPawn1.hidden = true
-				}
-			}
-			
-			for var k = 0; k < piecePossibilitiesBishop.count; k++ {
-				
-				if touch.view == pieceCanTake && canTake == true{
-					blackPawn1.hidden = true
-				}
-			}
-			
-		
-			if touch.view == piecePossibilityKnight1 && player1 == 2 {
-				movePiece(0.1, _moveByAmounty: 0.2)
-	
-			}
-		
-			if touch.view == piecePossibilityKnight2 && player1 == 2 {
-				movePiece(-0.1, _moveByAmounty: 0.2)
-			}
-
-			if touch.view == piecePossibilityKnight3 && player1 == 2 {
-				movePiece(0.2, _moveByAmounty: 0.1)
-			}
-		
-			if touch.view == piecePossibilityKnight4 && player1 == 2 {
-				movePiece(0.2, _moveByAmounty: -0.1)
-			}
-	
-			if touch.view == piecePossibilityKnight5 && player1 == 2 {
-				movePiece(-0.2, _moveByAmounty: 0.1)
-			}
-		
-			if touch.view == piecePossibilityKnight6 && player1 == 2 {
-				movePiece(-0.2, _moveByAmounty: -0.1)
-			}
-			if touch.view == piecePossibilityKnight7 && player1 == 2 {
-				movePiece(-0.1,_moveByAmounty: -0.2)
-			}
-			if touch.view == piecePossibilityKnight8 && player1 == 2 {
-				movePiece(0.1, _moveByAmounty: -0.2)
-			}
+//				for var i = 1; i < 8; i++ {
+//					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
+//				}
+//				
+//				for var i = 1; i < 8; i++ {
+//					piecePossibilitiesBishop[i+7].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
+//				}
+//				for var i = 1; i < 8; i++ {
+//					piecePossibilitiesBishop[i+14].frame = CGRectMake(selectedPiece.frame.origin.x - pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
+//				}
+//				for var i = 1; i < 8; i++ {
+//					piecePossibilitiesBishop[i+21].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y + pieceSize*CGFloat(i), pieceSize, pieceSize)
+//				}
+//				
+//				for var i = 0; i < piecePossibilitiesBishop.count; i++ {
+//					piecePossibilitiesBishop[i].hidden = false
+//				}
+//				
+//				for var k = 0; k < piecePossibilitiesBishop.count; k++ {
+//					
+//					switch piecePossibilitiesBishop[k].frame {
+//						
+//					case  (CGRectMake(blackPawn1.frame.origin.x, blackPawn1.frame.origin.y, pieceSize, pieceSize)):
+//						
+//						self.view.addSubview(piecePossibilitiesBishop[k])
+//						pieceCanTake = piecePossibilitiesBishop[k]
+//						canTake = true
+//						
+//					case (CGRectMake(whitePawn2.frame.origin.x, whitePawn2.frame.origin.y, pieceSize, pieceSize)):
+//						
+//						piecePossibilitiesBishop[k].hidden = true
+//						
+//					case (CGRectMake(whiteKnight1.frame.origin.x, whiteKnight1.frame.origin.y, pieceSize, pieceSize)):
+//						
+//						piecePossibilitiesBishop[k].hidden = true
+//						
+//					default:
+//						""
+//					}
+//					
+//				}
+//				
+//				
+//				if selectedPiece.frame.origin.y == _1 {
+//					piecePossibilityBishop15.hidden = true
+//					piecePossibilityBishop16.hidden = true
+//					piecePossibilityBishop17.hidden = true
+//					piecePossibilityBishop18.hidden = true
+//					piecePossibilityBishop19.hidden = true
+//					piecePossibilityBishop23.hidden = true
+//					piecePossibilityBishop24.hidden = true
+//					piecePossibilityBishop25.hidden = true
+//					piecePossibilityBishop26.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				
+//				if selectedPiece.frame.origin.y == _2 {
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop15.hidden = true
+//					piecePossibilityBishop17.hidden = true
+//					piecePossibilityBishop18.hidden = true
+//					piecePossibilityBishop19.hidden = true
+//					piecePossibilityBishop20.hidden = true
+//					piecePossibilityBishop21.hidden = true
+//					piecePossibilityBishop22.hidden = true
+//					piecePossibilityBishop24.hidden = true
+//					piecePossibilityBishop25.hidden = true
+//					piecePossibilityBishop26.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				if selectedPiece.frame.origin.y == _3 {
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop8.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop18.hidden = true
+//					piecePossibilityBishop19.hidden = true
+//					piecePossibilityBishop20.hidden = true
+//					piecePossibilityBishop21.hidden = true
+//					piecePossibilityBishop22.hidden = true
+//					piecePossibilityBishop25.hidden = true
+//					piecePossibilityBishop26.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				
+//				if selectedPiece.frame.origin.y == _4 {
+//					
+//					piecePossibilityBishop6.hidden = true
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop13.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop15.hidden = true
+//					piecePossibilityBishop19.hidden = true
+//					piecePossibilityBishop20.hidden = true
+//					piecePossibilityBishop21.hidden = true
+//					piecePossibilityBishop22.hidden = true
+//					piecePossibilityBishop26.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				
+//				if selectedPiece.frame.origin.y == _5 {
+//					
+//					piecePossibilityBishop5.hidden = true
+//					piecePossibilityBishop6.hidden = true
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop12.hidden = true
+//					piecePossibilityBishop13.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop20.hidden = true
+//					piecePossibilityBishop21.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				if selectedPiece.frame.origin.y == _6 {
+//					
+//					
+//					piecePossibilityBishop4.hidden = true
+//					piecePossibilityBishop5.hidden = true
+//					piecePossibilityBishop6.hidden = true
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop11.hidden = true
+//					piecePossibilityBishop12.hidden = true
+//					piecePossibilityBishop13.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop21.hidden = true
+//					piecePossibilityBishop22.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				if selectedPiece.frame.origin.y == _7 {
+//					piecePossibilityBishop3.hidden = true
+//					piecePossibilityBishop4.hidden = true
+//					piecePossibilityBishop5.hidden = true
+//					piecePossibilityBishop6.hidden = true
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop10.hidden = true
+//					piecePossibilityBishop11.hidden = true
+//					piecePossibilityBishop12.hidden = true
+//					piecePossibilityBishop13.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop15.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				if selectedPiece.frame.origin.y == _8 {
+//					
+//					piecePossibilityBishop2.hidden = true
+//					piecePossibilityBishop3.hidden = true
+//					piecePossibilityBishop4.hidden = true
+//					piecePossibilityBishop5.hidden = true
+//					piecePossibilityBishop6.hidden = true
+//					piecePossibilityBishop7.hidden = true
+//					piecePossibilityBishop9.hidden = true
+//					piecePossibilityBishop10.hidden = true
+//					piecePossibilityBishop11.hidden = true
+//					piecePossibilityBishop12.hidden = true
+//					piecePossibilityBishop13.hidden = true
+//					piecePossibilityBishop14.hidden = true
+//					piecePossibilityBishop15.hidden = true
+//					piecePossibilityBishop27.hidden = true
+//					piecePossibilityBishop28.hidden = true
+//					piecePossibilityBishop29.hidden = true
+//					piecePossibilityBishop30.hidden = true
+//					piecePossibilityBishop31.hidden = true
+//					
+//				}
+//				
+//			}
+//			for var pB = 0; pB < 8; pB++ {
+//				if touch.view == piecePossibilitiesBishop[pB] && player1 == 3 {
+//					movePiece(0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
+//				}
+//			}
+//			for var pB = 0; pB < 8; pB++ {
+//				if touch.view == piecePossibilitiesBishop[pB+7] && player1 == 3 {
+//					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: 0.1 * CGFloat(pB))
+//				}
+//			}
+//			for var pB = 0; pB < 8; pB++ {
+//				if touch.view == piecePossibilitiesBishop[pB+14] && player1 == 3 {
+//					movePiece(-0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
+//				}
+//				
+//			}
+//			for var pB = 0; pB < 8; pB++ {
+//				if touch.view == piecePossibilitiesBishop[pB+21] && player1 == 3 {
+//					movePiece(0.1 * CGFloat(pB), _moveByAmounty: -0.1 * CGFloat(pB))
+//				}
+//				
+//			}
+//			
+//			for var k = 0; k < piecePossibilitiesKnight.count; k++ {
+//				
+//				if touch.view == pieceCanTake && canTake == true{
+//					blackPawn1.hidden = true
+//				}
+//			}
+//			
+//			for var k = 0; k < piecePossibilitiesBishop.count; k++ {
+//				
+//				if touch.view == pieceCanTake && canTake == true{
+//					blackPawn1.hidden = true
+//				}
+//			}
+//			
+//		
+//			if touch.view == piecePossibilityKnight1 && player1 == 2 {
+//				movePiece(0.1, _moveByAmounty: 0.2)
+//	
+//			}
+//		
+//			if touch.view == piecePossibilityKnight2 && player1 == 2 {
+//				movePiece(-0.1, _moveByAmounty: 0.2)
+//			}
+//
+//			if touch.view == piecePossibilityKnight3 && player1 == 2 {
+//				movePiece(0.2, _moveByAmounty: 0.1)
+//			}
+//		
+//			if touch.view == piecePossibilityKnight4 && player1 == 2 {
+//				movePiece(0.2, _moveByAmounty: -0.1)
+//			}
+//	
+//			if touch.view == piecePossibilityKnight5 && player1 == 2 {
+//				movePiece(-0.2, _moveByAmounty: 0.1)
+//			}
+//		
+//			if touch.view == piecePossibilityKnight6 && player1 == 2 {
+//				movePiece(-0.2, _moveByAmounty: -0.1)
+//			}
+//			if touch.view == piecePossibilityKnight7 && player1 == 2 {
+//				movePiece(-0.1,_moveByAmounty: -0.2)
+//			}
+//			if touch.view == piecePossibilityKnight8 && player1 == 2 {
+//				movePiece(0.1, _moveByAmounty: -0.2)
+//			}
 			
         }
+	}
 
 }

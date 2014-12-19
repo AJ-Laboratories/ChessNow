@@ -255,6 +255,7 @@ class ViewController: UIViewController {
 	func movePiece(var _moveByAmountx:CGFloat,var _moveByAmounty:CGFloat) {
 		resetTimer()
 		hideAllPiecepossibilities()
+		hidePieceOptions()
 		moveByAmountx = _moveByAmountx
 		moveByAmounty = _moveByAmounty
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
@@ -337,12 +338,19 @@ class ViewController: UIViewController {
                         var positionx = selectedPiece.frame.origin.x
                         var positiony = selectedPiece.frame.origin.y
                         println("\(positiony)")
-                        positiony -= screenWidth  / 8 * moveByAmounty
-                        positionx += screenWidth / 8 * moveByAmountx
+                        positiony +=  moveByAmounty / 10
+                        positionx += moveByAmountx / 10
                         selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
                        
                 }
         }
+	
+	func hidePieceOptions() {
+		for var p = 0 ; p < pieceOptions.count; p++ {
+			pieceOptions[p].hidden = true
+		}
+		pieceOptions = []
+	}
 	
 override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
                
@@ -526,7 +534,7 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 	}
 			
 			
-			if touch.view == whiteBishop1 {
+		if touch.view == whiteBishop1 {
 				selectedPiece = whiteBishop1
 				whiteBishopSelected(event, _touch: touch)
 //				player1 = 3
@@ -534,6 +542,18 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 //				selectedPiece = whiteBishop1
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+	}
+	
+	println(pieceOptions)
+	
+	for var o = 0 ; o < pieceOptions.count; o++ {
+		pieceOptions[o].userInteractionEnabled = true
+		pieceOptions[o].multipleTouchEnabled = true
+		
+					if touch.view == pieceOptions[o] {
+					movePiece(pieceOptions[o].frame.origin.x - selectedPiece.frame.origin.x, _moveByAmounty: pieceOptions[o].frame.origin.y - selectedPiece.frame.origin.y)
+						
+				}
 				
 //				for var i = 1; i < 8; i++ {
 //					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
@@ -1075,6 +1095,6 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 //>>>>>>> FETCH_HEAD
 //			
         }
-	}
+	
 
-}
+	}}

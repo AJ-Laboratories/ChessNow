@@ -33,10 +33,7 @@ let _8 = screenHeight/2 - 4 * pieceSize
 
 
 //BOARDER
-let boarderUnder = UIImageView(frame: CGRectMake(-pieceSize, _1 + pieceSize, 10*pieceSize, 3*pieceSize))
-let boarderOver = UIImageView(frame: CGRectMake(-pieceSize, _8 - 2*pieceSize, 10*pieceSize, 2*pieceSize))
-let boarderLeft = UIImageView(frame: CGRectMake(-pieceSize*2, _8 - pieceSize, 2*pieceSize, 10*pieceSize))
-let boarderRight = UIImageView(frame: CGRectMake(pieceSize*8, _8 - pieceSize, 2*pieceSize, 10*pieceSize))
+let boarderBoard = UIImageView(frame: CGRectMake(-0.5*pieceSize, _1 - 7*pieceSize, 9*pieceSize, 8*pieceSize))
  
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -174,7 +171,7 @@ class ViewController: UIViewController {
                 pieceMarked.image = UIImage(named: "pieceMarked.png")
                 self.view.addSubview(pieceMarked)
                 pieceMarked.hidden = true
-			
+		
 			
 			// load piecePossibilities
 			for var pPP = 0; pPP < piecePossibilitiesPawn.count; pPP++ {
@@ -567,20 +564,7 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		}
 	
 	for var o = 0 ; o < pieceOptions.count; o++ {
-		if CGRectContainsPoint(boarderUnder.frame, pieceOptions[o].center) {
-			[pieceOptions[o] .removeFromSuperview()]
-			println("remove")
-		}
-		if CGRectContainsPoint(boarderOver.frame, pieceOptions[o].center) {
-			[pieceOptions[o] .removeFromSuperview()]
-			println("remove")
-		}
-		
-		if CGRectContainsPoint(boarderLeft.frame, pieceOptions[o].center) {
-			[pieceOptions[o] .removeFromSuperview()]
-			println("remove")
-		}
-		if CGRectContainsPoint(boarderRight.frame, pieceOptions[o].center) {
+		if CGRectContainsPoint(boarderBoard.frame, pieceOptions[o].center) == false {
 			[pieceOptions[o] .removeFromSuperview()]
 			println("remove")
 		}

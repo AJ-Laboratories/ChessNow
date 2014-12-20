@@ -33,7 +33,7 @@ let _8 = screenHeight/2 - 4 * pieceSize
 
 
 //BOARDER
-let boarderBoard = UIImageView(frame: CGRectMake(-0.5*pieceSize, _1 - 7*pieceSize, 9*pieceSize, 8*pieceSize))
+let boarderBoard = UIImageView(frame: CGRectMake(-0.01*pieceSize, _1 - 7*pieceSize, 8*pieceSize, 8*pieceSize))
  
 //size-properties
 let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -171,7 +171,6 @@ class ViewController: UIViewController {
                 pieceMarked.image = UIImage(named: "pieceMarked.png")
                 self.view.addSubview(pieceMarked)
                 pieceMarked.hidden = true
-		
 			
 			// load piecePossibilities
 			for var pPP = 0; pPP < piecePossibilitiesPawn.count; pPP++ {

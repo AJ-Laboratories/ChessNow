@@ -277,11 +277,13 @@ class ViewController: UIViewController {
 
 				for byAmountx; byAmountx >= -8 && byAmountx <= 8; byAmountx += increaserx, byAmounty += increasery {
 					
+
 					for var q = 0; q < whitePieces.count; q++ {
 						if whitePieces[q].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && whitePieces[q].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize{
 							canThePieceGofurther = false
 						}
 					}
+					
 					
 						if canThePieceGofurther == true {
 							
@@ -303,6 +305,13 @@ class ViewController: UIViewController {
 								
 							}
 						}
+					for var o = 0 ; o < pieceOptions.count; o++ {
+						if CGRectContainsPoint(boarderBoard.frame, pieceOptions[o].center) == false {
+							[pieceOptions[o] .removeFromSuperview()]
+							pieceOptions.removeAtIndex(o)
+						}
+					}
+
 					}
 			}
 			}
@@ -312,8 +321,7 @@ class ViewController: UIViewController {
 					letThemAppear(1,-1,1,-1)
 					letThemAppear(-1,1,-1,1)
 					letThemAppear(-1,-1,-1,-1)
-		
-	}
+			}
 	
 	func hideAllPiecepossibilities() {
 		
@@ -563,13 +571,6 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 			
 		}
 	
-	for var o = 0 ; o < pieceOptions.count; o++ {
-		if CGRectContainsPoint(boarderBoard.frame, pieceOptions[o].center) == false {
-			[pieceOptions[o] .removeFromSuperview()]
-			println("remove")
-		}
 
-
-	}
 }
 }

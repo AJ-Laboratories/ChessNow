@@ -255,52 +255,72 @@ class ViewController: UIViewController {
 	func movePiece(var _moveByAmountx:CGFloat,var _moveByAmounty:CGFloat) {
 		resetTimer()
 		hideAllPiecepossibilities()
-		hidePieceOptions()
 		moveByAmountx = _moveByAmountx
 		moveByAmounty = _moveByAmounty
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
+		hidePieceOptions()
+
 	}
 	
 	func whiteBishopSelected(var _event:UIEvent, var _touch:UITouch) {
 		
 		var canThePieceGofurther: Bool = true
-
+		var byAmountx:CGFloat = 1
+		var byAmounty:CGFloat = 1
+		
+		
+		
 		for var t = 0; t < whiteBishops.count; t++ {
-			
+
 			if whiteBishops[t].frame.origin.x == selectedPiece.frame.origin.x && whiteBishops[t].frame.origin.y == selectedPiece.frame.origin.y {
-				for var w:CGFloat = 1; w < 32; w++ {
-
-					
-					if canThePieceGofurther == true {
-						
-						var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + w * pieceSize, selectedPiece.frame.origin.y - w * pieceSize, pieceSize, pieceSize))
-						pieceOption.image = UIImage(named: "piecePossibilities.png")
-						self.view.addSubview(pieceOption)
-						
-						pieceOptions += [pieceOption]
-					}
-					
-					
-			for var r = 0; r < blackPieces.count; r++ {
-					
-					
-					 if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + w * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - w * pieceSize {
-						
-						var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + w * pieceSize, selectedPiece.frame.origin.y - w * pieceSize, pieceSize, pieceSize))
-						pieceOption.image = UIImage(named: "piecePossibilities.png")
-						self.view.addSubview(pieceOption)
-						
-						pieceOptions += [pieceOption]
-						canThePieceGofurther = false
-						
-					}
 				
-				}
-	
 
-			
-	
-		}
+				
+				func letThemAppear() {
+					for byAmountx, byAmounty; byAmountx < 8; byAmountx++, byAmounty++ {
+						
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							pieceOption.image = UIImage(named: "piecePossibilities.png")
+							self.view.addSubview(pieceOption)
+							
+							pieceOptions += [pieceOption]
+						}
+						
+						
+						for var r = 0; r < blackPieces.count; r++ {
+							
+							
+							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								pieceOption.image = UIImage(named: "piecePossibilities.png")
+								self.view.addSubview(pieceOption)
+								
+								pieceOptions += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+					}
+					
+				}
+				
+				switch (byAmountx , byAmounty) {
+					
+				case (byAmountx * 1 , byAmounty * 1):
+					letThemAppear()
+				case (byAmountx * 1 , byAmounty * -1):
+					letThemAppear()
+				case (byAmountx * -1 , byAmounty * 1):
+					letThemAppear()
+				case (byAmountx * -1 , byAmounty * -1):
+					letThemAppear()
+				}
+				
+
 			}
 		}
 	}
@@ -348,6 +368,7 @@ class ViewController: UIViewController {
 	func hidePieceOptions() {
 		for var p = 0 ; p < pieceOptions.count; p++ {
 			pieceOptions[p].hidden = true
+//			self.view.delete(pieceOptions[p])
 		}
 		pieceOptions = []
 	}
@@ -537,14 +558,9 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		if touch.view == whiteBishop1 {
 				selectedPiece = whiteBishop1
 				whiteBishopSelected(event, _touch: touch)
-//				player1 = 3
-//				println("hello")
-//				selectedPiece = whiteBishop1
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 	}
-	
-	println(pieceOptions)
 	
 	for var o = 0 ; o < pieceOptions.count; o++ {
 		pieceOptions[o].userInteractionEnabled = true
@@ -554,7 +570,12 @@ override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 					movePiece(pieceOptions[o].frame.origin.x - selectedPiece.frame.origin.x, _moveByAmounty: pieceOptions[o].frame.origin.y - selectedPiece.frame.origin.y)
 						
 				}
-				
+		
+		
+		//				player1 = 3
+		//				println("hello")
+		//				selectedPiece = whiteBishop1
+		
 //				for var i = 1; i < 8; i++ {
 //					piecePossibilitiesBishop[i].frame = CGRectMake(selectedPiece.frame.origin.x + pieceSize * CGFloat(i), selectedPiece.frame.origin.y - pieceSize*CGFloat(i), pieceSize, pieceSize)
 //				}

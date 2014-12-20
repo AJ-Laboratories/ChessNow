@@ -18,6 +18,7 @@ let e = 4 * pieceSize
 let f = 5 * pieceSize
 let g = 6 * pieceSize
 let h = 7 * pieceSize
+
  
 //y-Axis coordinates
 let _1 = screenHeight/2 + 3 * pieceSize
@@ -28,6 +29,7 @@ let _5 = screenHeight/2 - 1 * pieceSize
 let _6 = screenHeight/2 - 2 * pieceSize
 let _7 = screenHeight/2 - 3 * pieceSize
 let _8 = screenHeight/2 - 4 * pieceSize
+
 
 
 //BOARDER
@@ -131,6 +133,7 @@ var whiteKnights = [whiteKnight1]
 var whiteBishops = [whiteBishop1]
 
 var blackPieces = [blackPawn1]
+var whitePieces = [whitePawn1,whitePawn2,whiteKnight1,whiteBishop1]
 
 //bool to check if pieces are "alive"
 var whitePawn1Alive = true
@@ -276,7 +279,13 @@ class ViewController: UIViewController {
 			if whiteBishops[t].frame.origin.x == selectedPiece.frame.origin.x && whiteBishops[t].frame.origin.y == selectedPiece.frame.origin.y {
 
 				for byAmountx; byAmountx >= -8 && byAmountx <= 8; byAmountx += increaserx, byAmounty += increasery {
-						
+					
+					for var q = 0; q < whitePieces.count; q++ {
+						if whitePieces[q].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && whitePieces[q].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize{
+							canThePieceGofurther = false
+						}
+					}
+					
 						if canThePieceGofurther == true {
 							
 							var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))

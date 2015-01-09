@@ -92,18 +92,9 @@ var canTake : Bool = false
 var pawnState = 0
 var movementallowed: CGFloat = 2
 
-var posy : CGFloat = 0;
-var posx : CGFloat = 0;
-var posy2 : CGFloat = 0;
-var posx2 : CGFloat = 0;
-var posy3 : CGFloat = 0;
-var posx3 : CGFloat = 0;
-var posy4 : CGFloat = 0;
-var posx4 : CGFloat = 0;
+
 var increasey : CGFloat = 1;
 var increasex : CGFloat = 1;
-var posyArr = [posy,posy2,posy3,posy4]
-var posxArr = [posx,posx2,posx3,posx4]
 var piecePos : Array<UIImageView> = []
 
 class ViewController: UIViewController {

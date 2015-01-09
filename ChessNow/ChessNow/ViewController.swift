@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 //x-Axis coordinates
-let a:CGFloat = 0
+let a:CGFloat = 0 * pieceSize
 let b =  pieceSize
 let c = 2 * pieceSize
 let d = 3 * pieceSize
@@ -50,7 +50,7 @@ var pieceOptions : Array<UIImageView> = []
 
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, 45 , 45))
+var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, pieceSize , pieceSize))
 var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 
 var blackPawn1 = UIImageView(frame: CGRectMake(f, _4, pieceSize, pieceSize))
@@ -89,6 +89,18 @@ var canTake : Bool = false
 var pawnState = 0
 var movementallowed: CGFloat = 2
 
+var posy : CGFloat = 0;
+var posx : CGFloat = 0;
+var posy2 : CGFloat = 0;
+var posx2 : CGFloat = 0;
+var posy3 : CGFloat = 0;
+var posx3 : CGFloat = 0;
+var posy4 : CGFloat = 0;
+var posx4 : CGFloat = 0;
+var increasey : CGFloat = 1;
+var increasex : CGFloat = 1;
+var piecePos : Array<UIImageView> = []
+
 class ViewController: UIViewController {
 	
 	let objc = Objective_C()
@@ -100,6 +112,65 @@ class ViewController: UIViewController {
 		
 		
 		super.viewDidLoad()
+		
+		
+		for posx; posx < 8 && posy < 8 && posx2 < 8 && posy2 < 8 && posx3 < 8 && posy3 < 8 && posx4 < 8 && posy4 < 8; posx++, posy++, posx2++, posy2++, posx3++, posy3++, posx4++, posy4++ {
+			if (posx < 8) {
+				if ( posy < 8) {
+					var pieceSqr = UIImageView(frame: CGRectMake(posx * pieceSize, _1, pieceSize, pieceSize))
+					self.view.addSubview(pieceSqr)
+					piecePos += [pieceSqr]
+					
+				}
+				
+				var pieceSqr = UIImageView(frame: CGRectMake(posx * pieceSize, _2, pieceSize, pieceSize))
+				self.view.addSubview(pieceSqr)
+				piecePos += [pieceSqr]
+				
+			}
+			if (posx2 < 8) {
+				if ( posy2 < 8) {
+					var pieceSqr = UIImageView(frame: CGRectMake(posx2 * pieceSize, _3, pieceSize, pieceSize))
+					self.view.addSubview(pieceSqr)
+					piecePos += [pieceSqr]
+					
+				}
+				
+				var pieceSqr = UIImageView(frame: CGRectMake(posx2 * pieceSize, _4, pieceSize, pieceSize))
+				self.view.addSubview(pieceSqr)
+				piecePos += [pieceSqr]
+				
+			}
+			
+			if (posx3 < 8) {
+				if ( posy3 < 8) {
+					var pieceSqr = UIImageView(frame: CGRectMake(posx3 * pieceSize, _5, pieceSize, pieceSize))
+					self.view.addSubview(pieceSqr)
+					piecePos += [pieceSqr]
+					
+				}
+				
+				var pieceSqr = UIImageView(frame: CGRectMake(posx3 * pieceSize, _6, pieceSize, pieceSize))
+				self.view.addSubview(pieceSqr)
+				piecePos += [pieceSqr]
+				
+			}
+			
+			if (posx4 < 8) {
+				if ( posy4 < 8) {
+					var pieceSqr = UIImageView(frame: CGRectMake(posx4 * pieceSize, _7, pieceSize, pieceSize))
+					self.view.addSubview(pieceSqr)
+					piecePos += [pieceSqr]
+					
+				}
+				
+				var pieceSqr = UIImageView(frame: CGRectMake(posx4 * pieceSize, _8, pieceSize, pieceSize))
+				self.view.addSubview(pieceSqr)
+				piecePos += [pieceSqr]
+				
+			}
+		}
+		
 		
 		
 		//tab-bar and navigation bar
@@ -220,7 +291,21 @@ class ViewController: UIViewController {
 					}
 				}
 			}
+			println("----------------------------")
+			println(blackPawn1.frame.origin.x)
+			println("----------------------------")
+			println(selectedPiece.frame.origin.x - 1 * pieceSize)
+			println("----------------------------")
+			println(blackPawn1.frame.origin.y)
+			println("----------------------------")
+			println(selectedPiece.frame.origin.y - 1 * pieceSize)
+			println("----------------------------")
+			println(c)
+			println("----------------------------")
+			println(_3)
+			println("----------------------------")
 		}
+		
 		
 		letThemAppear(1, 1, 1, 1)
 		letThemAppear(1,-1,1,-1)
@@ -266,10 +351,10 @@ class ViewController: UIViewController {
 							pieceOptions += [pieceOption]
 						}
 						for var r = 0; r < blackPieces.count; r++ {
-							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x - 1 * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - 1 * pieceSize && canThePieceGofurther == true {
+							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x - byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - 1 * pieceSize && canThePieceGofurther == true {
 								
 								println("working")
-								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, 45, 45))
+								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
 								pieceOption.image = UIImage(named: "piecePossibilities.png")
 								self.view.addSubview(pieceOption)
 								pieceOptions += [pieceOption]
@@ -282,10 +367,12 @@ class ViewController: UIViewController {
 					
 				}
 			}
-
+			
+			
 		}
 		letThemAppear(1, 1, 1, 1)
 		letThemAppear(-1, 1, 1, 1)
+		
 	}
 	
 	
@@ -306,12 +393,15 @@ class ViewController: UIViewController {
 		else {
 			var positionx = selectedPiece.frame.origin.x
 			var positiony = selectedPiece.frame.origin.y
-			println("\(positiony)")
 			positiony +=  moveByAmounty / 10
 			positionx += moveByAmountx / 10
+			println("positiony: " + "\(positiony)")
+			println("positionx: " + "\(positionx)")
 			selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 			
+			
 		}
+		
 	}
 	
 	func hidePieceOptions() {
@@ -333,7 +423,12 @@ class ViewController: UIViewController {
 				whitePawnSelected(event, _touch: touch)
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
-				println(pieceSize)
+			}
+			for var o = 0 ; o < piecePos.count; o++ {
+				if CGRectContainsPoint(selectedPiece.frame, piecePos[o].center) {
+					selectedPiece.frame.origin.x = piecePos[o].frame.origin.x
+					selectedPiece.frame.origin.y = piecePos[o].frame.origin.y
+				}
 			}
 		}
 		
@@ -351,7 +446,7 @@ class ViewController: UIViewController {
 		
 		for var i = 0; i < blackPawns.count;i++ {
 			if touch.view == blackPawns[i] {
-
+				
 			}
 		}
 		

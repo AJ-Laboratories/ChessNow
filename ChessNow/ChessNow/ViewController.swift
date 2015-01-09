@@ -50,7 +50,7 @@ var pieceOptions : Array<UIImageView> = []
 
 
 //chesspieces:
-var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, pieceSize , pieceSize))
+var whitePawn1 = UIImageView(frame: CGRectMake(a, _2, 45 , 45))
 var whitePawn2 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 
 var blackPawn1 = UIImageView(frame: CGRectMake(f, _4, pieceSize, pieceSize))
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
 		}
 		
 		
-		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize")
+		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize. \(pieceSize) is the pieceSize")
 		
 	}
 	
@@ -172,7 +172,6 @@ class ViewController: UIViewController {
 	
 	func whiteBishopSelected(var _event:UIEvent, var _touch:UITouch) {
 		
-		println(pieceSize)
 		
 		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
 			var canThePieceGofurther: Bool = true
@@ -270,7 +269,7 @@ class ViewController: UIViewController {
 							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x - 1 * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - 1 * pieceSize && canThePieceGofurther == true {
 								
 								println("working")
-								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, 45, 45))
 								pieceOption.image = UIImage(named: "piecePossibilities.png")
 								self.view.addSubview(pieceOption)
 								pieceOptions += [pieceOption]
@@ -283,7 +282,6 @@ class ViewController: UIViewController {
 					
 				}
 			}
-		println(pieceSize)
 
 		}
 		letThemAppear(1, 1, 1, 1)

@@ -19,6 +19,8 @@ let f = 5 * pieceSize
 let g = 6 * pieceSize
 let h = 7 * pieceSize
 
+let xAxisArr = [a,b,c,d,e,f,g,h]
+
 
 //y-Axis coordinates
 let _1 = screenHeight/2 + 3 * pieceSize
@@ -30,6 +32,7 @@ let _6 = screenHeight/2 - 2 * pieceSize
 let _7 = screenHeight/2 - 3 * pieceSize
 let _8 = screenHeight/2 - 4 * pieceSize
 
+let yAxisArr = [_1,_2,_3,_4,_5,_6,_7,_8]
 
 
 //BOARDER
@@ -99,6 +102,8 @@ var posy4 : CGFloat = 0;
 var posx4 : CGFloat = 0;
 var increasey : CGFloat = 1;
 var increasex : CGFloat = 1;
+var posyArr = [posy,posy2,posy3,posy4]
+var posxArr = [posx,posx2,posx3,posx4]
 var piecePos : Array<UIImageView> = []
 
 class ViewController: UIViewController {
@@ -114,63 +119,26 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		
-		for posx; posx < 8 && posy < 8 && posx2 < 8 && posy2 < 8 && posx3 < 8 && posy3 < 8 && posx4 < 8 && posy4 < 8; posx++, posy++, posx2++, posy2++, posx3++, posy3++, posx4++, posy4++ {
-			if (posx < 8) {
-				if ( posy < 8) {
-					var pieceSqr = UIImageView(frame: CGRectMake(posx * pieceSize, _1, pieceSize, pieceSize))
+		for var i = 0 ; i < 8; i++ {
+			for var t = 0; t < 8; t++ {
+					var pieceSqr = UIImageView(frame: CGRectMake(xAxisArr[t] , yAxisArr[i] , pieceSize, pieceSize))
 					self.view.addSubview(pieceSqr)
 					piecePos += [pieceSqr]
-					
-				}
-				
-				var pieceSqr = UIImageView(frame: CGRectMake(posx * pieceSize, _2, pieceSize, pieceSize))
-				self.view.addSubview(pieceSqr)
-				piecePos += [pieceSqr]
-				
-			}
-			if (posx2 < 8) {
-				if ( posy2 < 8) {
-					var pieceSqr = UIImageView(frame: CGRectMake(posx2 * pieceSize, _3, pieceSize, pieceSize))
-					self.view.addSubview(pieceSqr)
-					piecePos += [pieceSqr]
-					
-				}
-				
-				var pieceSqr = UIImageView(frame: CGRectMake(posx2 * pieceSize, _4, pieceSize, pieceSize))
-				self.view.addSubview(pieceSqr)
-				piecePos += [pieceSqr]
-				
-			}
-			
-			if (posx3 < 8) {
-				if ( posy3 < 8) {
-					var pieceSqr = UIImageView(frame: CGRectMake(posx3 * pieceSize, _5, pieceSize, pieceSize))
-					self.view.addSubview(pieceSqr)
-					piecePos += [pieceSqr]
-					
-				}
-				
-				var pieceSqr = UIImageView(frame: CGRectMake(posx3 * pieceSize, _6, pieceSize, pieceSize))
-				self.view.addSubview(pieceSqr)
-				piecePos += [pieceSqr]
-				
-			}
-			
-			if (posx4 < 8) {
-				if ( posy4 < 8) {
-					var pieceSqr = UIImageView(frame: CGRectMake(posx4 * pieceSize, _7, pieceSize, pieceSize))
-					self.view.addSubview(pieceSqr)
-					piecePos += [pieceSqr]
-					
-				}
-				
-				var pieceSqr = UIImageView(frame: CGRectMake(posx4 * pieceSize, _8, pieceSize, pieceSize))
-				self.view.addSubview(pieceSqr)
-				piecePos += [pieceSqr]
-				
 			}
 		}
 		
+		
+//		for var posxyNumber = 0; posxyNumber < 8; posxyNumber++ {
+//		
+//		for posx; posyArr[posxyNumber] < 8 && posxArr[posxyNumber] < 8; posyArr[posxyNumber]++, posxArr[posxyNumber]++ {
+//			
+//					var pieceSqr = UIImageView(frame: CGRectMake(posxArr[posxyNumber] * pieceSize, yAxisArr[posxyNumber], pieceSize, pieceSize))
+//					self.view.addSubview(pieceSqr)
+//					piecePos += [pieceSqr]
+//
+//
+//			}
+//		}
 		
 		
 		//tab-bar and navigation bar

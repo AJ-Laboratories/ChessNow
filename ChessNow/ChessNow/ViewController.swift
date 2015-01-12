@@ -195,12 +195,7 @@ class ViewController: UIViewController {
 		pieceMarked.image = UIImage(named: "pieceMarked.png")
 		self.view.addSubview(pieceMarked)
 		pieceMarked.hidden = true
-		
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> FETCH_HEAD
+	
 		//chesspieces loading - REMEMBER TO ADD PIECES TO ARRAYS!! Right order as well!!
 
 		for var i = 0; i < piecesArrs.count; i++ {
@@ -1099,17 +1094,14 @@ class ViewController: UIViewController {
 					takenBlackPieces += [takenPiece]
 					self.view.addSubview(takenPiece)
 				}
-<<<<<<< HEAD
-=======
+
 				}
 				
 				
->>>>>>> FETCH_HEAD
 			}
 				
 		}
-			
-	}
+	
 
 		
 		for var o = 0 ; o < pieceOptions.count ; o++ {

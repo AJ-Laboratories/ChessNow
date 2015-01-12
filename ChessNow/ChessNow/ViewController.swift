@@ -982,7 +982,7 @@ class ViewController: UIViewController {
 					
 					
 					for var r = 0; r < blackPieces.count; r++ {
-						if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
+						if whitePieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && whitePieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
 							
 							var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
 							pieceOption.image = UIImage(named: "piecePossibilities.png")
@@ -1090,7 +1090,7 @@ class ViewController: UIViewController {
 					blackPieces.removeAtIndex(t)
 					
 					var takenPiece = UIImageView(frame: CGRectMake(CGFloat(takenBlackPieces.count) * pieceSize * 0.65, screenHeight / 2 + 4 * pieceSize + pieceSize * 0.3, pieceSize * 0.65, pieceSize * 0.65))
-					takenPiece.image = UIImage(named: blackPiecesString[t])
+					takenPiece.image = blackPieces[t].image
 					takenBlackPieces += [takenPiece]
 					self.view.addSubview(takenPiece)
 				}
@@ -1213,7 +1213,7 @@ class ViewController: UIViewController {
 			if touch.view == blackKing {
 				selectedPiece = blackKing
 				removePieceOptions()
-				blackKnightSelected(event, _touch: touch)
+				blackKingSelected(event, _touch: touch)
 				pieceMarked.hidden = false
 				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 			}

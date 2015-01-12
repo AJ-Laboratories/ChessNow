@@ -200,6 +200,8 @@ class ViewController: UIViewController {
 		
 	}
 	
+	
+// MARK: - Setup-functions 🔍
 	override func prefersStatusBarHidden() -> Bool {
 		return true
 	}
@@ -207,7 +209,8 @@ class ViewController: UIViewController {
 	override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
 		return UIStatusBarAnimation.Slide
 	}
-	
+
+// MARK: - Functions to make life easier 💕
 	func movePiece(var _moveByAmountx:CGFloat,var _moveByAmounty:CGFloat) {
 		resetTimer()
 		hidePieceOptions()
@@ -216,6 +219,16 @@ class ViewController: UIViewController {
 		movementTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateMovementTimer"), userInfo: nil, repeats: true)
 	}
 	
+	func hidePieceOptions() {
+		for var p = 0 ; p < pieceOptions.count; p++ {
+			pieceOptions[p].hidden = true
+			pieceMarked.hidden = true
+		}
+		pieceOptions = []
+	}
+	
+
+// MARK: - Piece selected! 👾
 	func whiteBishopSelected(var _event:UIEvent, var _touch:UITouch) {
 		
 		
@@ -668,7 +681,7 @@ class ViewController: UIViewController {
 
 	
 	
-	
+// MARK: - Timer-functions ⏳
 	func resetTimer() {
 		movementTimer.invalidate()
 		timerNumber = 0
@@ -696,15 +709,7 @@ class ViewController: UIViewController {
 		
 	}
 	
-	func hidePieceOptions() {
-		for var p = 0 ; p < pieceOptions.count; p++ {
-			pieceOptions[p].hidden = true
-			pieceMarked.hidden = true
-		}
-		pieceOptions = []
-	}
-	
-	
+	// MARK: - Touches began! 👆
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		
 		let touch :UITouch = event.allTouches()?.anyObject() as UITouch

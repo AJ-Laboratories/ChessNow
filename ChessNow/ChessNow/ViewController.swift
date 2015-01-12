@@ -67,10 +67,13 @@ var blackPawn2 = UIImageView(frame: CGRectMake(b, _7, pieceSize, pieceSize))
 var blackPawn3 = UIImageView(frame: CGRectMake(c, _7, pieceSize, pieceSize))
 
 var whiteKnight1 = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
+
 var whiteBishop1 = UIImageView(frame: CGRectMake(c, _1, pieceSize, pieceSize))
+
 var whiteRook1 = UIImageView(frame: CGRectMake(h, _1, pieceSize, pieceSize))
 
 var whiteQueen = UIImageView(frame: CGRectMake(d, _1, pieceSize, pieceSize))
+
 var whiteKing = UIImageView(frame: CGRectMake(e, _1, pieceSize, pieceSize))
 
 var whitePawns  = [whitePawn1, whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8]
@@ -78,10 +81,19 @@ var blackPawns = [blackPawn1, blackPawn2, blackPawn3]
 var whiteKnights = [whiteKnight1]
 var whiteBishops = [whiteBishop1]
 var whiteRooks = [whiteRook1]
+var whiteQueens = [whiteQueen]
+var whiteKings = [whiteKing]
 
 var blackPieces = [blackPawn1, blackPawn2, blackPawn3]
 var whitePieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1,whiteBishop1, whiteRook1, whiteQueen, whiteKing]
-var pieces = [whitePawn1,whitePawn2,whiteKnight1,whiteBishop1,blackPawn1]
+
+//Must be equal!
+var piecesArrs = [whiteQueens,whiteKings,whitePawns,blackPawns,whiteKnights,whiteBishops,whiteRooks]
+var piecesString = ["whiteQueen","whiteKing","whitePawn","blackPawn","whiteKnight","whiteBishop","whiteRook"]
+//
+
+var pieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1,whiteBishop1, whiteRook1, whiteQueen, whiteKing,blackPawn1, blackPawn2, blackPawn3]
+
 
 //bool to check if pieces are "alive"
 var whitePawn1Alive = true
@@ -91,10 +103,8 @@ var blackPawn1Alive = true
 var moveByAmounty: CGFloat = 0.0
 var moveByAmountx: CGFloat = 0.0
 
+//initiated?
 var selectedPiece: UIImageView = whitePawn1
-
-
-//? why whitePawn1?  *Because it needs to be instantiated
 var eatenPieces : UIImageView = whitePawn1
 var pieceCanTake : UIImageView = whitePawn1
 var pieceToTake : UIImageView = whitePawn1
@@ -108,13 +118,14 @@ var increasey : CGFloat = 1;
 var increasex : CGFloat = 1;
 var piecePos : Array<UIImageView> = []
 
+
 class ViewController: UIViewController {
 	
 	let objc = Objective_C()
 	
 	@IBOutlet weak var chessBoard: UIImageView!
 	
-	
+// MARK: - View did load! 😄
 	override func viewDidLoad() {
 		
 		
@@ -141,60 +152,17 @@ class ViewController: UIViewController {
 		pieceMarked.hidden = true
 		
 		
-		//chesspieces loading
-		
-		whiteQueen.image = UIImage(named: "whiteQueen.png")
-		self.view.addSubview(whiteQueen)
-		whiteQueen.contentMode = .ScaleAspectFit
-		whiteQueen.userInteractionEnabled = true
-		whiteQueen.multipleTouchEnabled = true
-		
-		whiteKing.image = UIImage(named: "whiteKing.png")
-		self.view.addSubview(whiteKing)
-		whiteKing.contentMode = .ScaleAspectFit
-		whiteKing.userInteractionEnabled = true
-		whiteKing.multipleTouchEnabled = true
-		
-		for var wp = 0; wp < whitePawns.count; wp++ {
-			whitePawns[wp].image = UIImage(named: "whitePawn.png")
-			self.view.addSubview(whitePawns[wp])
-			whitePawns[wp].contentMode = .ScaleAspectFit
-			whitePawns[wp].userInteractionEnabled = true
-			whitePawns[wp].multipleTouchEnabled = true
+		//chesspieces loading - REMEMBER TO ADD PIECES TO ARRAYS!! Right order as well!!
+
+		for var i = 0; i < piecesArrs.count; i++ {
+			for var t = 0; t < piecesArrs[i].count; t++ {
+				piecesArrs[i][t].image = UIImage(named: piecesString[i])
+				self.view.addSubview(piecesArrs[i][t])
+				piecesArrs[i][t].contentMode = .ScaleAspectFit
+				piecesArrs[i][t].userInteractionEnabled = true
+				piecesArrs[i][t].multipleTouchEnabled = true
+			}
 		}
-		
-		for var bp = 0; bp < blackPawns.count; bp++ {
-			blackPawns[bp].image = UIImage(named: "blackPawn.png")
-			self.view.addSubview(blackPawns[bp])
-			blackPawns[bp].contentMode = .ScaleAspectFit
-			blackPawns[bp].userInteractionEnabled = true
-			blackPawns[bp].multipleTouchEnabled = true
-		}
-		
-		for var wn = 0; wn < whiteKnights.count; wn++ {
-			whiteKnights[wn].image = UIImage(named: "whiteKnight.png")
-			self.view.addSubview(whiteKnights[wn])
-			whiteKnights[wn].contentMode = .ScaleAspectFit
-			whiteKnights[wn].userInteractionEnabled = true
-			whiteKnights[wn].multipleTouchEnabled = true
-		}
-		
-		
-		for var wb = 0; wb < whiteBishops.count; wb++ {
-			whiteBishops[wb].image = UIImage(named: "whiteBishop.png")
-			self.view.addSubview(whiteBishops[wb])
-			whiteBishops[wb].contentMode = .ScaleAspectFit
-			whiteBishops[wb].userInteractionEnabled = true
-			whiteBishops[wb].multipleTouchEnabled = true
-		}
-		for var wb = 0; wb < whiteRooks.count; wb++ {
-			whiteRooks[wb].image = UIImage(named: "whiteRook.png")
-			self.view.addSubview(whiteRooks[wb])
-			whiteRooks[wb].contentMode = .ScaleAspectFit
-			whiteRooks[wb].userInteractionEnabled = true
-			whiteRooks[wb].multipleTouchEnabled = true
-		}
-		
 		
 		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize. \(pieceSize) is the pieceSize")
 		

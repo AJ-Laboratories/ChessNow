@@ -765,7 +765,7 @@ class ViewController: UIViewController {
 				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
 					eatenPiece1.image = eatenPieces.image
 					
-				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackQueen") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
 					eatenPiece1.image = eatenPieces.image
 					
 				}
@@ -784,7 +784,7 @@ class ViewController: UIViewController {
 				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
 					eatenPiece2.image = eatenPieces.image
 					
-				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackQueen") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
 					eatenPiece2.image = eatenPieces.image
 					
 				}
@@ -803,26 +803,26 @@ class ViewController: UIViewController {
 				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
 					eatenPiece3.image = eatenPieces.image
 					
-				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
+				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackQueen") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
 					eatenPiece3.image = eatenPieces.image
 					
 				}
 				
-				if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image ) {
+				if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image && eatenPiece3.image != UIImage(named: "blackPawn")) {
 					eatenPiece4.image = eatenPieces.image
 					
-				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
-					eatenPiece4.image = eatenPieces.image
-					
-					
-				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image && eatenPiece3.image != UIImage(named: "blackKnight") ) {
 					eatenPiece4.image = eatenPieces.image
 					
 					
-				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image && eatenPiece3.image != UIImage(named: "blackBishop") ) {
 					eatenPiece4.image = eatenPieces.image
 					
-				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image && eatenPiece3.image != UIImage(named: "blackRook") ) {
+					eatenPiece4.image = eatenPieces.image
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackQueen") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image && eatenPiece3.image != UIImage(named: "blackQueen")) {
 					eatenPiece4.image = eatenPieces.image
 					
 				}

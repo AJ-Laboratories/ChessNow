@@ -783,6 +783,7 @@ class ViewController: UIViewController {
 			pieceMarked.hidden = false
 			pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
 		}
+
 		if touch.view == whiteKing {
 			selectedPiece = whiteKing
 			whiteKingSelected(event, _touch: touch)

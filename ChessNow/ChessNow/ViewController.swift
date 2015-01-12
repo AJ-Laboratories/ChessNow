@@ -153,12 +153,6 @@ var canTake : Bool = false
 var pawnState = 0
 var movementallowed: CGFloat = 2
 
-//let eatenPiece1 = UIImageView(frame: CGRectMake(a + 0.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
-//let eatenPiece2 = UIImageView(frame: CGRectMake(a + 0.8 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
-//let eatenPiece3 = UIImageView(frame: CGRectMake(a + 1.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
-//let eatenPiece4 = UIImageView(frame: CGRectMake(a + 1.8 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
-//let eatenPiece5 = UIImageView(frame: CGRectMake(a + 2.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
-
 var takenWhitePieces : Array<UIImageView> = []
 var takenBlackPieces : Array<UIImageView> = []
 
@@ -167,6 +161,8 @@ var increasey : CGFloat = 1;
 var increasex : CGFloat = 1;
 var piecePos : Array<UIImageView> = []
 
+var isWhiteTurn = true
+var isBlackTurn = false
 
 class ViewController: UIViewController {
 	
@@ -200,7 +196,11 @@ class ViewController: UIViewController {
 		self.view.addSubview(pieceMarked)
 		pieceMarked.hidden = true
 		
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> FETCH_HEAD
 		//chesspieces loading - REMEMBER TO ADD PIECES TO ARRAYS!! Right order as well!!
 
 		for var i = 0; i < piecesArrs.count; i++ {
@@ -1099,6 +1099,12 @@ class ViewController: UIViewController {
 					takenBlackPieces += [takenPiece]
 					self.view.addSubview(takenPiece)
 				}
+<<<<<<< HEAD
+=======
+				}
+				
+				
+>>>>>>> FETCH_HEAD
 			}
 				
 		}

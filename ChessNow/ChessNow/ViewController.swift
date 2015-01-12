@@ -62,34 +62,50 @@ var whitePawn6 = UIImageView(frame: CGRectMake(f, _2, pieceSize, pieceSize))
 var whitePawn7 = UIImageView(frame: CGRectMake(g, _2, pieceSize , pieceSize))
 var whitePawn8 = UIImageView(frame: CGRectMake(h, _2, pieceSize, pieceSize))
 
-var blackPawn1 = UIImageView(frame: CGRectMake(a, _7, pieceSize, pieceSize))
-var blackPawn2 = UIImageView(frame: CGRectMake(b, _7, pieceSize, pieceSize))
-var blackPawn3 = UIImageView(frame: CGRectMake(c, _7, pieceSize, pieceSize))
 
 var whiteKnight1 = UIImageView(frame: CGRectMake(b, _1, pieceSize, pieceSize))
+var whiteKnight2 = UIImageView(frame: CGRectMake(g, _1, pieceSize, pieceSize))
 
 var whiteBishop1 = UIImageView(frame: CGRectMake(c, _1, pieceSize, pieceSize))
+var whiteBishop2 = UIImageView(frame: CGRectMake(f, _1, pieceSize, pieceSize))
+
 
 var whiteRook1 = UIImageView(frame: CGRectMake(h, _1, pieceSize, pieceSize))
+var whiteRook2 = UIImageView(frame: CGRectMake(a, _1, pieceSize, pieceSize))
+
 
 var whiteQueen = UIImageView(frame: CGRectMake(d, _1, pieceSize, pieceSize))
 
 var whiteKing = UIImageView(frame: CGRectMake(e, _1, pieceSize, pieceSize))
 
+var blackPawn1 = UIImageView(frame: CGRectMake(a, _7, pieceSize, pieceSize))
+var blackPawn2 = UIImageView(frame: CGRectMake(b, _7, pieceSize, pieceSize))
+var blackPawn3 = UIImageView(frame: CGRectMake(c, _7, pieceSize, pieceSize))
+
+var blackKnight1 = UIImageView(frame: CGRectMake(b, _8, pieceSize, pieceSize))
+
+var blackBishop1 = UIImageView(frame: CGRectMake(c, _8, pieceSize, pieceSize))
+
+var blackRook1 = UIImageView(frame: CGRectMake(a, _8, pieceSize, pieceSize))
+
+var blackKnights = [blackKnight1]
+var blackBishops = [blackBishop1]
+var blackRooks = [blackRook1]
+
 var whitePawns  = [whitePawn1, whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8]
 var blackPawns = [blackPawn1, blackPawn2, blackPawn3]
-var whiteKnights = [whiteKnight1]
-var whiteBishops = [whiteBishop1]
-var whiteRooks = [whiteRook1]
+var whiteKnights = [whiteKnight1, whiteKnight2]
+var whiteBishops = [whiteBishop1, whiteBishop2]
+var whiteRooks = [whiteRook1, whiteRook2]
 var whiteQueens = [whiteQueen]
 var whiteKings = [whiteKing]
 
-var blackPieces = [blackPawn1, blackPawn2, blackPawn3]
-var whitePieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1,whiteBishop1, whiteRook1, whiteQueen, whiteKing]
+var blackPieces = [blackPawn1, blackPawn2, blackPawn3, blackKnight1, blackBishop1, blackRook1]
+var whitePieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1, whiteKnight2 ,whiteBishop1, whiteBishop2, whiteRook1, whiteRook2 , whiteQueen, whiteKing]
 
 //Must be equal!
-var piecesArrs = [whiteQueens,whiteKings,whitePawns,blackPawns,whiteKnights,whiteBishops,whiteRooks]
-var piecesString = ["whiteQueen","whiteKing","whitePawn","blackPawn","whiteKnight","whiteBishop","whiteRook"]
+var piecesArrs = [whiteQueens,whiteKings,whitePawns,blackPawns,whiteKnights,whiteBishops,whiteRooks, blackKnights, blackBishops, blackRooks]
+var piecesString = ["whiteQueen","whiteKing","whitePawn","blackPawn","whiteKnight","whiteBishop","whiteRook", "blackKnight", "blackBishop", "blackRook"]
 //
 
 var pieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1,whiteBishop1, whiteRook1, whiteQueen, whiteKing,blackPawn1, blackPawn2, blackPawn3]
@@ -105,13 +121,19 @@ var moveByAmountx: CGFloat = 0.0
 
 //initiated?
 var selectedPiece: UIImageView = whitePawn1
-var eatenPieces : UIImageView = whitePawn1
+var eatenPieces = UIImageView(frame: CGRectMake(a, _2, pieceSize , pieceSize))
 var pieceCanTake : UIImageView = whitePawn1
 var pieceToTake : UIImageView = whitePawn1
 var canTake : Bool = false
 
 var pawnState = 0
 var movementallowed: CGFloat = 2
+
+let eatenPiece1 = UIImageView(frame: CGRectMake(a + 0.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
+let eatenPiece2 = UIImageView(frame: CGRectMake(a + 0.8 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
+let eatenPiece3 = UIImageView(frame: CGRectMake(a + 1.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
+let eatenPiece4 = UIImageView(frame: CGRectMake(a + 1.8 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
+let eatenPiece5 = UIImageView(frame: CGRectMake(a + 2.3 * pieceSize, _2 + 2.4 * pieceSize, 35 , 35))
 
 
 var increasey : CGFloat = 1;
@@ -151,6 +173,21 @@ class ViewController: UIViewController {
 		self.view.addSubview(pieceMarked)
 		pieceMarked.hidden = true
 		
+		self.view.addSubview(eatenPiece1)
+		eatenPiece1.contentMode = .ScaleAspectFit
+		
+		self.view.addSubview(eatenPiece2)
+		eatenPiece2.contentMode = .ScaleAspectFit
+		
+		self.view.addSubview(eatenPiece3)
+		eatenPiece3.contentMode = .ScaleAspectFit
+		
+		self.view.addSubview(eatenPiece4)
+		eatenPiece4.contentMode = .ScaleAspectFit
+		
+		self.view.addSubview(eatenPiece5)
+		eatenPiece5.contentMode = .ScaleAspectFit
+		
 		
 		//chesspieces loading - REMEMBER TO ADD PIECES TO ARRAYS!! Right order as well!!
 
@@ -167,6 +204,7 @@ class ViewController: UIViewController {
 		println("\(screenHeight) is the height and \(screenWidth) is the width. \(screenSize) is the screensize. \(pieceSize) is the pieceSize")
 		
 	}
+	
 	
 	
 // MARK: - Setup-functions 🔍
@@ -259,14 +297,14 @@ class ViewController: UIViewController {
 	func whiteKnightSelected(var _event:UIEvent, var _touch:UITouch) {
 		
 		
-		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat, var byAmountz:CGFloat, var increaserz:CGFloat ) {
 			var canThePieceGofurther: Bool = true
 			
 			for var t = 0; t < whiteKnights.count; t++ {
 				
 				if whiteKnights[t].frame.origin.x == selectedPiece.frame.origin.x && whiteKnights[t].frame.origin.y == selectedPiece.frame.origin.y {
 					
-					for byAmountx; byAmountx >= -2 && byAmountx <= 2 && byAmounty >= -2 && byAmounty <= 2; byAmountx += increaserx, byAmounty += increasery {
+					for byAmountx; byAmountz <= 2; byAmountx += increaserx, byAmounty += increasery, byAmountz += increaserz {
 						
 						
 						for var q = 0; q < whitePieces.count; q++ {
@@ -282,11 +320,12 @@ class ViewController: UIViewController {
 							pieceOption.image = UIImage(named: "piecePossibilities.png")
 							self.view.addSubview(pieceOption)
 							pieceOptions += [pieceOption]
+							
 						}
 						
 						
 						for var r = 0; r < blackPieces.count; r++ {
-							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
+							if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true{
 								
 								var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
 								pieceOption.image = UIImage(named: "piecePossibilities.png")
@@ -311,12 +350,18 @@ class ViewController: UIViewController {
 		}
 		
 		
-		letThemAppear(-2, 1, 4, 0)
-		letThemAppear(-2, -1, 4, 0)
-		letThemAppear(1, -2, 0, 4)
-		letThemAppear(-1, -2, 0, 4)
+		letThemAppear(2, 1, 0, 0, 1 ,1)
+		letThemAppear(-2, 1, 0, 0, 1 ,1)
+		letThemAppear(1, 2, 0, 0, 1 ,1)
+		letThemAppear(1, -2, 0, 0, 1 ,1)
+		letThemAppear(-1, 2, 0, 0, 1 ,1)
+		letThemAppear(-1, -2, 0, 0, 1 ,1)
+		letThemAppear(2, -1, 0, 0, 1 ,1)
+		letThemAppear(-2, -1, 0, 0, 1 ,1)
+		
 		
 	}
+
 	
 	func whiteRookSelected(var _event:UIEvent, var _touch:UITouch) {
 		
@@ -577,7 +622,6 @@ class ViewController: UIViewController {
 		
 	}
 	
-	
 	func blackPawnSelected(var _event:UIEvent, var _touch:UITouch) {
 		
 		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
@@ -590,7 +634,7 @@ class ViewController: UIViewController {
 					for byAmounty;  byAmounty <= 2 ; byAmountx += increaserx, byAmounty += increasery {
 						
 						for var q = 0; q < blackPieces.count; q++ {
-							if blackPieces[q].frame.origin.x == selectedPiece.frame.origin.x && blackPieces[q].frame.origin.y == selectedPiece.frame.origin.y - 1 * pieceSize{
+							if blackPieces[q].frame.origin.x == selectedPiece.frame.origin.x && blackPieces[q].frame.origin.y == selectedPiece.frame.origin.y + 1 * pieceSize{
 								canThePieceGofurther = false
 							}
 						}
@@ -646,6 +690,8 @@ class ViewController: UIViewController {
 		letThemAppear(-1, 1, 0, 1)
 		
 	}
+	
+
 
 	
 	
@@ -702,13 +748,90 @@ class ViewController: UIViewController {
 			for var t = 0; t < blackPieces.count; t++ {
 				
 				if touch.view == pieceOptions[o] && pieceOptions[o].frame.origin.x == blackPieces[t].frame.origin.x && pieceOptions[o].frame.origin.y == blackPieces[t].frame.origin.y  {
+					eatenPieces.image = blackPieces[t].image
 					blackPieces[t].removeFromSuperview()
 					blackPieces.removeAtIndex(t)
 				}
 				
+				if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece1.image = eatenPieces.image
+					
+				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece1.image = eatenPieces.image
+					
+				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece1.image = eatenPieces.image
+					
+				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece1.image = eatenPieces.image
+					
+				} else if (eatenPiece1.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece2.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece1.image = eatenPieces.image
+					
+				}
+				
+				if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image ) {
+					eatenPiece2.image = eatenPieces.image
+					
+				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece1.image != eatenPieces.image &&  eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece2.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece1.image != eatenPieces.image &&  eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece2.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece2.image = eatenPieces.image
+					
+				} else if (eatenPiece2.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece3.image != eatenPieces.image && eatenPiece4.image != eatenPieces.image) {
+					eatenPiece2.image = eatenPieces.image
+					
+				}
+				
+				if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image ) {
+					eatenPiece3.image = eatenPieces.image
+					
+				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
+					eatenPiece3.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
+					eatenPiece3.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
+					eatenPiece3.image = eatenPieces.image
+					
+				} else if (eatenPiece3.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece4 != eatenPieces.image) {
+					eatenPiece3.image = eatenPieces.image
+					
+				}
+				
+				if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackPawn") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image ) {
+					eatenPiece4.image = eatenPieces.image
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackKnight") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+					eatenPiece4.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackBishop") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+					eatenPiece4.image = eatenPieces.image
+					
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+					eatenPiece4.image = eatenPieces.image
+					
+				} else if (eatenPiece4.image == nil && eatenPieces.image == UIImage(named: "blackRook") && eatenPiece1.image != eatenPieces.image && eatenPiece2.image != eatenPieces.image && eatenPiece3 != eatenPieces.image) {
+					eatenPiece4.image = eatenPieces.image
+					
+				}
+				
 				
 			}
+			
 		}
+
 		
 		for var o = 0 ; o < pieceOptions.count ; o++ {
 			for var t = 0; t < whitePieces.count; t++ {
@@ -721,6 +844,9 @@ class ViewController: UIViewController {
 				
 			}
 		}
+		
+			
+
 		
 		
 		for var i = 0; i < whiteKnights.count;i++ {

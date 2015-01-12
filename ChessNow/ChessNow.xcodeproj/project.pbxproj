@@ -29,6 +29,9 @@
 		F153DF7D1A3DFDA2005DC574 /* whiteBishop.png in Resources */ = {isa = PBXBuildFile; fileRef = F153DF7C1A3DFDA2005DC574 /* whiteBishop.png */; };
 		F160D6FF1A21506100E6A783 /* graySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FC1A21506100E6A783 /* graySquare.png */; };
 		F160D7011A21506100E6A783 /* whiteSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = F160D6FE1A21506100E6A783 /* whiteSquare.png */; };
+		F16B0E1E1A64198600AD98CE /* blackBishop.png in Resources */ = {isa = PBXBuildFile; fileRef = F16B0E1D1A64198600AD98CE /* blackBishop.png */; };
+		F16B0E201A64198B00AD98CE /* blackKnight.png in Resources */ = {isa = PBXBuildFile; fileRef = F16B0E1F1A64198B00AD98CE /* blackKnight.png */; };
+		F16B0E221A64199000AD98CE /* blackRook.png in Resources */ = {isa = PBXBuildFile; fileRef = F16B0E211A64199000AD98CE /* blackRook.png */; };
 		F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BA7A931A38EEF000C7D578 /* moveOption.png */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		F153DF7C1A3DFDA2005DC574 /* whiteBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteBishop.png; sourceTree = "<group>"; };
 		F160D6FC1A21506100E6A783 /* graySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graySquare.png; sourceTree = "<group>"; };
 		F160D6FE1A21506100E6A783 /* whiteSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteSquare.png; sourceTree = "<group>"; };
+		F16B0E1D1A64198600AD98CE /* blackBishop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackBishop.png; sourceTree = "<group>"; };
+		F16B0E1F1A64198B00AD98CE /* blackKnight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackKnight.png; sourceTree = "<group>"; };
+		F16B0E211A64199000AD98CE /* blackRook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackRook.png; sourceTree = "<group>"; };
 		F1BA7A931A38EEF000C7D578 /* moveOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveOption.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +102,9 @@
 		8F63938B1A377D20003E988E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F16B0E211A64199000AD98CE /* blackRook.png */,
+				F16B0E1F1A64198B00AD98CE /* blackKnight.png */,
+				F16B0E1D1A64198600AD98CE /* blackBishop.png */,
 				F146A2421A616C5B00975471 /* whiteKing.png */,
 				F146A2401A616A5200975471 /* whiteQueen.png */,
 				F146A23E1A6165FB00975471 /* whiteRook.png */,
@@ -288,9 +297,12 @@
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
 				8FE278B51A38C5900045F279 /* board black and white no border.png in Resources */,
 				F160D6FF1A21506100E6A783 /* graySquare.png in Resources */,
+				F16B0E221A64199000AD98CE /* blackRook.png in Resources */,
+				F16B0E1E1A64198600AD98CE /* blackBishop.png in Resources */,
 				F153DF7B1A3CE6DC005DC574 /* whiteKnight.png in Resources */,
 				F160D7011A21506100E6A783 /* whiteSquare.png in Resources */,
 				F146A2431A616C5B00975471 /* whiteKing.png in Resources */,
+				F16B0E201A64198B00AD98CE /* blackKnight.png in Resources */,
 				8FEC1DF51A38E565004476DC /* clack and white board with half boarder copy.png in Resources */,
 				F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */,
 				F146A23F1A6165FB00975471 /* whiteRook.png in Resources */,

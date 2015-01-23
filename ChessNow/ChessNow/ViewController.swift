@@ -192,7 +192,11 @@ var blackPiecesArrs = [blackKnights,blackBishops,blackRooks,blackPawns, blackQue
 var blackPiecesArrsString = ["blackKnight","blackBishop","blackRook","blackPawn", "blackQueen", "blackKing"]
 
 var blackPieces = [blackPawn1, blackPawn2, blackPawn3, blackPawn4, blackPawn5, blackPawn6, blackPawn7, blackPawn8, blackKnight1, blackKnight2, blackBishop1, blackBishop2, blackRook1, blackRook2, blackQueen, blackKing]
+<<<<<<< HEAD
 var blackPiecesString = ["blackPawn","blackPawn","blackPawn", "blackPawn", "blackPawn", "blackPawn",  "blackPawn", "blackPawn", "blackKnight", "blackKnight", "blackBishop",  "blackBishop", "blackRook", "blackRook", "blackQueen", "blackKing" ]
+=======
+var blackPiecesString = ["blackPawn","blackPawn","blackPawn", "blackPawn", "blackPawn", "BlackPawn",  "blackPawn", "blackPawn", "blackKnight", "blackKnight", "blackBishop",  "blackBishop", "blackRook", "blackRook", "blackQueen", "blackKing" ]
+>>>>>>> FETCH_HEAD
 var whitePieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1, whiteKnight2 ,whiteBishop1, whiteBishop2, whiteRook1, whiteRook2 , whiteQueen, whiteKing]
 var whitePiecesString = ["whitePawn","whitePawn","whitePawn","whitePawn","whitePawn","whitePawn","whitePawn","whitePawn","whiteKnight","whiteKnight","whiteBishop","whiteBishop","whiteRook", "whiteRook", "whiteQueen","whiteKing"]
 
@@ -319,6 +323,11 @@ class ViewController: UIViewController {
 		pieceOptions = []
 	}
 	
+	func removePieceOptions() {
+		for var o = 0 ; o < pieceOptions.count ; o++ {
+			pieceOptions[o].removeFromSuperview()
+		}
+	}
 
 	
 	
@@ -1087,7 +1096,11 @@ class ViewController: UIViewController {
 					}
 					
 					
+<<<<<<< HEAD
 					for var r = 0; r < whitePieces.count; r++ {
+=======
+					for var r = 0; r < blackPieces.count; r++ {
+>>>>>>> FETCH_HEAD
 						if whitePieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && whitePieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
 							
 							var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
@@ -1133,9 +1146,15 @@ class ViewController: UIViewController {
 		letThemAppear(-1,1,-1,1)
 		letThemAppear(-1,-1,-1,-1)
 	}
+<<<<<<< HEAD
 	
 	
 	// MARK: - Timer-functions ⏳
+=======
+
+
+// MARK: - Timer-functions ⏳
+>>>>>>> FETCH_HEAD
 	func resetTimer() {
 		movementTimer.invalidate()
 		timerNumber = 0
@@ -1254,6 +1273,7 @@ class ViewController: UIViewController {
 					}
 				}
 				
+<<<<<<< HEAD
 				for var t = 0; t < blackPieces.count; t++ {
 					if touch.view == pieceOptions[o] && pieceOptions[o].frame.origin.x == blackPieces[t].frame.origin.x && pieceOptions[o].frame.origin.y == blackPieces[t].frame.origin.y  {
 						pieceToTake = blackPieces[t]
@@ -1285,10 +1305,28 @@ class ViewController: UIViewController {
 						}
 						
 					}
+=======
+			for var t = 0; t < blackPieces.count; t++ {
+				if touch.view == pieceOptions[o] && pieceOptions[o].frame.origin.x == blackPieces[t].frame.origin.x && pieceOptions[o].frame.origin.y == blackPieces[t].frame.origin.y  {
+					
+					blackPieces[t].removeFromSuperview()
+					blackPieces.removeAtIndex(t)
+					
+					var takenPiece = UIImageView(frame: CGRectMake(CGFloat(takenBlackPieces.count) * pieceSize * 0.65, screenHeight / 2 + 4 * pieceSize + pieceSize * 0.3, pieceSize * 0.65, pieceSize * 0.65))
+					takenPiece.image = blackPieces[t].image
+					takenBlackPieces += [takenPiece]
+					self.view.addSubview(takenPiece)
+				}
+
+>>>>>>> FETCH_HEAD
 				}
 			}
 		}
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> FETCH_HEAD
 		
 		for var o = 0 ; o < pieceOptions.count ; o++ {
 			for var t = 0; t < whitePieces.count; t++ {
@@ -1303,15 +1341,24 @@ class ViewController: UIViewController {
 		}
 		
 		for var i = 0; i < whiteKnights.count;i++ {
+<<<<<<< HEAD
 			if touch.view == whiteKnights[i] && isWhiteTurn == true {
+=======
+			if touch.view == whiteKnights[i] {
+>>>>>>> FETCH_HEAD
 				selectedPiece = whiteKnights[i]
 				removePieceOptions()
 				whiteKnightSelected(event, _touch: touch)
 			}
 		}
 		
+<<<<<<< HEAD
 		for var i = 0; i < whiteBishops.count; i++ {
 			if touch.view == whiteBishops[i] && isWhiteTurn == true {
+=======
+		for var i = 0; i < whiteBishops.count;i++ {
+			if touch.view == whiteBishops[i] {
+>>>>>>> FETCH_HEAD
 				selectedPiece = whiteBishops[i]
 				removePieceOptions()
 				whiteBishopSelected(event, _touch: touch)
@@ -1319,7 +1366,11 @@ class ViewController: UIViewController {
 		}
 		
 		for var i = 0; i < whiteRooks.count;i++ {
+<<<<<<< HEAD
 			if touch.view == whiteRooks[i] && isWhiteTurn == true {
+=======
+			if touch.view == whiteRooks[i] {
+>>>>>>> FETCH_HEAD
 				removePieceOptions()
 				selectedPiece = whiteRooks[i]
 				whiteRookSelected(event, _touch: touch)
@@ -1371,6 +1422,7 @@ class ViewController: UIViewController {
 			}
 		}
 		
+<<<<<<< HEAD
 		if touch.view == blackQueen && isWhiteTurn == false {
 			selectedPiece = blackQueen
 			removePieceOptions()
@@ -1384,6 +1436,24 @@ class ViewController: UIViewController {
 		}
 		
 		
+=======
+			if touch.view == blackQueen {
+				selectedPiece = blackQueen
+				removePieceOptions()
+				blackQueenSelected(event, _touch: touch)
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+			}
+		
+			if touch.view == blackKing {
+				selectedPiece = blackKing
+				removePieceOptions()
+				blackKingSelected(event, _touch: touch)
+				pieceMarked.hidden = false
+				pieceMarked.frame = CGRectMake(selectedPiece.frame.origin.x, selectedPiece.frame.origin.y, pieceSize, pieceSize)
+			}
+
+>>>>>>> FETCH_HEAD
 		
 		//check pieceOptions
 		for var o = 0 ; o < pieceOptions.count; o++ {

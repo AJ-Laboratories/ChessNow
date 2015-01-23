@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3113FE1A6A8DF80066FE44 /* ChessNowAppicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3113FD1A6A8DF80066FE44 /* ChessNowAppicon.png */; };
+		8F3114001A6A8E3D0066FE44 /* ChessNowAppicon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3113FF1A6A8E3D0066FE44 /* ChessNowAppicon120.png */; };
 		8F63938A1A37799B003E988E /* Objective-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6393891A37799B003E988E /* Objective-C.m */; };
 		8FD8D7CA1A1FE75000DC6BAB /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD8D7C91A1FE75000DC6BAB /* SpriteKit.framework */; };
 		8FE278AC1A37ADE30045F279 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE278AB1A37ADE30045F279 /* Storyboard.storyboard */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F3113FD1A6A8DF80066FE44 /* ChessNowAppicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChessNowAppicon.png; sourceTree = "<group>"; };
+		8F3113FF1A6A8E3D0066FE44 /* ChessNowAppicon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChessNowAppicon120.png; sourceTree = "<group>"; };
 		8F6393871A37799B003E988E /* ChessNow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessNow-Bridging-Header.h"; sourceTree = "<group>"; };
 		8F6393881A37799B003E988E /* Objective-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objective-C.h"; sourceTree = "<group>"; };
 		8F6393891A37799B003E988E /* Objective-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Objective-C.m"; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				F16B0E271A644FF700AD98CE /* blackKing.png */,
+				8F3113FD1A6A8DF80066FE44 /* ChessNowAppicon.png */,
+				8F3113FF1A6A8E3D0066FE44 /* ChessNowAppicon120.png */,
 				F16B0E251A644FF200AD98CE /* blackQueen.png */,
 				F16B0E211A64199000AD98CE /* blackRook.png */,
 				F16B0E1F1A64198B00AD98CE /* blackKnight.png */,
@@ -296,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */,
+				8F3114001A6A8E3D0066FE44 /* ChessNowAppicon120.png in Resources */,
 				8FE278B01A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg in Resources */,
 				8FEC1DF71A38E772004476DC /* pieceMarked.png in Resources */,
 				F153DF7D1A3DFDA2005DC574 /* whiteBishop.png in Resources */,
@@ -305,6 +312,7 @@
 				8FE278B51A38C5900045F279 /* board black and white no border.png in Resources */,
 				F160D6FF1A21506100E6A783 /* graySquare.png in Resources */,
 				F16B0E221A64199000AD98CE /* blackRook.png in Resources */,
+				8F3113FE1A6A8DF80066FE44 /* ChessNowAppicon.png in Resources */,
 				F16B0E1E1A64198600AD98CE /* blackBishop.png in Resources */,
 				F153DF7B1A3CE6DC005DC574 /* whiteKnight.png in Resources */,
 				F160D7011A21506100E6A783 /* whiteSquare.png in Resources */,

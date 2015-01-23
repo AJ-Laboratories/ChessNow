@@ -1203,15 +1203,7 @@ class ViewController: UIViewController {
 			}
 		}
 		
-		for var i = 0; i < whitePawns.count;i++ {
-			if touch.view == whitePawns[i] && isWhiteTurn == true {
-				selectedPiece = whitePawns[i]
-				removePieceOptions()
-				whitePawnSelected(event, _touch: touch)
-				selectedPawn = i
-			}
-			
-		}
+
 		
 		
 		for var o = 0 ; o < pieceOptions.count ; o++ {
@@ -1302,86 +1294,110 @@ class ViewController: UIViewController {
 			}
 		}
 		
-		for var i = 0; i < whiteKnights.count;i++ {
-			if touch.view == whiteKnights[i] && isWhiteTurn == true {
-				selectedPiece = whiteKnights[i]
+		if isWhiteTurn == true {
+			
+			if touch.view == whiteQueen {
+				selectedPiece = whiteQueen
 				removePieceOptions()
-				whiteKnightSelected(event, _touch: touch)
+				whiteQueenSelected(event, _touch: touch)
+			}
+			
+			else if touch.view == whiteKing {
+				selectedPiece = whiteKing
+				removePieceOptions()
+				whiteKingSelected(event, _touch: touch)
+			}
+				
+			else {
+				
+				for var i = 0; i < whitePawns.count;i++ {
+					if touch.view == whitePawns[i] {
+						selectedPiece = whitePawns[i]
+						removePieceOptions()
+						whitePawnSelected(event, _touch: touch)
+						selectedPawn = i
+					}
+					
+				}
+				
+				for var i = 0; i < whiteKnights.count;i++ {
+					if touch.view == whiteKnights[i] {
+						selectedPiece = whiteKnights[i]
+						removePieceOptions()
+						whiteKnightSelected(event, _touch: touch)
+					}
+				}
+				
+				for var i = 0; i < whiteBishops.count; i++ {
+					if touch.view == whiteBishops[i] {
+						selectedPiece = whiteBishops[i]
+						removePieceOptions()
+						whiteBishopSelected(event, _touch: touch)
+					}
+				}
+				
+				for var i = 0; i < whiteRooks.count;i++ {
+					if touch.view == whiteRooks[i]{
+						removePieceOptions()
+						selectedPiece = whiteRooks[i]
+						whiteRookSelected(event, _touch: touch)
+					}
+				}
 			}
 		}
 		
-		for var i = 0; i < whiteBishops.count; i++ {
-			if touch.view == whiteBishops[i] && isWhiteTurn == true {
-				selectedPiece = whiteBishops[i]
+	
+		else if isWhiteTurn == false {
+			
+			if touch.view == blackQueen {
+				selectedPiece = blackQueen
 				removePieceOptions()
-				whiteBishopSelected(event, _touch: touch)
+				blackQueenSelected(event, _touch: touch)
+			}
+				
+			else if touch.view == blackKing {
+				selectedPiece = blackKing
+				removePieceOptions()
+				blackKingSelected(event, _touch: touch)
+			}
+				
+			else {
+				
+			for var i = 0; i < blackPawns.count;i++ {
+				if touch.view == blackPawns[i] {
+					selectedPiece = blackPawns[i]
+					removePieceOptions()
+					blackPawnSelected(event, _touch: touch)
+				}
+			}
+			
+			for var i = 0; i < blackBishops.count;i++ {
+				if touch.view == blackBishops[i] {
+					selectedPiece = blackBishops[i]
+					removePieceOptions()
+					blackBishopSelected(event, _touch: touch)
+				}
+			}
+			
+			for var i = 0; i < blackKnights.count;i++ {
+				if touch.view == blackKnights[i] {
+					selectedPiece = blackKnights[i]
+					removePieceOptions()
+					blackKnightSelected(event, _touch: touch)
+				}
+			}
+			
+			for var i = 0; i < blackRooks.count;i++ {
+				if touch.view == blackRooks[i]  {
+					selectedPiece = blackRooks[i]
+					removePieceOptions()
+					blackRookSelected(event, _touch: touch)
+				}
+			}
 			}
 		}
 		
-		for var i = 0; i < whiteRooks.count;i++ {
-			if touch.view == whiteRooks[i] && isWhiteTurn == true {
-				removePieceOptions()
-				selectedPiece = whiteRooks[i]
-				whiteRookSelected(event, _touch: touch)
-			}
-		}
 		
-		if touch.view == whiteQueen && isWhiteTurn == true {
-			selectedPiece = whiteQueen
-			removePieceOptions()
-			whiteQueenSelected(event, _touch: touch)
-		}
-		
-		if touch.view == whiteKing && isWhiteTurn == true {
-			selectedPiece = whiteKing
-			removePieceOptions()
-			whiteKingSelected(event, _touch: touch)
-		}
-		
-		
-		for var i = 0; i < blackPawns.count;i++ {
-			if touch.view == blackPawns[i] && isWhiteTurn == false {
-				selectedPiece = blackPawns[i]
-				removePieceOptions()
-				blackPawnSelected(event, _touch: touch)
-			}
-		}
-		
-		for var i = 0; i < blackBishops.count;i++ {
-			if touch.view == blackBishops[i] && isWhiteTurn == false {
-				selectedPiece = blackBishops[i]
-				removePieceOptions()
-				blackBishopSelected(event, _touch: touch)
-			}
-		}
-		
-		for var i = 0; i < blackKnights.count;i++ {
-			if touch.view == blackKnights[i] && isWhiteTurn == false {
-				selectedPiece = blackKnights[i]
-				removePieceOptions()
-				blackKnightSelected(event, _touch: touch)
-			}
-		}
-		
-		for var i = 0; i < blackRooks.count;i++ {
-			if touch.view == blackRooks[i] && isWhiteTurn == false {
-				selectedPiece = blackRooks[i]
-				removePieceOptions()
-				blackRookSelected(event, _touch: touch)
-			}
-		}
-		
-		if touch.view == blackQueen && isWhiteTurn == false {
-			selectedPiece = blackQueen
-			removePieceOptions()
-			blackQueenSelected(event, _touch: touch)
-		}
-		
-		if touch.view == blackKing && isWhiteTurn == false {
-			selectedPiece = blackKing
-			removePieceOptions()
-			blackKingSelected(event, _touch: touch)
-		}
 		
 		
 		
@@ -1397,4 +1413,4 @@ class ViewController: UIViewController {
 		}
 	}
 	
-}  
+}

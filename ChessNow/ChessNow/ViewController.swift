@@ -24,6 +24,11 @@ let xAxisArr = [a,b,c,d,e,f,g,h]
 let xAxisArrStr = ["a","b","c","d","e","f","g","h"]
 
 let canShow : Bool = true
+var queenShowDanger : Bool = true
+var bishopShowDanger : Bool = true
+var bishopShowDanger2 : Bool = true
+var rookShowDanger : Bool = true
+var rookShowDanger2 : Bool = true
 
 var num = 0
 
@@ -87,31 +92,38 @@ var selectedPawn = 0
 var pieceOpt = whitePawn1
 
 // Check-mate piece possiblities
-var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption2 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption = UIImageView(frame: CGRectMake(a, _2, pieceSize, pieceSize))
+var pieceOption2 = UIImageView(frame: CGRectMake(a, _2, pieceSize, pieceSize))
 
-var pieceOption3 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption4 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption3 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
+var pieceOption4 = UIImageView(frame: CGRectMake(b, _2, pieceSize, pieceSize))
 
-var pieceOption5 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption6 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption5 = UIImageView(frame: CGRectMake(c, _2, pieceSize, pieceSize))
+var pieceOption6 = UIImageView(frame: CGRectMake(c, _2, pieceSize, pieceSize))
 
-var pieceOption7 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption8 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption7 = UIImageView(frame: CGRectMake(d, _2, pieceSize, pieceSize))
+var pieceOption8 = UIImageView(frame: CGRectMake(d, _2, pieceSize, pieceSize))
 
-var pieceOption9 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption10 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption9 = UIImageView(frame: CGRectMake(e, _2, pieceSize, pieceSize))
+var pieceOption10 = UIImageView(frame: CGRectMake(e, _2, pieceSize, pieceSize))
 
-var pieceOption11 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption12 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption11 = UIImageView(frame: CGRectMake(f, _2, pieceSize, pieceSize))
+var pieceOption12 = UIImageView(frame: CGRectMake(f, _2, pieceSize, pieceSize))
 
-var pieceOption13 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption14 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption13 = UIImageView(frame: CGRectMake(g, _2, pieceSize, pieceSize))
+var pieceOption14 = UIImageView(frame: CGRectMake(g, _2, pieceSize, pieceSize))
 
-var pieceOption15 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-var pieceOption16 = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+var pieceOption15 = UIImageView(frame: CGRectMake(h, _2, pieceSize, pieceSize))
+var pieceOption16 = UIImageView(frame: CGRectMake(h, _2, pieceSize, pieceSize))
 
 // Check-mate system
+var dangerRook : Array<UIImageView> = []
+var dangerRook2 : Array<UIImageView> = []
+var dangerBishop : Array<UIImageView> = []
+var dangerBishop2 : Array<UIImageView> = []
+var dangerKnight : Array<UIImageView> = []
+var dangerKnight2 : Array<UIImageView> = []
+var dangerQueen : Array<UIImageView> = []
 var dangerPos = [dangerPawn1, dangerPawn2, dangerPawn3, dangerPawn4, dangerPawn5, dangerPawn6, dangerPawn7, dangerPawn8]
 var dangerPawn1: Array<UIImageView> = [pieceOption, pieceOption2]
 var dangerPawn2: Array<UIImageView> = [pieceOption3, pieceOption4]
@@ -202,7 +214,7 @@ var piecesArrs = [whiteQueens,whiteKings,whitePawns,blackPawns,whiteKnights,whit
 var piecesString = ["whiteQueen","whiteKing","whitePawn","blackPawn","whiteKnight","whiteBishop","whiteRook", "blackKnight", "blackBishop", "blackRook", "blackQueen", "blackKing"]
 //
 
-var pieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1,whiteBishop1, whiteRook1, whiteQueen, whiteKing,blackPawn1, blackPawn2, blackPawn3]
+var pieces = [whitePawn1,whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7, whitePawn8, whiteKnight1, whiteKnight2, whiteBishop1, whiteBishop2, whiteRook1, whiteRook2, whiteQueen, whiteKing,blackPawn1, blackPawn2, blackPawn4, blackPawn5, blackPawn6, blackPawn7, blackPawn8, blackKnight1, blackKnight2, blackBishop1, blackBishop2, blackRook1, blackRook2, blackQueen, blackKing]
 
 
 //bool to check if pieces are "alive"
@@ -243,6 +255,18 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
+		
+		
+		for var w = 0; w < whitePawns.count; w++ {
+			
+			if whitePawns[w].frame.origin.y == _2 {
+				
+				dangerPos[w][0].frame = (frame: CGRectMake(whitePawns[w].frame.origin.x + 1 * pieceSize, whitePawns[w].frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+				dangerPos[w][1].frame = (frame: CGRectMake(whitePawns[w].frame.origin.x - 1 * pieceSize, whitePawns[w].frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
+				self.view.addSubview(dangerPos[w][0])
+				self.view.addSubview(dangerPos[w][1])
+			}
+		}
 		
 		for var i = 0 ; i < 8; i++ {
 			for var t = 0; t < 8; t++ {
@@ -319,7 +343,53 @@ class ViewController: UIViewController {
 		pieceOptions = []
 	}
 	
+	func removeDangerQueenOptions() {
+		for var o = 0 ; o < dangerQueen.count ; o++ {
+			dangerQueen[o].removeFromSuperview()
+			dangerQueen.removeAtIndex(o)
+		}
+	}
 	
+	func removeDangerKnightOptions() {
+		for var o = 0 ; o < dangerKnight.count ; o++ {
+			dangerKnight[o].removeFromSuperview()
+			dangerKnight.removeAtIndex(o)
+		}
+	}
+	
+	func removeDangerKnightOptions2() {
+		for var o = 0 ; o < dangerKnight2.count ; o++ {
+			dangerKnight2[o].removeFromSuperview()
+			dangerKnight2.removeAtIndex(o)
+		}
+	}
+	
+	func removeDangerBishopOptions() {
+		for var o = 0 ; o < dangerBishop.count ; o++ {
+			dangerBishop[o].removeFromSuperview()
+			dangerBishop.removeAtIndex(o)
+		}
+	}
+	
+	func removeDangerBishopOptions2() {
+		for var o = 0 ; o < dangerBishop2.count ; o++ {
+			dangerBishop2[o].removeFromSuperview()
+			dangerBishop2.removeAtIndex(o)
+		}
+	}
+	func removeDangerRookOptions() {
+		for var o = 0 ; o < dangerRook.count ; o++ {
+			dangerRook[o].removeFromSuperview()
+			dangerRook.removeAtIndex(o)
+		}
+	}
+	
+	func removeDangerRookOptions2() {
+		for var o = 0 ; o < dangerRook2.count ; o++ {
+			dangerRook2[o].removeFromSuperview()
+			dangerRook2.removeAtIndex(o)
+		}
+	}
 	
 	
 	// MARK: - Pieces selected! 👾
@@ -583,19 +653,425 @@ class ViewController: UIViewController {
 		
 		for var t = 0; t < whitePawns.count; t++ {
 			
-			if whitePawns[t].frame.origin.x == selectedPiece.frame.origin.x && whitePawns[t].frame.origin.y == selectedPiece.frame.origin.y {
+			if selectedPiece == whitePawns[t] {
 				
 				dangerPos[selectedPawn][0].frame = (frame: CGRectMake(selectedPiece.frame.origin.x + 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-				dangerPos[selectedPawn][0].image = UIImage(named: "")
 				dangerPos[selectedPawn][1].frame = (frame: CGRectMake(selectedPiece.frame.origin.x - 1 * pieceSize, selectedPiece.frame.origin.y - 1 * pieceSize, pieceSize, pieceSize))
-				dangerPos[selectedPawn][1].image = UIImage(named: "")
 				self.view.addSubview(dangerPos[selectedPawn][0])
 				self.view.addSubview(dangerPos[selectedPawn][1])
 			}
 		}
 	}
 	
+	func whiteQueenDanger() {
+		
+		
+		func letThemAppear(var byAmountx:CGFloat, var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+			var canThePieceGofurther: Bool = true
+			
+			for byAmountx; byAmountx >= -8 && byAmountx <= 8 && byAmounty >= -8 && byAmounty <= 8; byAmountx += increaserx, byAmounty += increasery {
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < pieces.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin = piecePos[o].frame.origin
+							}
+						}
+						
+						for var r = 0; r < pieces.count; r++ {
+							if pieces[r].frame.origin.x == whiteQueen.frame.origin.x + byAmountx * pieceSize && pieces[r].frame.origin.y == whiteQueen.frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteQueen.frame.origin.x + byAmountx * pieceSize, whiteQueen.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								pieceOption.image = UIImage(named: "piecePossibilities.png")
+								self.view.addSubview(pieceOption)
+								dangerQueen += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(whiteQueen.frame.origin.x + byAmountx * pieceSize, whiteQueen.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							pieceOption.image = UIImage(named: "piecePossibilities.png")
+							self.view.addSubview(pieceOption)
+							dangerQueen += [pieceOption]
+						}
+						
+						for var o = 0 ; o < dangerQueen.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerQueen[o].center) == false {
+								[dangerQueen[o] .removeFromSuperview()]
+								dangerQueen.removeAtIndex(o)
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		letThemAppear(0, 1, 0, 1)
+		letThemAppear(0, -1, 0, -1)
+		letThemAppear(1, 0, 1, 0)
+		letThemAppear(-1, 0, -1, 0)
+		letThemAppear(1, 1, 1, 1)
+		letThemAppear(1,-1,1,-1)
+		letThemAppear(-1,1,-1,1)
+		letThemAppear(-1,-1,-1,-1)
+		
+	}
 	
+	func whiteKnightDanger() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat, var byAmountz:CGFloat, var increaserz:CGFloat ) {
+			var canThePieceGofurther: Bool = true
+			
+			
+			for byAmountx; byAmountz <= 2; byAmountx += increaserx, byAmounty += increasery, byAmountz += increaserz {
+				
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < piecePos.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin.x = piecePos[o].frame.origin.x
+							}
+						}
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(whiteKnights[0].frame.origin.x + byAmountx * pieceSize, whiteKnights[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							self.view.addSubview(pieceOption)
+							dangerKnight += [pieceOption]
+							
+						}
+						
+						for var r = 0; r < blackPieces.count; r++ {
+							if blackPieces[r].frame.origin.x == whiteKnights[0].frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == whiteKnights[0].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteKnights[0].frame.origin.x + byAmountx * pieceSize, whiteKnights[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								self.view.addSubview(pieceOption)
+								dangerKnight += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+						
+						for var o = 0 ; o < dangerKnight.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerKnight[o].center) == false {
+								[dangerKnight[o] .removeFromSuperview()]
+								dangerKnight.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		
+		letThemAppear(2, 1, 0, 0, 1 ,1)
+		letThemAppear(-2, 1, 0, 0, 1 ,1)
+		letThemAppear(1, 2, 0, 0, 1 ,1)
+		letThemAppear(1, -2, 0, 0, 1 ,1)
+		letThemAppear(-1, 2, 0, 0, 1 ,1)
+		letThemAppear(-1, -2, 0, 0, 1 ,1)
+		letThemAppear(2, -1, 0, 0, 1 ,1)
+		letThemAppear(-2, -1, 0, 0, 1 ,1)
+		
+		
+	}
+	
+	func whiteKnightDanger2() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat, var byAmountz:CGFloat, var increaserz:CGFloat ) {
+			var canThePieceGofurther: Bool = true
+			
+			
+			for byAmountx; byAmountz <= 2; byAmountx += increaserx, byAmounty += increasery, byAmountz += increaserz {
+				
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < piecePos.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin.x = piecePos[o].frame.origin.x
+							}
+						}
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(whiteKnights[1].frame.origin.x + byAmountx * pieceSize, whiteKnights[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							self.view.addSubview(pieceOption)
+							dangerKnight2 += [pieceOption]
+							
+						}
+						
+						for var r = 0; r < blackPieces.count; r++ {
+							if blackPieces[r].frame.origin.x == whiteKnights[1].frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == whiteKnights[1].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteKnights[1].frame.origin.x + byAmountx * pieceSize, whiteKnights[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								self.view.addSubview(pieceOption)
+								dangerKnight2 += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+						
+						for var o = 0 ; o < dangerKnight2.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerKnight2[o].center) == false {
+								[dangerKnight2[o] .removeFromSuperview()]
+								dangerKnight2.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		
+		letThemAppear(2, 1, 0, 0, 1 ,1)
+		letThemAppear(-2, 1, 0, 0, 1 ,1)
+		letThemAppear(1, 2, 0, 0, 1 ,1)
+		letThemAppear(1, -2, 0, 0, 1 ,1)
+		letThemAppear(-1, 2, 0, 0, 1 ,1)
+		letThemAppear(-1, -2, 0, 0, 1 ,1)
+		letThemAppear(2, -1, 0, 0, 1 ,1)
+		letThemAppear(-2, -1, 0, 0, 1 ,1)
+		
+		
+	}
+	
+	func whiteBishopDanger() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+			var canThePieceGofurther: Bool = true
+			
+			for byAmountx; byAmountx >= -8 && byAmountx <= 8; byAmountx += increaserx, byAmounty += increasery {
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < pieces.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin = piecePos[o].frame.origin
+							}
+						}
+						
+						for var r = 0; r < pieces.count; r++ {
+							if pieces[r].frame.origin.x == whiteBishops[0].frame.origin.x + byAmountx * pieceSize && pieces[r].frame.origin.y == whiteBishops[0].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteBishops[0].frame.origin.x + byAmountx * pieceSize, whiteBishops[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								pieceOption.image = UIImage(named: "piecePossibilities.png")
+								self.view.addSubview(pieceOption)
+								dangerBishop += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(whiteBishops[0].frame.origin.x + byAmountx * pieceSize, whiteBishops[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							pieceOption.image = UIImage(named: "piecePossibilities.png")
+							self.view.addSubview(pieceOption)
+							dangerBishop += [pieceOption]
+						}
+						
+						for var o = 0 ; o < dangerBishop.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerBishop[o].center) == false {
+								[dangerBishop[o] .removeFromSuperview()]
+								dangerBishop.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		letThemAppear(1, 1, 1, 1)
+		letThemAppear(1,-1,1,-1)
+		letThemAppear(-1,1,-1,1)
+		letThemAppear(-1,-1,-1,-1)
+	}
+	
+	func whiteBishopDanger2() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+			var canThePieceGofurther: Bool = true
+			
+			for byAmountx; byAmountx >= -8 && byAmountx <= 8; byAmountx += increaserx, byAmounty += increasery {
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < pieces.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin = piecePos[o].frame.origin
+							}
+						}
+						
+						for var r = 0; r < pieces.count; r++ {
+							if pieces[r].frame.origin.x == whiteBishops[1].frame.origin.x + byAmountx * pieceSize && pieces[r].frame.origin.y == whiteBishops[1].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteBishops[1].frame.origin.x + byAmountx * pieceSize, whiteBishops[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								pieceOption.image = UIImage(named: "piecePossibilities.png")
+								self.view.addSubview(pieceOption)
+								dangerBishop2 += [pieceOption]
+								canThePieceGofurther = false
+								
+							}
+						}
+						
+						
+						if canThePieceGofurther == true {
+							
+							var pieceOption = UIImageView(frame: CGRectMake(whiteBishops[1].frame.origin.x + byAmountx * pieceSize, whiteBishops[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							pieceOption.image = UIImage(named: "piecePossibilities.png")
+							self.view.addSubview(pieceOption)
+							dangerBishop2 += [pieceOption]
+						}
+						
+						
+						for var o = 0 ; o < dangerBishop2.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerBishop2[o].center) == false {
+								[dangerBishop2[o] .removeFromSuperview()]
+								dangerBishop2.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		letThemAppear(1, 1, 1, 1)
+		letThemAppear(1,-1,1,-1)
+		letThemAppear(-1,1,-1,1)
+		letThemAppear(-1,-1,-1,-1)
+	}
+	
+	func whiteRookDanger() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+			var canThePieceGofurther: Bool = true
+			
+			for byAmountx; byAmountx >= -8 && byAmountx <= 8 && byAmounty >= -8 && byAmounty <= 8; byAmountx += increaserx, byAmounty += increasery {
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < pieces.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin = piecePos[o].frame.origin
+							}
+						}
+						
+						for var w = 0 ; w < whiteRooks.count; w++ {
+							if canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteRooks[0].frame.origin.x + byAmountx * pieceSize, whiteRooks[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								self.view.addSubview(pieceOption)
+								dangerRook += [pieceOption]
+							}
+							
+							for var r = 0; r < pieces.count; r++ {
+								if pieces[r].frame.origin.x == whiteRooks[0].frame.origin.x + byAmountx * pieceSize && pieces[r].frame.origin.y == whiteRooks[0].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+									
+									var pieceOption = UIImageView(frame: CGRectMake(whiteRooks[0].frame.origin.x + byAmountx * pieceSize, whiteRooks[0].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+									self.view.addSubview(pieceOption)
+									dangerRook += [pieceOption]
+									canThePieceGofurther = false
+									
+								}
+							}
+						}
+						
+						for var o = 0 ; o < dangerRook.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerRook[o].center) == false {
+								[dangerRook[o] .removeFromSuperview()]
+								dangerRook.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		letThemAppear(0, 1, 0, 1)
+		letThemAppear(0, -1, 0, -1)
+		letThemAppear(1, 0, 1, 0)
+		letThemAppear(-1, 0, -1, 0)
+		
+	}
+	
+	func whiteRookDanger2() {
+		
+		func letThemAppear(var byAmountx:CGFloat, 	var byAmounty:CGFloat, var increaserx:CGFloat, var increasery:CGFloat) {
+			var canThePieceGofurther: Bool = true
+			
+			for byAmountx; byAmountx >= -8 && byAmountx <= 8 && byAmounty >= -8 && byAmounty <= 8; byAmountx += increaserx, byAmounty += increasery {
+				
+				for var i = 0; i < pieces.count; i++ {
+					
+					if selectedPiece == pieces[i] {
+						
+						for var o = 0 ; o < pieces.count; o++ {
+							if CGRectContainsPoint(pieces[i].frame, piecePos[o].center) {
+								pieces[i].frame.origin = piecePos[o].frame.origin
+							}
+						}
+						
+						for var w = 0 ; w < whiteRooks.count; w++ {
+							if canThePieceGofurther == true {
+								
+								var pieceOption = UIImageView(frame: CGRectMake(whiteRooks[1].frame.origin.x + byAmountx * pieceSize, whiteRooks[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+								self.view.addSubview(pieceOption)
+								dangerRook2 += [pieceOption]
+							}
+							
+							for var r = 0; r < pieces.count; r++ {
+								if pieces[r].frame.origin.x == whiteRooks[1].frame.origin.x + byAmountx * pieceSize && pieces[r].frame.origin.y == whiteRooks[1].frame.origin.y - byAmounty * pieceSize && canThePieceGofurther == true {
+									
+									var pieceOption = UIImageView(frame: CGRectMake(whiteRooks[1].frame.origin.x + byAmountx * pieceSize, whiteRooks[1].frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+									self.view.addSubview(pieceOption)
+									dangerRook2 += [pieceOption]
+									canThePieceGofurther = false
+									
+								}
+							}
+						}
+						
+						for var o = 0 ; o < dangerRook2.count; o++ {
+							if CGRectContainsPoint(boarderBoard.frame, dangerRook2[o].center) == false {
+								[dangerRook2[o] .removeFromSuperview()]
+								dangerRook2.removeAtIndex(o)
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+		letThemAppear(0, 1, 0, 1)
+		letThemAppear(0, -1, 0, -1)
+		letThemAppear(1, 0, 1, 0)
+		letThemAppear(-1, 0, -1, 0)
+		
+	}
 	
 	
 	func whiteKingSelected(var _event:UIEvent, var _touch:UITouch) {
@@ -622,6 +1098,7 @@ class ViewController: UIViewController {
 						
 						var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
 						pieceOption.image = UIImage(named: "piecePossibilities.png")
+						pieceOption.image = UIImage(named: "piecePossibilities.png")
 						self.view.addSubview(pieceOption)
 						pieceOptions += [pieceOption]
 					}
@@ -631,6 +1108,7 @@ class ViewController: UIViewController {
 						if blackPieces[r].frame.origin.x == selectedPiece.frame.origin.x + byAmountx * pieceSize && blackPieces[r].frame.origin.y == selectedPiece.frame.origin.y - byAmounty * pieceSize {
 							
 							var pieceOption = UIImageView(frame: CGRectMake(selectedPiece.frame.origin.x + byAmountx * pieceSize, selectedPiece.frame.origin.y - byAmounty * pieceSize, pieceSize, pieceSize))
+							pieceOption.image = UIImage(named: "piecePossibilities.png")
 							pieceOption.image = UIImage(named: "piecePossibilities.png")
 							self.view.addSubview(pieceOption)
 							pieceOptions += [pieceOption]
@@ -1120,8 +1598,62 @@ class ViewController: UIViewController {
 						}
 					}
 					
+					for var i = 0; i < dangerQueen.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerQueen[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerKnight.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerKnight[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerKnight2.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerKnight2[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerBishop.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerBishop[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerBishop2.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerBishop2[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerRook.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerRook[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
+					
+					for var i = 0; i < dangerRook2.count; i++ {
+						for var o = 0 ; o < pieceOptions.count; o++ {
+							if CGRectContainsPoint(pieceOptions[o].frame, dangerRook2[i].center){
+								pieceOptions[o].hidden = true
+							}
+						}
+					}
 				}
-				
 			}
 		}
 		letThemAppear(0, 1, 0, 1)
@@ -1148,6 +1680,24 @@ class ViewController: UIViewController {
 		if timerNumber > 10 {
 			movementTimer.invalidate()
 			whitePawnDanger()
+			if queenShowDanger == true {
+			whiteQueenDanger()
+			}
+			whiteKnightDanger()
+			whiteKnightDanger2()
+			if bishopShowDanger == true {
+			whiteBishopDanger()
+			}
+			if bishopShowDanger2 == true {
+			whiteBishopDanger2()
+			}
+			if rookShowDanger == true {
+			whiteRookDanger()
+			}
+			if rookShowDanger2 == true {
+			whiteRookDanger2()
+			}
+			
 		}
 			
 		else {
@@ -1155,10 +1705,15 @@ class ViewController: UIViewController {
 			var positiony = selectedPiece.frame.origin.y
 			positiony +=  moveByAmounty / 10
 			positionx += moveByAmountx / 10
-			//println("positiony: " + "\(positiony)")
-			//println("positionx: " + "\(positionx)")
 			selectedPiece.frame = CGRect(x: positionx, y: positiony, width: pieceSize, height: pieceSize)
 			
+			
+			removeDangerQueenOptions()
+			removeDangerBishopOptions()
+			removeDangerBishopOptions2()
+			removeDangerRookOptions()
+			removeDangerRookOptions2()
+			removeDangerKnightOptions()
 			
 		}
 		
@@ -1203,7 +1758,16 @@ class ViewController: UIViewController {
 			}
 		}
 		
-
+		for var i = 0; i < whitePawns.count;i++ {
+			if touch.view == whitePawns[i] && isWhiteTurn == true {
+				selectedPiece = whitePawns[i]
+				removePieceOptions()
+				whitePawnSelected(event, _touch: touch)
+				selectedPawn = i
+				
+			}
+			
+		}
 		
 		
 		for var o = 0 ; o < pieceOptions.count ; o++ {
@@ -1214,6 +1778,26 @@ class ViewController: UIViewController {
 						pieceToTake = whitePieces[i]
 						whitePieces[i].removeFromSuperview()
 						whitePieces.removeAtIndex(i)
+						if (pieceToTake == whiteBishop1) {
+							bishopShowDanger = false
+							removeDangerBishopOptions()
+						}
+						if (pieceToTake == whiteBishop2) {
+							bishopShowDanger2 = false
+							removeDangerBishopOptions2()
+						}
+						if (pieceToTake == whiteQueen) {
+							queenShowDanger = false
+							removeDangerQueenOptions()
+						}
+						if (pieceToTake == whiteRook1) {
+							rookShowDanger = false
+							removeDangerRookOptions()
+						}
+						if (pieceToTake == whiteRook2) {
+							rookShowDanger2 = false
+							removeDangerRookOptions2()
+						}
 						
 						if (!contains(takenWhitePieces, _image: pieceToTake)) {
 							var takenPiece = UIImageView(frame: CGRectMake(CGFloat(takenWhitePieces.count) * pieceSize * 0.50, screenHeight / 2 - 5 * pieceSize + pieceSize * 0.05, pieceSize * 0.65, pieceSize * 0.65))
@@ -1294,110 +1878,86 @@ class ViewController: UIViewController {
 			}
 		}
 		
-		if isWhiteTurn == true {
-			
-			if touch.view == whiteQueen {
-				selectedPiece = whiteQueen
+		for var i = 0; i < whiteKnights.count;i++ {
+			if touch.view == whiteKnights[i] && isWhiteTurn == true {
+				selectedPiece = whiteKnights[i]
 				removePieceOptions()
-				whiteQueenSelected(event, _touch: touch)
-			}
-			
-			else if touch.view == whiteKing {
-				selectedPiece = whiteKing
-				removePieceOptions()
-				whiteKingSelected(event, _touch: touch)
-			}
-				
-			else {
-				
-				for var i = 0; i < whitePawns.count;i++ {
-					if touch.view == whitePawns[i] {
-						selectedPiece = whitePawns[i]
-						removePieceOptions()
-						whitePawnSelected(event, _touch: touch)
-						selectedPawn = i
-					}
-					
-				}
-				
-				for var i = 0; i < whiteKnights.count;i++ {
-					if touch.view == whiteKnights[i] {
-						selectedPiece = whiteKnights[i]
-						removePieceOptions()
-						whiteKnightSelected(event, _touch: touch)
-					}
-				}
-				
-				for var i = 0; i < whiteBishops.count; i++ {
-					if touch.view == whiteBishops[i] {
-						selectedPiece = whiteBishops[i]
-						removePieceOptions()
-						whiteBishopSelected(event, _touch: touch)
-					}
-				}
-				
-				for var i = 0; i < whiteRooks.count;i++ {
-					if touch.view == whiteRooks[i]{
-						removePieceOptions()
-						selectedPiece = whiteRooks[i]
-						whiteRookSelected(event, _touch: touch)
-					}
-				}
+				whiteKnightSelected(event, _touch: touch)
 			}
 		}
 		
-	
-		else if isWhiteTurn == false {
-			
-			if touch.view == blackQueen {
-				selectedPiece = blackQueen
+		for var i = 0; i < whiteBishops.count; i++ {
+			if touch.view == whiteBishops[i] && isWhiteTurn == true {
+				selectedPiece = whiteBishops[i]
 				removePieceOptions()
-				blackQueenSelected(event, _touch: touch)
-			}
-				
-			else if touch.view == blackKing {
-				selectedPiece = blackKing
-				removePieceOptions()
-				blackKingSelected(event, _touch: touch)
-			}
-				
-			else {
-				
-			for var i = 0; i < blackPawns.count;i++ {
-				if touch.view == blackPawns[i] {
-					selectedPiece = blackPawns[i]
-					removePieceOptions()
-					blackPawnSelected(event, _touch: touch)
-				}
-			}
-			
-			for var i = 0; i < blackBishops.count;i++ {
-				if touch.view == blackBishops[i] {
-					selectedPiece = blackBishops[i]
-					removePieceOptions()
-					blackBishopSelected(event, _touch: touch)
-				}
-			}
-			
-			for var i = 0; i < blackKnights.count;i++ {
-				if touch.view == blackKnights[i] {
-					selectedPiece = blackKnights[i]
-					removePieceOptions()
-					blackKnightSelected(event, _touch: touch)
-				}
-			}
-			
-			for var i = 0; i < blackRooks.count;i++ {
-				if touch.view == blackRooks[i]  {
-					selectedPiece = blackRooks[i]
-					removePieceOptions()
-					blackRookSelected(event, _touch: touch)
-				}
-			}
+				whiteBishopSelected(event, _touch: touch)
 			}
 		}
 		
+		for var i = 0; i < whiteRooks.count;i++ {
+			if touch.view == whiteRooks[i] && isWhiteTurn == true {
+				removePieceOptions()
+				selectedPiece = whiteRooks[i]
+				whiteRookSelected(event, _touch: touch)
+			}
+		}
 		
+		if touch.view == whiteQueen && isWhiteTurn == true {
+			selectedPiece = whiteQueen
+			removePieceOptions()
+			whiteQueenSelected(event, _touch: touch)
+		}
+		
+		if touch.view == whiteKing && isWhiteTurn == true {
+			selectedPiece = whiteKing
+			removePieceOptions()
+			whiteKingSelected(event, _touch: touch)
+		}
+		
+		
+		for var i = 0; i < blackPawns.count;i++ {
+			if touch.view == blackPawns[i] && isWhiteTurn == false {
+				selectedPiece = blackPawns[i]
+				removePieceOptions()
+				blackPawnSelected(event, _touch: touch)
+			}
+		}
+		
+		for var i = 0; i < blackBishops.count;i++ {
+			if touch.view == blackBishops[i] && isWhiteTurn == false {
+				selectedPiece = blackBishops[i]
+				removePieceOptions()
+				blackBishopSelected(event, _touch: touch)
+			}
+		}
+		
+		for var i = 0; i < blackKnights.count;i++ {
+			if touch.view == blackKnights[i] && isWhiteTurn == false {
+				selectedPiece = blackKnights[i]
+				removePieceOptions()
+				blackKnightSelected(event, _touch: touch)
+			}
+		}
+		
+		for var i = 0; i < blackRooks.count;i++ {
+			if touch.view == blackRooks[i] && isWhiteTurn == false {
+				selectedPiece = blackRooks[i]
+				removePieceOptions()
+				blackRookSelected(event, _touch: touch)
+			}
+		}
+		
+		if touch.view == blackQueen && isWhiteTurn == false {
+			selectedPiece = blackQueen
+			removePieceOptions()
+			blackQueenSelected(event, _touch: touch)
+		}
+		
+		if touch.view == blackKing && isWhiteTurn == false {
+			selectedPiece = blackKing
+			removePieceOptions()
+			blackKingSelected(event, _touch: touch)
+		}
 		
 		
 		

@@ -24,6 +24,7 @@
 		8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */; };
 		8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA0AFE1A1FD09E0035B9C8 /* Images.xcassets */; };
 		8FFA0B0E1A1FD09E0035B9C8 /* ChessNowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */; };
+		F11C6E021AB46F24003EA2D7 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11C6E011AB469B7003EA2D7 /* CaviarDreams.ttf */; };
 		F146A23F1A6165FB00975471 /* whiteRook.png in Resources */ = {isa = PBXBuildFile; fileRef = F146A23E1A6165FB00975471 /* whiteRook.png */; };
 		F146A2411A616A5300975471 /* whiteQueen.png in Resources */ = {isa = PBXBuildFile; fileRef = F146A2401A616A5200975471 /* whiteQueen.png */; };
 		F146A2431A616C5B00975471 /* whiteKing.png in Resources */ = {isa = PBXBuildFile; fileRef = F146A2421A616C5B00975471 /* whiteKing.png */; };
@@ -73,6 +74,7 @@
 		8FFA0B071A1FD09E0035B9C8 /* ChessNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFA0B0C1A1FD09E0035B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FFA0B0D1A1FD09E0035B9C8 /* ChessNowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessNowTests.swift; sourceTree = "<group>"; };
+		F11C6E011AB469B7003EA2D7 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		F146A23E1A6165FB00975471 /* whiteRook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteRook.png; sourceTree = "<group>"; };
 		F146A2401A616A5200975471 /* whiteQueen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteQueen.png; sourceTree = "<group>"; };
 		F146A2421A616C5B00975471 /* whiteKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKing.png; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				8FFA0AF41A1FD09E0035B9C8 /* ChessNow */,
 				8FFA0B0A1A1FD09E0035B9C8 /* ChessNowTests */,
 				8FFA0AF31A1FD09E0035B9C8 /* Products */,
+				F11C6E011AB469B7003EA2D7 /* CaviarDreams.ttf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11C6E021AB46F24003EA2D7 /* CaviarDreams.ttf in Resources */,
 				8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */,
 				8F3114001A6A8E3D0066FE44 /* ChessNowAppicon120.png in Resources */,
 				8FE278B01A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg in Resources */,

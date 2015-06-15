@@ -38,6 +38,11 @@
 		F16B0E261A644FF200AD98CE /* blackQueen.png in Resources */ = {isa = PBXBuildFile; fileRef = F16B0E251A644FF200AD98CE /* blackQueen.png */; };
 		F16B0E281A644FF700AD98CE /* blackKing.png in Resources */ = {isa = PBXBuildFile; fileRef = F16B0E271A644FF700AD98CE /* blackKing.png */; };
 		F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BA7A931A38EEF000C7D578 /* moveOption.png */; };
+		F1CA188A1B272787005D1B0A /* chess_analyze-button.png in Resources */ = {isa = PBXBuildFile; fileRef = F1CA18891B272787005D1B0A /* chess_analyze-button.png */; };
+		F1CA188C1B2729C6005D1B0A /* chess_chat-button.png in Resources */ = {isa = PBXBuildFile; fileRef = F1CA188B1B2729C6005D1B0A /* chess_chat-button.png */; };
+		F1E9B68D1B28AAE5003B2038 /* 1497753_700853469935234_1303434664_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1E9B68C1B28AAE5003B2038 /* 1497753_700853469935234_1303434664_n.jpg */; };
+		F1F5F9731ABF4B33008CB21A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F5F9721ABF4B33008CB21A /* Home.swift */; };
+		F1F5F9751ABF4F73008CB21A /* seperation.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F5F9741ABF4F73008CB21A /* seperation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +93,11 @@
 		F16B0E251A644FF200AD98CE /* blackQueen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackQueen.png; sourceTree = "<group>"; };
 		F16B0E271A644FF700AD98CE /* blackKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackKing.png; sourceTree = "<group>"; };
 		F1BA7A931A38EEF000C7D578 /* moveOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moveOption.png; sourceTree = "<group>"; };
+		F1CA18891B272787005D1B0A /* chess_analyze-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chess_analyze-button.png"; sourceTree = "<group>"; };
+		F1CA188B1B2729C6005D1B0A /* chess_chat-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chess_chat-button.png"; sourceTree = "<group>"; };
+		F1E9B68C1B28AAE5003B2038 /* 1497753_700853469935234_1303434664_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1497753_700853469935234_1303434664_n.jpg; sourceTree = "<group>"; };
+		F1F5F9721ABF4B33008CB21A /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F1F5F9741ABF4F73008CB21A /* seperation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seperation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +145,10 @@
 				F160D6FE1A21506100E6A783 /* whiteSquare.png */,
 				8FE278B41A38C5900045F279 /* board black and white no border.png */,
 				8FEC1DF41A38E565004476DC /* clack and white board with half boarder copy.png */,
+				F1F5F9741ABF4F73008CB21A /* seperation.png */,
+				F1CA18891B272787005D1B0A /* chess_analyze-button.png */,
+				F1CA188B1B2729C6005D1B0A /* chess_chat-button.png */,
+				F1E9B68C1B28AAE5003B2038 /* 1497753_700853469935234_1303434664_n.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -144,6 +158,7 @@
 			children = (
 				8FFA0AF71A1FD09E0035B9C8 /* AppDelegate.swift */,
 				8FFA0AF91A1FD09E0035B9C8 /* ViewController.swift */,
+				F1F5F9721ABF4B33008CB21A /* Home.swift */,
 			);
 			name = .swift;
 			sourceTree = "<group>";
@@ -268,6 +283,7 @@
 		8FFA0AEA1A1FD09E0035B9C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Johannes Berge & Alexander Panayotov";
 				TargetAttributes = {
@@ -305,13 +321,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11C6E021AB46F24003EA2D7 /* CaviarDreams.ttf in Resources */,
+				F1CA188A1B272787005D1B0A /* chess_analyze-button.png in Resources */,
 				8FEC1DF31A38E452004476DC /* pieces vlack and white board blurred.png in Resources */,
 				8F3114001A6A8E3D0066FE44 /* ChessNowAppicon120.png in Resources */,
 				8FE278B01A37B3DE0045F279 /* 4z2J7aVXjPsNM3GaVLXDNQNlhxDHVzcCuEW89MT35PkA.jpeg in Resources */,
+				F1CA188C1B2729C6005D1B0A /* chess_chat-button.png in Resources */,
 				8FEC1DF71A38E772004476DC /* pieceMarked.png in Resources */,
 				F153DF7D1A3DFDA2005DC574 /* whiteBishop.png in Resources */,
 				8FEC1DF91A38EF92004476DC /* blackPawn.png in Resources */,
 				8FFA0AFF1A1FD09E0035B9C8 /* Images.xcassets in Resources */,
+				F1E9B68D1B28AAE5003B2038 /* 1497753_700853469935234_1303434664_n.jpg in Resources */,
 				F16B0E281A644FF700AD98CE /* blackKing.png in Resources */,
 				8FE278B51A38C5900045F279 /* board black and white no border.png in Resources */,
 				F160D6FF1A21506100E6A783 /* graySquare.png in Resources */,
@@ -325,6 +344,7 @@
 				8FEC1DF51A38E565004476DC /* clack and white board with half boarder copy.png in Resources */,
 				F1BA7A941A38EEF000C7D578 /* moveOption.png in Resources */,
 				F146A23F1A6165FB00975471 /* whiteRook.png in Resources */,
+				F1F5F9751ABF4F73008CB21A /* seperation.png in Resources */,
 				F146A2411A616A5300975471 /* whiteQueen.png in Resources */,
 				8FEC1E031A38F7EF004476DC /* piecePossibilities.png in Resources */,
 				8FE278AC1A37ADE30045F279 /* Storyboard.storyboard in Resources */,
@@ -349,6 +369,7 @@
 			files = (
 				8FFA0AFA1A1FD09E0035B9C8 /* ViewController.swift in Sources */,
 				8F63938A1A37799B003E988E /* Objective-C.m in Sources */,
+				F1F5F9731ABF4B33008CB21A /* Home.swift in Sources */,
 				8FFA0AF81A1FD09E0035B9C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

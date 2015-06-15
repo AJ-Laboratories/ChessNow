@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        
+        let appearance = UITabBarItem.appearance()
+        let attributes = [NSFontAttributeName:UIFont(name: "CaviarDreams", size: 16)!]
+        appearance.setTitleTextAttributes(attributes, forState: .Normal)
         return true
     }
 

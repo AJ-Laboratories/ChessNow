@@ -4,7 +4,7 @@
 //
 //  Created by Johannes Berge on 21/11/14.
 //  Copyright (c) 2014 Johannes Berge & Alexander Panayotov. All rights reserved.
-//
+///
 
 import UIKit
 import SpriteKit

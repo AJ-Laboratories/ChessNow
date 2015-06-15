@@ -1422,7 +1422,7 @@ class ViewController: UIViewController {
 						if canThePieceGofurther == true {
 							
 							let pieceOption = UIImageView(frame: CGRectMake(piece.frame.origin.x - byAmountx * pieceSize, piece.frame.origin.y + byAmount * pieceSize, size, size ))
-							//pieceOption.image = UIImage(named: "piecePossibilities.png")
+							///pieceOption.image = UIImage(named: "piecePossibilities.png")
 							self.view.addSubview(pieceOption)
 							if containsDanger(dangerWhitePieces, image: pieceOption) {
 								pieceOption.removeFromSuperview()
